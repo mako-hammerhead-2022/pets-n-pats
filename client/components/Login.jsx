@@ -1,10 +1,11 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
+import './Login.css'
+
 const Login = () => {
   const { isAuthenticated, user, logout, loginWithRedirect } = useAuth0()
 
-  // console.log(user)
   const handleSignOut = () => {
     logout()
   }
@@ -14,17 +15,23 @@ const Login = () => {
   }
 
   return (
-    <>
-      {isAuthenticated && <p>{`Welcome back, ${user.nickname}`}</p>}
+    <div className='login'>
+      {isAuthenticated && (
+        <p className='login-welcome'>{`Welcome back, ${user.nickname}`}</p>
+      )}
       {isAuthenticated ? (
         <>
-          <button onClick={handleSignOut}>Sign Out</button>
-          <img src={user.picture} />
+          <button onClick={handleSignOut} className='btn'>
+            Sign Out
+          </button>
+          <img src={user.picture} className='avatar' />
         </>
       ) : (
-        <button onClick={handleSignIn}>Sign In</button>
+        <button onClick={handleSignIn} className='btn'>
+          Sign In
+        </button>
       )}
-    </>
+    </div>
   )
 }
 

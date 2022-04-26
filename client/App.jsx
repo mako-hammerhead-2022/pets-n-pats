@@ -8,12 +8,12 @@ function App() {
   return (
     <div className='App'>
       <nav>
+        <Login />
         <ul>
           <li>
             <Link to='/'>Home</Link>
           </li>
         </ul>
-        <Login />
       </nav>
       <h2>{"Welcome to Pets 'n' Pats"}</h2>
       <Routes></Routes>
