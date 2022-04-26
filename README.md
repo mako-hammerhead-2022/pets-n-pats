@@ -22,4 +22,14 @@ npm run build
 npm start
 ```
 
+When making a pull request, BEFORE you push, ensure that tests pass and your linter is happy.
+
+```sh
+# ensure this passes
+npm run lint
+
+# ensure this passes
+npm run test
+```
+
 Happy patting!
