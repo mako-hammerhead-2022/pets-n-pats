@@ -1,0 +1,42 @@
+{
+  "name": "pets-n-pats",
+  "version": "0.0.1",
+  "description": "A web application that hosts an infinite 'would you rather' game with cute pets to pat.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "run-p dev:client dev:server",
+    "dev:client": "vite",
+    "dev:server": "nodemon server/index.js",
+    "build": "run-s build:client build:server",
+    "build:client": "vite build",
+    "build:server": "npm run knex migrate:latest",
+    "knex": "knex --knexfile server/db/knexfile.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^7.5.1",
+    "express": "^4.17.3",
+    "knex": "^1.0.7",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
+    "superagent": "^7.1.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.3.1",
+    "eslint": "^8.13.0",
+    "eslint-config-eda": "^1.1.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "react-redux": "^8.0.1",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1",
+    "vite": "^2.9.5"
+  }
+}
