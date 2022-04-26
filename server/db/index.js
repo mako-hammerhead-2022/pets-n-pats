@@ -1,5 +1,5 @@
-const widgetsDb = require('./widgets')
+// const exampleDb = require('./examplePath')
 
 module.exports = {
-  ...widgetsDb,
+  ...exampleDb,
 }

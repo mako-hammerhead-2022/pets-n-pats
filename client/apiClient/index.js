@@ -1,5 +1,5 @@
-import * as widgetsApi from './widgets'
+// import * as exampleApi from './examplePath'
 
 export default {
-  ...widgetsApi,
+  // ...exampleApi,
 }

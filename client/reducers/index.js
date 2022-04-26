@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import widgetsReducer from './widgets'
+// import exampleReducer from './examplePath'
 
 export default combineReducers({
-  widgets: widgetsReducer,
+  // example: exampleReducer,
 })

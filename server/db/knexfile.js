@@ -8,13 +8,6 @@ module.exports = {
     },
     useNullAsDefault: true,
   },
-  staging: {
-    client: 'better-sqlite3',
-    connection: {
-      filename: 'dist/server/db/dev.sqlite3',
-    },
-    useNullAsDefault: true,
-  },
   test: {
     client: 'better-sqlite3',
     connection: {
@@ -28,7 +21,7 @@ module.exports = {
       directory: path.join(__dirname, 'migrations'),
     },
   },
-
+  // TODO: not yet configured for production
   production: {
     client: 'postgresql',
     connection: {

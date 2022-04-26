@@ -8,11 +8,7 @@ server.use(express.static(path.resolve(__dirname, './public')))
 
 server.use(express.json())
 
-server.use('/api/widgets', require('./routes/widgets'))
-
-server.get('/api', (req, res) => {
-  res.json({ message: 'Hello World!' })
-})
+// server.use('/api/routeName', require('./routes/routeFile'))
 
 server.get('*', (req, res) => {
   try {
