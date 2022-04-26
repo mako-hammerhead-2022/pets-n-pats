@@ -1,4 +1,5 @@
-import { Link, Routes, Route } from 'react-router-dom'
+import React from 'react'
+import { Link, Routes } from 'react-router-dom'
 
 import './App.css'
 
@@ -12,7 +13,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      <h2>Welcome to Pets 'n' Pats</h2>
+      <h2>{"Welcome to Pets 'n' Pats"}</h2>
       <Routes></Routes>
     </div>
   )
