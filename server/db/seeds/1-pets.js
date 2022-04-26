@@ -3,7 +3,6 @@
  * @returns { Promise<void> }
  */
 exports.seed = async (knex) => {
-  // Deletes ALL existing entries
   await knex('pets').insert([
     {
       id: 1,
