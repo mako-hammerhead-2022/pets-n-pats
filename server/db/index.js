@@ -1,5 +1,5 @@
-// const exampleDb = require('./examplePath')
+const petsDb = require('./pets')
 
 module.exports = {
-  ...exampleDb,
+  ...petsDb,
 }

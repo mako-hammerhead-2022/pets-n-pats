@@ -8,7 +8,7 @@ server.use(express.static(path.resolve(__dirname, './public')))
 
 server.use(express.json())
 
-// server.use('/api/routeName', require('./routes/routeFile'))
+server.use('/api/pets', require('./routes/pets'))
 
 server.get('*', (req, res) => {
   try {
