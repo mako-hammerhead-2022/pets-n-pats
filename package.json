@@ -2,7 +2,7 @@
   "name": "pets-n-pats",
   "version": "0.0.1",
   "description": "A web application that hosts an infinite 'would you rather' game with cute pets to pat.",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "node server",
     "dev": "run-p dev:client dev:server",
@@ -28,6 +28,9 @@
     "superagent": "^7.1.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^14.1.1",
     "@vitejs/plugin-react": "^1.3.1",
     "eslint": "^8.13.0",
     "eslint-config-eda": "^1.1.0",
