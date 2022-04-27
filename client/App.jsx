@@ -1,26 +1,22 @@
 import React from 'react'
 import { Link, Routes, Route } from 'react-router-dom'
 
+// styles
 import './App.css'
+import { Heading } from '@chakra-ui/react'
 
-import HeadToHead from './components/HeadToHead'
+// react front-end components
+import Home from './components/Home'
 
 function App() {
   return (
     <div className="App">
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/HeadToHead">HeadToHead</Link>
-          </li>
-        </ul>
+        <Link to="/"> HOME </Link>
       </nav>
-      <h2>{"Welcome to Pets 'n' Pats"}</h2>
+      <Heading>{"Welcome to Pets 'n' Pats"}</Heading>
       <Routes>
-        <Route path="/HeadToHead" element={<HeadToHead />}></Route>
+        <Route path="/" element={<Home />}></Route>
       </Routes>
     </div>
   )
