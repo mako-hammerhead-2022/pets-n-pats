@@ -14,4 +14,3 @@ module.exports = {
   getAllPets,
   getPetsByUserId,
 }
-// 'userId', 'name', 'bio', 'imageUrl', 'animal', 'points'
