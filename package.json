@@ -14,6 +14,7 @@
     "knex": "knex --knexfile server/db/knexfile.js",
     "lint": "eslint --ext .js,.jsx .",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll --verbose"
   },
   "babel": {
