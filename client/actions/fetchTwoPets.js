@@ -1,4 +1,4 @@
-import { getRandomPets } from "../apiClient/twoRandomPetsAPI"
+import * as api  from "../apiClient"
 export const RECEIVE_RANDOM_TWO_PETS = 'RECEIVE_RANDOM_TWO_PETS'
 
 export function receiveRandomPets(pets) {
@@ -8,9 +8,9 @@ export function receiveRandomPets(pets) {
   }
 }
 
-export default function fetchTwoPets ()  {
+export function fetchTwoPets ()  {
     return (dispatch) => {
-      return getRandomPets()
+      return api.getRandomPets()
         .then((res) => {
           dispatch(receiveRandomPets(res))
            return null
