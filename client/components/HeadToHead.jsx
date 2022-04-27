@@ -31,7 +31,7 @@ export function HeadToHead({ cat, dog }) {
             src={cat.imageUrl}
             alt={`An image of ${cat.name}`}
           />
-          <div className="pet-name">{cat.name}</div>
+          <h2 className="pet-name">{cat.name}</h2>
           <div className="pet-bio">{cat.bio}</div>
         </div>
         <Heading>vs</Heading>
@@ -46,7 +46,7 @@ export function HeadToHead({ cat, dog }) {
             src={dog.imageUrl}
             alt={`An image of ${dog.name}`}
           />
-          <div className="pet-name">{dog.name}</div>
+          <h2 className="pet-name">{dog.name}</h2>
           <div className="pet-bio">{dog.bio}</div>
         </div>
       </Flex>

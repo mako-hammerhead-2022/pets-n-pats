@@ -17,9 +17,12 @@ const { cat, dog } = {
   },
 }
 
-describe('Vs page renders props', () => {
-  it('renders an image', () => {
+describe('<HeadToHead />', () => {
+  it('receives props', () => {
     render(<HeadToHead cat={cat} dog={dog} />)
-    expect(1).toBe(1)
+    const catName = screen.getByAltText(/Cthulu/i)
+    expect(catName.src).toContain('MTg0NjE0OQ')
+    const DogName = screen.getByRole('heading', { name: /Balrog/i })
+    expect(DogName).toBeInTheDocument()
   })
 })
