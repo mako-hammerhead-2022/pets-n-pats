@@ -17,7 +17,10 @@ const Login = () => {
   return (
     <div className='login'>
       {isAuthenticated && (
-        <p className='login-welcome'>{`Welcome back, ${user.nickname}`}</p>
+        <p
+          aria-label='login message'
+          className='login-welcome'
+        >{`Welcome back, ${user.nickname}`}</p>
       )}
       {isAuthenticated ? (
         <>
