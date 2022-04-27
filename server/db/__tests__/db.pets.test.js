@@ -23,3 +23,14 @@ describe('getAllPets', () => {
     })
   })
 })
+
+describe('getPetsByUserId', () => {
+  it('returns the correct pets array', () => {
+    return db.getPetsByUserId('6', testDb).then((pets) => {
+      console.log(pets)
+      expect(pets).toHaveLength(2)
+      expect(pets[0].name).toBe('Orel')
+      return null
+    })
+  })
+})
