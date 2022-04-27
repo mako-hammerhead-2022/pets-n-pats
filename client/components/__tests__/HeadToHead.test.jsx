@@ -4,18 +4,9 @@ import '@testing-library/jest-dom'
 
 import { HeadToHead } from '../HeadToHead'
 
-const { cat, dog } = {
-  cat: {
-    name: 'Cthulu',
-    bio: 'Customizable holistic conglomeration',
-    imageUrl: 'https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg',
-  },
-  dog: {
-    name: 'The Balrog',
-    bio: 'Ameliorated dedicated extranet',
-    imageUrl: 'https://wallpaperaccess.com/full/2378663.jpg',
-  },
-}
+import { objTwoPet } from '../../../__mockdata__/mockPetData'
+
+const { cat, dog } = objTwoPet
 
 describe('<HeadToHead />', () => {
   it('receives props', () => {
