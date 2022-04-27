@@ -1,8 +1,14 @@
 import React, { useEffect } from 'react'
-import { Link, Routes } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { Link, Routes, Route } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+// styles
 import './App.css'
-import { fetchTwoPets } from './actions'
+import { Heading } from '@chakra-ui/react'
+
+// react front-end components
+import Home from './components/Home'
+import Login from './components/Login'
+
 function App() {
   const dispatch = useDispatch()
   const randomPets = useSelector((state) => state.pets)
@@ -14,14 +20,13 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
+        <Login />
+        <Link to="/"> HOME </Link>
       </nav>
-      <h2>{"Welcome to Pets 'n' Pats"}</h2>
-      <Routes></Routes>
+      <Heading>{"Welcome to Pets 'n' Pats"}</Heading>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
     </div>
   )
 }

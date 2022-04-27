@@ -3,6 +3,8 @@ const server = require('../../server')
 const db = require('../../db')
 const mockData = require('../../.././_mockdata_/mockPetsJSONData.json')
 
+import { arrTwoPet } from '../../../__mockdata__/mockPetData'
+
 jest.mock('../../db')
 
 describe('GET /api/pets', () => {
@@ -16,7 +18,7 @@ describe('GET /api/pets', () => {
   })
   it('returns all pets from db', () => {
     expect.assertions(3)
-    db.getAllPets.mockReturnValue(Promise.resolve(mockData))
+    db.getAllPets.mockReturnValue(Promise.resolve(arrTwoPet))
     return request(server)
       .get('/api/pets')
       .then((res) => {
