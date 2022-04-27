@@ -10,6 +10,8 @@ const config = {
 }
 
 // 3. extend the theme
-const theme = extendTheme({ config })
+const theme = extendTheme({
+  components: { config },
+})
 
 export default theme
