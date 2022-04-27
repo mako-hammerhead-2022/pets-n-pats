@@ -9,6 +9,7 @@ server.use(express.static(path.resolve(__dirname, './public')))
 server.use(express.json())
 
 server.use('/api/pets', require('./routes/pets'))
+server.use('/api/votes', require('./routes/votes'))
 
 server.get('*', (req, res) => {
   try {

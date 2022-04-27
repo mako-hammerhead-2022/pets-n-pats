@@ -6,6 +6,8 @@ function getAllPets(db = connection) {
   return db('pets').select()
 }
 
+// add points function (petId, db = connection)
+
 module.exports = {
   getAllPets,
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, Routes } from 'react-router-dom'
+import { Link, Routes, Route } from 'react-router-dom'
+import Voting from './components/Voting'
 
 import './App.css'
 
@@ -14,7 +15,10 @@ function App() {
         </ul>
       </nav>
       <h2>{"Welcome to Pets 'n' Pats"}</h2>
-      <Routes></Routes>
+      <Routes>
+        <Route path='/' element={<div>Home Route</div>}/>
+        <Route path='/voting' element={<Voting/>}/>
+      </Routes>
     </div>
   )
 }
