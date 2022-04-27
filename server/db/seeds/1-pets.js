@@ -9,7 +9,7 @@ exports.seed = async (knex) => {
   await knex('pets').insert({
     id: 1,
     // replace with your own auth0Id when developing
-    userId: 'auth0|something',
+    userId: '6',
     name: 'Orel',
     // the bios are automatically generated (thanks David for Mockaroo)
     // feel free to change them if your are on a bio related ticket

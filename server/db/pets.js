@@ -6,6 +6,12 @@ function getAllPets(db = connection) {
   return db('pets').select()
 }
 
+function getPetsByUserId(userId, db = connection) {
+  return db('pets').select().where('userId', userId)
+}
+
 module.exports = {
   getAllPets,
+  getPetsByUserId,
 }
+// 'userId', 'name', 'bio', 'imageUrl', 'animal', 'points'
