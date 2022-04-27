@@ -1,5 +1,4 @@
 import * as getRandomPets from './twoRandomPetsAPI'
+// import { getRandomPets } from './twoRandomPetsAPI'
 
-export  {
-  getRandomPets,
-}
+export default { ...getRandomPets }

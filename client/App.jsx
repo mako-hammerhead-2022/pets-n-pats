@@ -1,16 +1,22 @@
-
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, Routes } from 'react-router-dom'
-
+import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
-
+import { fetchTwoPets } from './actions'
 function App() {
+  const dispatch = useDispatch()
+  const randomPets = useSelector((state) => state.pets)
+
+  useEffect(() => {
+    dispatch(fetchTwoPets())
+  }, [])
+  console.log(randomPets)
   return (
-    <div className='App'>
+    <div className="App">
       <nav>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
         </ul>
       </nav>

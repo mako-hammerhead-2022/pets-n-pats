@@ -1,7 +1,7 @@
 const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
-const mockData = require('./mockData.json')
+const mockData = require('../../.././_mockdata_/mockPetsJSONData.json')
 
 jest.mock('../../db')
 
@@ -16,9 +16,7 @@ describe('GET /api/pets', () => {
   })
   it('returns all pets from db', () => {
     expect.assertions(3)
-    db.getAllPets.mockReturnValue(
-      Promise.resolve(mockData)
-    )
+    db.getAllPets.mockReturnValue(Promise.resolve(mockData))
     return request(server)
       .get('/api/pets')
       .then((res) => {

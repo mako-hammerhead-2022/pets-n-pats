@@ -1,5 +1,3 @@
-import fetchTwoPets from './fetchTwoPets'
+import { fetchTwoPets } from './fetchTwoPets'
 
-export default {
-  fetchTwoPets,
-}
+export { fetchTwoPets }
