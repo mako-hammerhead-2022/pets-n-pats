@@ -6,18 +6,18 @@ import './App.css'
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <nav>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
         </ul>
       </nav>
       <h2>{"Welcome to Pets 'n' Pats"}</h2>
       <Routes>
-        <Route path='/' element={<div>Home Route</div>}/>
-        <Route path='/voting' element={<Voting/>}/>
+        <Route path="/" element={<div>Home Route</div>} />
+        <Route path="/voting" element={<Voting />} />
       </Routes>
     </div>
   )
