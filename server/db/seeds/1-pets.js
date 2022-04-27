@@ -30,7 +30,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 3,
-      userId: 'auth0|something',
+      userId: '6',
       name: 'Giralda',
       bio: 'Customizable holistic conglomeration',
       imageUrl: 'https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg',

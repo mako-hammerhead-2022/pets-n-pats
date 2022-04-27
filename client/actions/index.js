@@ -8,10 +8,10 @@ export const SHOW_ERROR = 'SHOW_ERROR'
 //   // ...exampleActions,
 // }
 
-export function requestUserPets(userId) {
+export function requestUserPets(pets) {
   return {
     type: REQUEST_USER_PETS,
-    payload: { pets, },
+    payload: { pets },
   }
 }
 
@@ -23,15 +23,15 @@ export function showError(errorMessage) {
 }
 
 export function fetchUserPets(userId) {
-  // we will get that state userid in componnents
-  
-  return (dispatch, state) => {
+  // https://github.com/whai-2022/pets-n-pats/projects/1
+
+  return (dispatch) => {
     // acess api -> pets
-    dispatch(requestUserPets(pets))
-    // getPetsByUserId(state.pets.userId)
-    return request{
-      getPetsByUserId()
-      }
+    getPetsByUserId(userId)
+      .then((pets) => {
+        dispatch(requestUserPets(pets))
+      })
+
       .catch((err) => {
         dispatch(showError(err.message))
       })

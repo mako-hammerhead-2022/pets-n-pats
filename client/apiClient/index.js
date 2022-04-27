@@ -2,7 +2,7 @@
 import request from 'superagent'
 
 export default function getPetsByUserId(userId) {
-  return request.get(`/api/pets/:${userId}`).then((res) => res.body)
+  return request.get(`/api/pets/${userId}`).then((res) => res.body)
 
   // ...exampleApi,
 }

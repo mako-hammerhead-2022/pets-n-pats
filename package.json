@@ -26,7 +26,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
-    "superagent": "^7.1.2"
+    "superagent": "^7.1.2",
+    "supertest": "^6.2.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
