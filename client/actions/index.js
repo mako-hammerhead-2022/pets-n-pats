@@ -1,5 +1,5 @@
-// import * as exampleActions from './examplePath'
+import fetchTwoPets from './fetchTwoPets'
 
 export default {
-  // ...exampleActions,
+  fetchTwoPets,
 }
