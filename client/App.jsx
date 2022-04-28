@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './App.css'
 import Login from './components/Login'
+import PetForm from './components/PetForm'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         </ul>
       </nav>
       <h2>{"Welcome to Pets 'n' Pats"}</h2>
+      <PetForm />
     </div>
   )
 }
