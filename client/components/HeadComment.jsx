@@ -43,7 +43,7 @@ export function HeadComment({ ani }) {
       </PopoverTrigger>
       <PopoverContent>
         <PopoverArrow />
-        <PopoverCloseButton />
+        <PopoverCloseButton zIndex="6"/>
         <PopoverBody>
           <FormControl>
               <FormLabel>{`Comment on ${ani.name}`}</FormLabel>
