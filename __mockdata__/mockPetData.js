@@ -24,7 +24,7 @@ export const arrTwoPet = [{
 
 export const objTwoPet = {
   cat: {
-    id: 6,
+    id: 2,
     userID: 'auth0|something',
     name: 'Cthulu',
     bio: 'Synergy synergy grab the bull by the horns gumption',

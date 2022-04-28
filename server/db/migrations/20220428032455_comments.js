@@ -5,7 +5,7 @@
 exports.up = (knex) => {
   return knex.schema.createTable('comments', (table) => {
     table.increments('id').primary()
-    table.integer('petId').references('pets.id')
+    table.integer('petId')
     table.string('authorId')
     table.string('content')
   })
