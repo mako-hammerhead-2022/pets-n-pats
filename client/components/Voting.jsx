@@ -11,7 +11,7 @@ function Voting() {
     if (winnerId !== 'skip') {
       postVotes(winnerId)
         .then(() => {
-          console.log('It worked')
+          console.log('dispatch(fetchTwoPets())')
           // fetchnewpets (hannah r and vikrant to do)
         })
         .catch((err) => {
