@@ -27,14 +27,15 @@ const PetForm = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const { isAuthenticated, user } = useAuth0()
+  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0()
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0])
   }
 
   const handleSubmit = async () => {
-    const imageUrl = await api.getImageUrl(selectedFile)
+    const token = await getAccessTokenSilently()
+    const imageUrl = await api.getImageUrl(selectedFile, token)
     const formData = {
       userId: user.sub,
       name,
@@ -42,7 +43,7 @@ const PetForm = () => {
       animal,
       imageUrl,
     }
-    await api.addPet(formData)
+    await api.addPet(formData, token)
 
     onClose()
   }

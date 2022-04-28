@@ -3,13 +3,18 @@ const server = require('../../server')
 const db = require('../../db')
 
 import { arrTwoPet, dbNewPet } from '../../../__mockdata__/mockPetData'
+import checkJwt from '../../auth0'
 
 jest.mock('../../db')
+jest.mock('../../auth0')
 
 beforeAll(() => {
   jest.spyOn(console, 'log')
   console.log.mockImplementation(() => {})
   console.log(console.log)
+  checkJwt.mockImplementation((req, res, next) => {
+    next()
+  })
 })
 afterAll(() => {
   console.log.mockRestore()
