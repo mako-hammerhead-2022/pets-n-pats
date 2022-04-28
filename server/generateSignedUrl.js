@@ -11,11 +11,12 @@ const REGION ='ap-southeast-2';
 const URL_EXPIRATION_TIME = 60; // in seconds
 
 const myBucket = new AWS.S3({
-    params: { Bucket: S3_BUCKET},
+    params: { Bucket: S3_BUCKET },
     region: REGION,
 })
 
 function generatePreSignedPutUrl(fileName, fileType) {
+    console.log(fileName, fileType)
     return new Promise((resolve, reject) => {
         myBucket.getSignedUrl('putObject', {
             Key: fileName,

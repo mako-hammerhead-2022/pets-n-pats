@@ -1,5 +1,7 @@
 // import * as exampleApi from './examplePath'
+import * as s3Api from './s3'
 
 export default {
-  // ...exampleApi,
+  ...s3Api
 }
+ 

@@ -1,23 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Routes, Route } from 'react-router-dom'
 
+// styles
 import './App.css'
+import { Heading } from '@chakra-ui/react'
+
+// react front-end components
+import Home from './components/Home'
 import Login from './components/Login'
 import PetForm from './components/PetForm'
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <nav>
         <Login />
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-        </ul>
+        <Link to="/"> HOME </Link>
       </nav>
-      <h2>{"Welcome to Pets 'n' Pats"}</h2>
-      <PetForm />
+      <Heading>{"Welcome to Pets 'n' Pats"}</Heading>
+      <PetForm/>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
     </div>
   )
 }

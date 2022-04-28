@@ -1,7 +1,7 @@
 
 // const baseUrl = 'http://localhost:3001'
 
-export async function getSignedUrl(file) {
+export async function getImageUrl(file) {
   const requestObject = {
     method: 'POST',
     headers: {
@@ -15,17 +15,12 @@ export async function getSignedUrl(file) {
 
   const res = await fetch('/api/image', requestObject)
   const { signedUrl } = await res.json()
-  
-  const result = await fetch(signedUrl, {
+
+  await fetch(signedUrl, {
     method: 'PUT',
-    headers: {
-      "Content-Type": "multipart/form-data"
-    },
     body: file
   })
   console.log('signedUrl:', signedUrl)
-  console.log('result:', result)
-  const data = await result.json();
-  console.log('final data:', data)
-  // second fetch request
+  const imageUrl = signedUrl.split('?')[0]
+  console.log(imageUrl)
 }

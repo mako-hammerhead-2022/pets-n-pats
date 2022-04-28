@@ -2,10 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import { Auth0Provider } from '@auth0/auth0-react'
+import { ChakraProvider } from '@chakra-ui/provider'
+
+import theme from './theme.js'
 import store from './store'
 import App from './App'
+
 import './globals.css'
-import { Auth0Provider } from '@auth0/auth0-react'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,9 +21,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         redirectUri={window.location.origin}
         audience='https://pets-n-pats/api'
       >
-        <Provider store={store}>
-          <App />
-        </Provider>
+        <ChakraProvider theme={theme}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </ChakraProvider>
       </Auth0Provider>
     </BrowserRouter>
   </React.StrictMode>

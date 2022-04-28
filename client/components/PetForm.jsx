@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import * as s3Api from '../apiClient/s3'
+import api from '../apiClient'
 
 const PetForm = () => {
   const [name, setName] = useState('')
@@ -13,7 +13,7 @@ const PetForm = () => {
 
   const handleSubmit = () => {
     // console.log({ name, bio, animal, selectedFile })
-    s3Api.getSignedUrl(selectedFile)
+    api.getImageUrl(selectedFile)
   }
 
   return (
