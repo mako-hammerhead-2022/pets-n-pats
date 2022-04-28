@@ -2,7 +2,13 @@ import React from 'react'
 import { Link, Routes, Route } from 'react-router-dom'
 import Voting from './components/Voting'
 
+// styles
 import './App.css'
+import { Heading } from '@chakra-ui/react'
+
+// react front-end components
+import Home from './components/Home'
+import Login from './components/Login'
 
 function App() {
   return (
@@ -14,9 +20,10 @@ function App() {
           </li>
         </ul>
       </nav>
-      <h2>{"Welcome to Pets 'n' Pats"}</h2>
+      <Login />
+      <Heading>{"Welcome to Pets 'n' Pats"}</Heading>
       <Routes>
-        <Route path="/" element={<div>Home Route</div>} />
+        <Route path="/" element={<Home />}></Route>
         <Route path="/voting" element={<Voting />} />
       </Routes>
     </div>

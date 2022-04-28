@@ -2,7 +2,7 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
-// get all of the pets - because why not?! we like pets
+// get all of the pets
 function getAllPets(db = connection) {
   return db('pets').select()
 }

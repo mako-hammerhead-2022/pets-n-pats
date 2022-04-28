@@ -24,16 +24,13 @@ describe('getAllPets', () => {
   })
 })
 
-// check how many points my pet had (ex: 5 points)
-// check that it has two more points than before
-// describe('addPoints', () => {
-//   it('should add 2 points', () => {
-//     return db.addPoints(4, upda)
-//   })
-// })
-
-// db.addPoints(winnerId)
-// .then(() => db.getWinnerById(winnerId))
-// .then((points) => {
-// NOTE TO SELF: check that points is two more than at start
-// })
+describe('addPoints', () => {
+  it('should add 2 points', () => {
+    return db
+      .addPoints(4, testDb)
+      .then(() => db.getWinnerById(4, testDb))
+      .then((pet) => {
+        expect(pet.points).toEqual(83 + 2)
+      })
+  })
+})

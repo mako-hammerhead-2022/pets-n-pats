@@ -1,12 +1,11 @@
 import React from 'react'
 // import * as api from '../apiClient/index.js'
 import { postVotes } from '../apiClient/votes.js'
+import { Button } from '@chakra-ui/react'
 
 const id = [4, 3]
 
-// outter function wrapping all functions and return
 function Voting() {
-  // submit value
   function handleSubmit(winnerId) {
     if (winnerId !== 'skip') {
       postVotes(winnerId)
@@ -19,24 +18,34 @@ function Voting() {
         })
     }
     // fetchnewpet
-    // evt.preventDefault()
-    // console.log(button)
   }
 
   return (
     <>
-      <button value={id[0]} onClick={() => handleSubmit(id[0])}>
+      <Button
+        colorScheme="teal"
+        value={id[0]}
+        onClick={() => handleSubmit(id[0])}
+      >
         {/* Cat Button */}
         Pick Me!
-      </button>
-      <button value={null} onClick={() => handleSubmit('skip')}>
+      </Button>
+      <Button
+        colorScheme="teal"
+        value={null}
+        onClick={() => handleSubmit('skip')}
+      >
         {/* Skip */}
         Skip, both cute!
-      </button>
-      <button value={id[1]} onClick={() => handleSubmit(id[1])}>
+      </Button>
+      <Button
+        colorScheme="teal"
+        value={id[1]}
+        onClick={() => handleSubmit(id[1])}
+      >
         {/* Dog Button */}
         No, Pick Me!
-      </button>
+      </Button>
     </>
   )
 }

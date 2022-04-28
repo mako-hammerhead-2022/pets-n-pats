@@ -2,6 +2,8 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
 
+import { arrTwoPet } from '../../../__mockdata__/mockPetData'
+
 jest.mock('../../db')
 
 describe('GET /api/pets', () => {
@@ -15,32 +17,7 @@ describe('GET /api/pets', () => {
   })
   it('returns all pets from db', () => {
     expect.assertions(3)
-    db.getAllPets.mockReturnValue(
-      Promise.resolve([
-        {
-          id: 3,
-          userId: 'auth0|something',
-          name: 'Giralda',
-          bio: 'Customizable holistic conglomeration',
-          imageUrl: 'https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg',
-          animal: 'cat',
-          points: 17,
-          createdAt: '2022-04-26 22:28:54',
-          updatedAt: '2022-04-26 22:28:54',
-        },
-        {
-          id: 4,
-          userId: 'auth0|something',
-          name: 'Letizia',
-          bio: 'Open-architected systemic groupware',
-          imageUrl: 'https://images.dog.ceo/breeds/tervuren/yoda_in_garden.jpg',
-          animal: 'dog',
-          points: 83,
-          createdAt: '2022-04-26 22:28:54',
-          updatedAt: '2022-04-26 22:28:54',
-        },
-      ])
-    )
+    db.getAllPets.mockReturnValue(Promise.resolve(arrTwoPet))
     return request(server)
       .get('/api/pets')
       .then((res) => {
@@ -57,6 +34,40 @@ describe('GET /api/pets', () => {
     return request(server)
       .get('/api/pets')
       .then((res) => {
+        expect(res.status).toBe(500)
+        expect(res.text).toContain('Something went wrong')
+      })
+  })
+})
+
+describe('PATCH/api/votes/add', () => {
+  beforeEach(() => {
+    // jest.clearAllMocks()
+    jest.spyOn(console, 'log')
+    console.log.mockImplementation(() => {})
+    console.log(console.log)
+  })
+  afterEach(() => {
+    console.log.mockRestore()
+  })
+  it('rendering add page', () => {
+    expect.assertions(1)
+    db.addPoints.mockReturnValue(Promise.resolve(arrTwoPet))
+    return request(server)
+      .patch('/api/votes/add')
+      .then((res) => {
+        expect(res.status).toBe(200)
+      })
+  })
+  it('should return status 500 and error when database does not work', () => {
+    expect.assertions(2)
+    db.addPoints.mockImplementation(() => {
+      return Promise.reject(new Error('Something went wrong'))
+    })
+    return request(server)
+      .patch('/api/votes/add')
+      .then((res) => {
+        console.log('line 69: ', res)
         expect(res.status).toBe(500)
         expect(res.text).toContain('Something went wrong')
       })

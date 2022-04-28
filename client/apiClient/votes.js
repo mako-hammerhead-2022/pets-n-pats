@@ -18,17 +18,3 @@ export function postVotes(winnerId) {
 export default {
   postVotes,
 }
-
-// export function updatePost(post) {
-//   // convert the large paragraphs string into an array of paragraphs
-//   post.paragraphs = post.paragraphs.split('\n')
-//   return request
-//     .patch(`/v1/posts/${post.id}`)
-//     .send(post)
-//     .then((res) => {
-//       validateNoSnakeCase(res.body)
-//       validatePostResponse('PATCH', 'v1/posts/:id', res.body)
-//       return res.body
-//     })
-//     .catch(errorHandler('PATCH', '/v1/posts/:id'))
-// }
