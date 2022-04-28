@@ -1,7 +1,6 @@
 const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
-const mockData = require('../../.././_mockdata_/mockPetsJSONData.json')
 
 import { arrTwoPet } from '../../../__mockdata__/mockPetData'
 

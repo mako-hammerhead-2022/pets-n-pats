@@ -9,14 +9,15 @@ import { Heading } from '@chakra-ui/react'
 import Home from './components/Home'
 import Login from './components/Login'
 
-function App() {
-  const dispatch = useDispatch()
-  const randomPets = useSelector((state) => state.pets)
+// import { fetchTwoPets } from './actions'
 
-  useEffect(() => {
-    dispatch(fetchTwoPets())
-  }, [])
-  console.log(randomPets)
+function App() {
+  // const dispatch = useDispatch()
+  // const randomPets = useSelector((state) => state.pets)
+
+  // useEffect(() => {
+  //   dispatch(fetchTwoPets())
+  // }, [])
   return (
     <div className="App">
       <nav>

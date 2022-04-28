@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import pets from './getTwoRandomPets'
+import pets from './pets'
 
 export default combineReducers({
   pets,

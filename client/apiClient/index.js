@@ -1,4 +1,3 @@
-import * as getRandomPets from './twoRandomPetsAPI'
-// import { getRandomPets } from './twoRandomPetsAPI'
+import * as getRandomPets from './pets'
 
 export default { ...getRandomPets }
