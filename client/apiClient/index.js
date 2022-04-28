@@ -1,3 +1,8 @@
+// import * as exampleApi from './examplePath'
+import * as votesApi from './votes'
 import * as getRandomPets from './pets'
 
-export default { ...getRandomPets }
+export default {
+  ...votesApi,
+  ...getRandomPets,
+}
