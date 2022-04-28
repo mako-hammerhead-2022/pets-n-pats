@@ -1,5 +1,4 @@
 import React from 'react'
-// import * as api from '../apiClient/index.js'
 import { postVotes } from '../apiClient/votes.js'
 import { Button } from '@chakra-ui/react'
 
@@ -11,19 +10,17 @@ function Voting() {
       postVotes(winnerId)
         .then(() => {
           console.log('dispatch(fetchTwoPets())')
-          // fetchnewpets (hannah r and vikrant to do)
         })
         .catch((err) => {
           console.log(err)
         })
     }
-    // fetchnewpet
   }
 
   return (
     <>
       <Button
-        colorScheme="teal"
+        colorScheme='teal'
         value={id[0]}
         onClick={() => handleSubmit(id[0])}
       >
@@ -31,7 +28,7 @@ function Voting() {
         Pick Me!
       </Button>
       <Button
-        colorScheme="teal"
+        colorScheme='teal'
         value={null}
         onClick={() => handleSubmit('skip')}
       >
@@ -39,7 +36,7 @@ function Voting() {
         Skip, both cute!
       </Button>
       <Button
-        colorScheme="teal"
+        colorScheme='teal'
         value={id[1]}
         onClick={() => handleSubmit(id[1])}
       >

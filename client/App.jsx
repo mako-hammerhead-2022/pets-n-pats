@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, Routes, Route } from 'react-router-dom'
-import Voting from './components/Voting'
 
 // styles
 import './App.css'
@@ -12,21 +11,20 @@ import Login from './components/Login'
 
 function App() {
   return (
-    <Box className="App">
+    <Box className='App'>
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to='/'>Home</Link>
           </li>
         </ul>
       </nav>
       <Login />
-      <Heading fontSize="3xl" opacity="80%">
+      <Heading fontSize='3xl' opacity='80%'>
         {"Welcome to Pets 'n' Pats"}
       </Heading>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/voting" element={<Voting />} />
+        <Route path='/' element={<Home />}></Route>
       </Routes>
     </Box>
   )
