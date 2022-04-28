@@ -3,7 +3,7 @@ import { Link, Routes, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 // styles
 import './App.css'
-import { Heading } from '@chakra-ui/react'
+import { Heading, Box } from '@chakra-ui/react'
 
 // react front-end components
 import Home from './components/Home'
@@ -19,16 +19,16 @@ function App() {
   //   dispatch(fetchTwoPets())
   // }, [])
   return (
-    <div className="App">
+    <Box className="App">
       <nav>
         <Login />
         <Link to="/"> HOME </Link>
       </nav>
-      <Heading>{"Welcome to Pets 'n' Pats"}</Heading>
+      <Heading fontSize="3xl" opacity="80%">{"Welcome to Pets 'n' Pats"}</Heading>
       <Routes>
         <Route path="/" element={<Home />}></Route>
       </Routes>
-    </div>
+    </Box>
   )
 }
 
