@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { HeadToHead } from './HeadToHead.jsx'
 
-  // TODO importing hard-coded data, - remove for deployment
-import { objTwoPet } from '../../__mockdata__/mockPetData'
+import { fetchTwoPets } from '../actions/pets.js'
 
 function App() {
-  // TODO hard-coded for HeadToHead - replace with UseSelector() for deployment
-  //----------------------------------------------
-  const { cat, dog } = objTwoPet
-  //-----------------------------------------------------
+  const dispatch = useDispatch()
+  const pets = useSelector((state) => state.pets)
 
+  useEffect(() => {
+    dispatch(fetchTwoPets())
+  }, [])
   return (
     <div>
-      <HeadToHead cat={cat} dog={dog} />
+      {pets.cat && pets.dog && <HeadToHead cat={pets.cat} dog={pets.dog} />}
       {/* child button component here */}
     </div>
   )

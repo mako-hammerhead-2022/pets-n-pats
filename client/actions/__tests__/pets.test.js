@@ -1,4 +1,4 @@
-import { fetchTwoPets, RECEIVE_RANDOM_TWO_PETS } from '../index'
+import { fetchTwoPets, RECEIVE_RANDOM_TWO_PETS } from '../pets'
 import api from '../../apiClient'
 import { objTwoPet } from '../../../__mockdata__/mockPetData'
 

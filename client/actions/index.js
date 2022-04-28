@@ -1,3 +1,7 @@
-import { fetchTwoPets, receiveRandomPets } from './pets'
+import {
+  fetchTwoPets,
+  receiveRandomPets,
+  RECEIVE_RANDOM_TWO_PETS,
+} from './pets'
 
-export { fetchTwoPets, receiveRandomPets }
+export { fetchTwoPets, receiveRandomPets, RECEIVE_RANDOM_TWO_PETS }
