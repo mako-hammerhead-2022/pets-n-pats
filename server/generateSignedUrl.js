@@ -16,7 +16,6 @@ const myBucket = new AWS.S3({
 })
 
 function generatePreSignedPutUrl(fileName, fileType) {
-    console.log(fileName, fileType)
     return new Promise((resolve, reject) => {
         myBucket.getSignedUrl('putObject', {
             Key: fileName,

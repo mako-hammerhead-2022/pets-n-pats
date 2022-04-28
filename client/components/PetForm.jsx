@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import api from '../apiClient'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const PetForm = () => {
   const [name, setName] = useState('')
@@ -7,13 +8,22 @@ const PetForm = () => {
   const [animal, setAnimal] = useState('')
   const [selectedFile, setSelectedFile] = useState(null)
 
+  const { user } = useAuth0()
+
   const handleFileChange = (e) => { 
     setSelectedFile(e.target.files[0])
   }
 
-  const handleSubmit = () => {
-    // console.log({ name, bio, animal, selectedFile })
-    api.getImageUrl(selectedFile)
+  const handleSubmit = async () => {
+    const imageUrl = await api.getImageUrl(selectedFile)
+    const formData = {
+      userId: user.sub,
+      name,
+      bio,
+      animal,
+      imageUrl
+    }
+    const newPet = await api.addPet(formData)
   }
 
   return (

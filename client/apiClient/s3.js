@@ -20,7 +20,6 @@ export async function getImageUrl(file) {
     method: 'PUT',
     body: file
   })
-  console.log('signedUrl:', signedUrl)
-  const imageUrl = signedUrl.split('?')[0]
-  console.log(imageUrl)
+  const imageUrl = signedUrl.split('?')[0];
+  return imageUrl;
 }
