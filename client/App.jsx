@@ -4,7 +4,7 @@ import Voting from './components/Voting'
 
 // styles
 import './App.css'
-import { Heading } from '@chakra-ui/react'
+import { Heading, Box } from '@chakra-ui/react'
 
 // react front-end components
 import Home from './components/Home'
@@ -12,7 +12,7 @@ import Login from './components/Login'
 
 function App() {
   return (
-    <div className="App">
+    <Box className="App">
       <nav>
         <ul>
           <li>
@@ -21,12 +21,14 @@ function App() {
         </ul>
       </nav>
       <Login />
-      <Heading>{"Welcome to Pets 'n' Pats"}</Heading>
+      <Heading fontSize="3xl" opacity="80%">
+        {"Welcome to Pets 'n' Pats"}
+      </Heading>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/voting" element={<Voting />} />
       </Routes>
-    </div>
+    </Box>
   )
 }
 
