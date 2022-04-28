@@ -1,13 +1,10 @@
+import request from 'superagent'
 
 export async function addPet(formData) {
-  const requestObject = {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
-  }
-  const res = await fetch('/api/pets', requestObject)
-  const newPet = await res.json()
-  return newPet;
+  return request
+    .post('/api/pets')
+    .send(formData)
+    .then(res => {
+      return res.body;
+    })
 }
