@@ -15,7 +15,9 @@ import {
 
 import { postComment } from '../apiClient/comments'
 
-export function HeadComment({ cat }) {
+export function HeadComment({ ani }) {
+
+  if(!ani) return null
 
   const [comment, setComment] = useState('')
 
@@ -44,14 +46,14 @@ export function HeadComment({ cat }) {
         <PopoverCloseButton />
         <PopoverBody>
           <FormControl>
-              <FormLabel>Add Comment</FormLabel>
-              <Input type="hidden" name='petId' value={cat.id} />
-              <Input onChange={handleChange} placeholder='What do you think of this pet?' value={comment} />
+              <FormLabel>{`Comment on ${ani.name}`}</FormLabel>
+              <Input type="hidden" name='petId' value={ani.id} />
+              <Input onChange={handleChange} placeholder={`What do you think of ${ani.name}?`} value={comment} />
             </FormControl>
             </PopoverBody>
             <PopoverFooter>
           <Button onClick={handleSave} colorScheme='blue' mr={3}>
-              Save Comment
+              Submit
           </Button>
           </PopoverFooter>
       </PopoverContent>

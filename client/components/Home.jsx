@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { HeadToHead } from './HeadToHead.jsx'
+import { HeadToHead } from './HeadToHead'
 import { HeadComment } from './HeadComment'
 
   // TODO importing hard-coded data, - remove for deployment
@@ -16,7 +16,6 @@ function App() {
     <div>
       <HeadToHead cat={cat} dog={dog} />
       {/* child button component here */}
-      <HeadComment cat={cat} dog={dog} />
     </div>
   )
 }

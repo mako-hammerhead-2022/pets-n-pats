@@ -8,6 +8,7 @@ const connection = require('knex')(config)
 
 function insertComment(comment, db = connection) {
     return db('comments').insert({
+      petID: comment.petID,
       authId: comment.authId,
       content: comment.content
     })
