@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import React from 'react'
 import { Provider } from 'react-redux'
 import MyPets from '../MyPets'
-import store from '../../store'
+
 // import { fetchUserPets } from '../../actions'
 
 jest.mock('../../store')
