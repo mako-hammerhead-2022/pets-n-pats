@@ -13,7 +13,7 @@ function getPetById(id, db = connection) {
 function addPet(data, db = connection){
   return db('pets').insert(data)
     .then(res => {
-      return getPetById(res[0])
+      return getPetById(res[0], db)
     })
 }
 
