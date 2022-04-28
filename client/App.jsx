@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, Routes, Route } from 'react-router-dom'
-
 // styles
 import './App.css'
 import { Heading, Box } from '@chakra-ui/react'
@@ -16,7 +15,9 @@ function App() {
         <Login />
         <Link to="/"> HOME </Link>
       </nav>
-      <Heading fontSize="3xl" opacity="80%">{"Welcome to Pets 'n' Pats"}</Heading>
+      <Heading fontSize="3xl" opacity="80%">
+        {"Welcome to Pets 'n' Pats"}
+      </Heading>
       <Routes>
         <Route path="/" element={<Home />}></Route>
       </Routes>

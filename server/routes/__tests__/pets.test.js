@@ -15,11 +15,9 @@ describe('GET /api/pets', () => {
   afterEach(() => {
     console.log.mockRestore()
   })
-  it('returns all pets from db', () => {
+  it('returns two pets from db', () => {
     expect.assertions(3)
-    db.getAllPets.mockReturnValue(
-      Promise.resolve(arrTwoPet)
-    )
+    db.getAllPets.mockReturnValue(Promise.resolve(arrTwoPet))
     return request(server)
       .get('/api/pets')
       .then((res) => {

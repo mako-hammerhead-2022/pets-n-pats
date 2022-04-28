@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
-
-// import exampleReducer from './examplePath'
+import pets from './pets'
 
 export default combineReducers({
-  // example: exampleReducer,
+  pets,
 })

@@ -1,5 +1,3 @@
-// import * as exampleApi from './examplePath'
+import * as getRandomPets from './pets'
 
-export default {
-  // ...exampleApi,
-}
+export default { ...getRandomPets }
