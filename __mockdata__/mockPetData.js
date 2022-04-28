@@ -67,3 +67,11 @@ export const dbTestPet = {
   animal: 'dog',
   points: 11,
 }
+
+export const apiClientPet = {
+  userId: 2,
+  name: 'Bob',
+  bio: 'random bio',
+  animal: 'cat',
+  imageUrl: 'image.jpg',
+}
