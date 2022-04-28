@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId
-  // console.log(userId)
+  console.log(userId)
   db.getPetsByUserId(userId)
     .then((userPets) => {
       // console.log(userPets)

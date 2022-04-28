@@ -21,7 +21,7 @@ function MyPets() {
         <h2>{pet.name}</h2>
         <img
           src={pet.imageUrl}
-          alt="picture of the pet we put here in the tag"
+          alt={`picture of the pet we put here in the tag of ${pet.name}`}
         />
         <p>{pets.bio}</p>
       </li>

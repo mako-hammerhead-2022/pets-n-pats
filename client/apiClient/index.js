@@ -1,10 +1,5 @@
-// import * as exampleApi from './examplePath'
-import request from 'superagent'
+import * as petsApi from './pets'
 
-export default function getPetsByUserId(userId) {
-  return request.get(`/api/pets/${userId}`).then((res) => res.body)
-
-  // ...exampleApi,
+export default {
+  ...petsApi
 }
-
-// need a function to get the pets by userId

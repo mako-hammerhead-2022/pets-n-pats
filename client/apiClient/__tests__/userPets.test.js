@@ -1,20 +1,44 @@
-// const request = require('supertest')
-// const server = require('./server')
-// const db = require('./db')
+import nock from 'nock'
+import { getPetsByUserId } from '../pets.js'
 
-// import nock from 'nock'
+const fakePets = [
+  {
+    id: 1,
+    userId: '6',
+    name: 'Orel',
+    bio: 'Ameliorated dedicated extranet',
+    imageUrl: 'https://wallpaperaccess.com/full/2378663.jpg',
+    animal: 'dog',
+    points: 0,
+    createdAt: '2022-04-27 02:30:29',
+    updatedAt: '2022-04-27 02:30:29',
+  },
+  {
+    id: 3,
+    userId: '6',
+    name: 'Giralda',
+    bio: 'Customizable holistic conglomeration',
+    imageUrl: 'https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg',
+    animal: 'cat',
+    points: 17,
+    createdAt: '2022-04-27 02:30:29',
+    updatedAt: '2022-04-27 02:30:29',
+  },
+]
 
-// test('GET /api/v1/', () => {
-//   const scope = nock('http://')
-//     .get('/r/bananas.json')
-//     .reply(200, { data: { children: { msg: 'yay, bananas' } } })
+test('GET /api/pets/{userId}', () => {
+  const scope = nock('http://localhost')
+    .get('/api/pets/6')
+    .reply(200, fakePets)
 
-//   return request(server)
-//     .get('/api/v1/')
-//     .expect(200)
-//     .then((res) => {
-//       expect(res.body.msg).toBe('yay, bananas')
-//       scope.done()
-//       return null
-//     })
-// })
+  return (
+    getPetsByUserId(6)
+      .then((pets) => {
+        expect(pets).toEqual(fakePets)
+        scope.done()
+        return null
+      })
+  )
+})
+
+// [{"id":1,"userId":"6","name":"Orel","bio":"Ameliorated dedicated extranet","imageUrl":"https://wallpaperaccess.com/full/2378663.jpg","animal":"dog","points":0,"createdAt":"2022-04-27 02:30:29","updatedAt":"2022-04-27 02:30:29"},{"id":3,"userId":"6","name":"Giralda","bio":"Customizable holistic conglomeration","imageUrl":"https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg","animal":"cat","points":17,"createdAt":"2022-04-27 02:30:29","updatedAt":"2022-04-27 02:30:29"}]

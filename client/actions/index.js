@@ -1,5 +1,4 @@
-import request from 'superagent'
-import getPetsByUserId from '../apiClient'
+import api from '../apiClient'
 // import * as exampleActions from './examplePath'
 
 export const REQUEST_USER_PETS = 'REQUEST_USER_PETS'
@@ -27,11 +26,11 @@ export function fetchUserPets(userId) {
 
   return (dispatch) => {
     // acess api -> pets
-    getPetsByUserId(userId)
+    return api.getPetsByUserId(userId)
       .then((pets) => {
         dispatch(requestUserPets(pets))
+        return null
       })
-
       .catch((err) => {
         dispatch(showError(err.message))
       })
