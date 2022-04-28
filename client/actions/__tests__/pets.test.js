@@ -14,8 +14,10 @@ describe('fetchTwoPets', () => {
   it('calls api and dispatches results in action', () => {
     expect.assertions(1)
     return fetchTwoPets()(fakeDispatch).then(() => {
-      const firstAction = fakeDispatch.mock.calls[0]
-      expect(firstAction.type).toEqual(RECEIVE_RANDOM_TWO_PETS)
+      expect(fakeDispatch).toHaveBeenCalledWith({
+        type: RECEIVE_RANDOM_TWO_PETS,
+        pets: objTwoPet,
+      })
     })
   })
 })
