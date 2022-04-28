@@ -23,7 +23,7 @@ const PetForm = () => {
       animal,
       imageUrl
     }
-    const newPet = await api.addPet(formData)
+    await api.addPet(formData)
   }
 
   return (
