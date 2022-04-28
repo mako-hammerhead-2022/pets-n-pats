@@ -3,7 +3,7 @@ import { Link, Routes, Route } from 'react-router-dom'
 
 // styles
 import './App.css'
-import { Heading } from '@chakra-ui/react'
+import { Heading, Box } from '@chakra-ui/react'
 
 // react front-end components
 import Home from './components/Home'
@@ -12,17 +12,17 @@ import PetForm from './components/PetForm'
 
 function App() {
   return (
-    <div className="App">
+    <Box className="App">
       <nav>
         <Login />
         <Link to="/"> HOME </Link>
       </nav>
-      <Heading>{"Welcome to Pets 'n' Pats"}</Heading>
-      <PetForm/>
+      <Heading fontSize="3xl" opacity="80%">{"Welcome to Pets 'n' Pats"}</Heading>
+      <PetForm />
       <Routes>
         <Route path="/" element={<Home />}></Route>
       </Routes>
-    </div>
+    </Box>
   )
 }
 
