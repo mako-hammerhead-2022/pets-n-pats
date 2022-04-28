@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { HeadToHead } from './HeadToHead.jsx'
+import { HeadComment } from './HeadComment'
 
   // TODO importing hard-coded data, - remove for deployment
 import { objTwoPet } from '../../__mockdata__/mockPetData'
@@ -15,6 +16,7 @@ function App() {
     <div>
       <HeadToHead cat={cat} dog={dog} />
       {/* child button component here */}
+      <HeadComment cat={cat} dog={dog} />
     </div>
   )
 }

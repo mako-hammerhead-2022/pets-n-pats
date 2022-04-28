@@ -1,5 +1,5 @@
-// import * as exampleApi from './examplePath'
+import * as commentApi from './comments'
 
 export default {
-  // ...exampleApi,
+  ...commentApi
 }

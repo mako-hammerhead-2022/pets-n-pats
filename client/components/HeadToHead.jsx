@@ -21,7 +21,7 @@ export function HeadToHead({ cat, dog }) {
           />
           <h2 className="pet-name">{cat.name}</h2>
           <div className="pet-bio">{cat.bio}</div>
-        </div>
+        </div>git 
         <Heading>vs</Heading>
         <div className="dog-box">
           <Image
