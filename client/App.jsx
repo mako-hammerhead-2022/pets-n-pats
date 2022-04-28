@@ -11,14 +11,20 @@ import Login from './components/Login'
 
 function App() {
   return (
-    <Box className="App">
+    <Box className='App'>
       <nav>
-        <Login />
-        <Link to="/"> HOME </Link>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+        </ul>
       </nav>
-      <Heading fontSize="3xl" opacity="80%">{"Welcome to Pets 'n' Pats"}</Heading>
+      <Login />
+      <Heading fontSize='3xl' opacity='80%'>
+        {"Welcome to Pets 'n' Pats"}
+      </Heading>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path='/' element={<Home />}></Route>
       </Routes>
     </Box>
   )

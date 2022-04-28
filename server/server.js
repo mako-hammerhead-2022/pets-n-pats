@@ -10,6 +10,7 @@ server.use(express.json())
 
 server.use('/api/pets', require('./routes/pets'))
 server.use('/api/comments', require('./routes/comments'))
+server.use('/api/votes', require('./routes/votes'))
 
 server.get('*', (req, res) => {
   try {
