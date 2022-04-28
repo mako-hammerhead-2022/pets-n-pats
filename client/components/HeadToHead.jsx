@@ -48,7 +48,7 @@ const styleProps = {
           />
           <Box {...styleProps.bioBox}>
             <Heading as="h4" fontSize='2xl' mb="5px">{cat.name}</Heading>
-            <Box className="pet-bio">{cat.bio}</Box>
+            <Box className="pet-bio" fontWeight={"semibold"}>{cat.bio}</Box>
           </Box>
         </VStack>
         <Heading alignSelf="center">vs</Heading>
@@ -60,7 +60,7 @@ const styleProps = {
           />
           <Box {...styleProps.bioBox}>
             <Heading as="h4" fontSize='2xl' mb="5px">{dog.name}</Heading>
-            <Box className="pet-bio">{dog.bio}</Box>
+            <Box className="pet-bio" fontWeight={"semibold"}>{dog.bio}</Box>
           </Box>
         </VStack>
       </HStack>
