@@ -1,7 +1,7 @@
 import pets from '../index'
 import { arrTwoPet, objTwoPet } from '../../../__mockdata__/mockPetData'
 
-describe('pets Reducer', () => {
+describe.skip('pets Reducer', () => {
   it('receives two random pets, one cat, one dog', () => {
     const action = {
       type: 'RECEIVE_RANDOM_TWO_PETS',

@@ -1,5 +1,6 @@
 import api from '../apiClient'
 export const RECEIVE_RANDOM_TWO_PETS = 'RECEIVE_RANDOM_TWO_PETS'
+export const SET_ERROR = 'SET_ERROR'
 
 export function receiveRandomPets(pets) {
   return {
@@ -17,7 +18,15 @@ export function fetchTwoPets() {
         return null
       })
       .catch((err) => {
+        dispatch(setError(err.message))
         console.log(err)
       })
+  }
+}
+
+export function setError(errMessage) {
+  return {
+    type: SET_ERROR,
+    errMessage,
   }
 }
