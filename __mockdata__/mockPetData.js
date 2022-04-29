@@ -46,3 +46,32 @@ export const objTwoPet = {
     updatedAt: '2011-04-26 22:28:54',
   },
 }
+
+export const dbNewPet = {
+  id: 6,
+  userId: 'auth0|testId',
+  name: 'TestBoy',
+  bio: 'A good boy',
+  imageUrl: 'https://images.dog.ceo/testboy.jpg',
+  animal: 'dog',
+  createdAt: '2011-04-26 22:28:54',
+  updatedAt: '2011-04-26 22:28:54',
+}
+
+export const dbTestPet = {
+  id: 2,
+  userId: 'auth0|something',
+  name: 'Aileen',
+  bio: 'Fully-configurable intermediate focus group',
+  imageUrl: 'https://images.dog.ceo/breeds/cotondetulear/100_2013.jpg',
+  animal: 'dog',
+  points: 11,
+}
+
+export const apiClientPet = {
+  userId: 2,
+  name: 'Bob',
+  bio: 'random bio',
+  animal: 'cat',
+  imageUrl: 'image.jpg',
+}

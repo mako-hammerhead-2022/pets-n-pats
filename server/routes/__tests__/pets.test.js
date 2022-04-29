@@ -2,19 +2,26 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
 
-import { arrTwoPet } from '../../../__mockdata__/mockPetData'
+import { arrTwoPet, dbNewPet } from '../../../__mockdata__/mockPetData'
+import checkJwt from '../../auth0'
 
 jest.mock('../../db')
+jest.mock('../../auth0')
+
+beforeAll(() => {
+  jest.spyOn(console, 'log')
+  console.log.mockImplementation(() => {})
+  console.log(console.log)
+  checkJwt.mockImplementation((req, res, next) => {
+    next()
+  })
+})
+afterAll(() => {
+  console.log.mockRestore()
+  jest.restoreAllMocks()
+})
 
 describe('GET /api/pets', () => {
-  beforeEach(() => {
-    jest.spyOn(console, 'log')
-    console.log.mockImplementation(() => {})
-    console.log(console.log)
-  })
-  afterEach(() => {
-    console.log.mockRestore()
-  })
   it('returns two pets from db', () => {
     expect.assertions(3)
     db.getAllPets.mockReturnValue(Promise.resolve(arrTwoPet))
@@ -40,16 +47,34 @@ describe('GET /api/pets', () => {
   })
 })
 
+describe('POST /api/pets', () => {
+  it('adds a pet to the database and returns the new pet', () => {
+    expect.assertions(2)
+    db.addPet.mockReturnValue(Promise.resolve(dbNewPet))
+    return request(server)
+      .post('/api/pets')
+      .send(dbNewPet)
+      .then((res) => {
+        expect(res.status).toBe(200)
+        expect(res.body).toEqual(dbNewPet)
+      })
+  })
+  it("should return status 500 and error when database doesn't work", () => {
+    expect.assertions(2)
+    db.addPet.mockImplementation(() =>
+      Promise.reject(new Error('Something went wrong'))
+    )
+    return request(server)
+      .post('/api/pets')
+      .send(dbNewPet)
+      .then((res) => {
+        expect(res.status).toBe(500)
+        expect(res.text).toContain('Something went wrong')
+      })
+  })
+})
+
 describe('PATCH/api/votes/add', () => {
-  beforeEach(() => {
-    // jest.clearAllMocks()
-    jest.spyOn(console, 'log')
-    console.log.mockImplementation(() => {})
-    console.log(console.log)
-  })
-  afterEach(() => {
-    console.log.mockRestore()
-  })
   it('rendering add page', () => {
     expect.assertions(1)
     db.addPoints.mockReturnValue(Promise.resolve(arrTwoPet))

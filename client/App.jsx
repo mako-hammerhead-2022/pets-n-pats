@@ -8,18 +8,20 @@ import { Heading, Box } from '@chakra-ui/react'
 // react front-end components
 import Home from './components/Home'
 import Login from './components/Login'
+import PetForm from './components/PetForm'
 
 function App() {
   return (
     <Box className='App'>
       <nav>
-        <Login />
         <ul>
           <li>
             <Link to='/'>Home</Link>
           </li>
         </ul>
       </nav>
+      <Login />
+      <PetForm />
       <Heading fontSize='3xl' opacity='80%'>
         {"Welcome to Pets 'n' Pats"}
       </Heading>
