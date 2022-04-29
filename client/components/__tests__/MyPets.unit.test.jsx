@@ -1,13 +1,20 @@
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { Provider } from 'react-redux'
 import MyPets from '../MyPets'
 
 // import { fetchUserPets } from '../../actions'
 
 jest.mock('../../store')
-// jest.mock('../../actions')
+jest.mock('@auth0/auth0-react')
+
+useAuth0.mockReturnValue({
+  isAuthenticated: true,
+  user: {},
+  getAccessTokenSilently: jest.fn(),
+})
 
 describe('<MyPets /> renders users pets', () => {
   const fakeStore = {

@@ -2,7 +2,11 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
 
-import { arrTwoPet, dbNewPet, objTwoPet } from '../../../__mockdata__/mockPetData'
+import {
+  arrTwoPet,
+  dbNewPet,
+  objTwoPet,
+} from '../../../__mockdata__/mockPetData'
 import checkJwt from '../../auth0'
 
 jest.mock('../../db')
@@ -95,6 +99,30 @@ describe('PATCH/api/votes/add', () => {
         console.log('line 69: ', res)
         expect(res.status).toBe(500)
         expect(res.text).toContain('Something went wrong')
+      })
+  })
+})
+
+describe('GET /my', () => {
+  test('gets the pets from the given userId', () => {
+    db.getPetsByUserId.mockReturnValue(Promise.resolve(arrTwoPet))
+
+    return request(server)
+      .get(`/api/pets/my`)
+      .then((res) => {
+        expect(res.body).toHaveLength(2)
+      })
+  })
+
+  it('tests error in routes', () => {
+    expect.assertions(1)
+    db.getPetsByUserId.mockImplementation(() =>
+      Promise.reject(new Error('not working'))
+    )
+    return request(server)
+      .get(`/api/pets/my`)
+      .then((res) => {
+        expect(res.status).toBe(500)
       })
   })
 })

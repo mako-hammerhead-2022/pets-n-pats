@@ -16,10 +16,10 @@ export function showError(errorMessage) {
   }
 }
 
-export function fetchUserPets(userId) {
+export function fetchUserPets(token) {
   return (dispatch) => {
     return api
-      .getPetsByUserId(userId)
+      .getUserPets(token)
       .then((pets) => {
         dispatch(requestUserPets(pets))
         return null

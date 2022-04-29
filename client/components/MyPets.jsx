@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchUserPets } from '../actions'
+import { useAuth0 } from '@auth0/auth0-react'
 import PetForm from './PetForm'
 
 function MyPets() {
   const dispatch = useDispatch()
   // TODO add Auth for user ID
   const userId = 6
+  const { getAccessTokenSilently } = useAuth0()
 
   const pets = useSelector((state) => state.myPets)
 
   useEffect(() => {
-    dispatch(fetchUserPets(userId))
+    ;(async () => {
+      const token = await getAccessTokenSilently()
+      dispatch(fetchUserPets(token))
+    })()
   }, [])
 
   const userInfo = pets?.map((pet, i) => {
@@ -29,7 +34,7 @@ function MyPets() {
   })
 
   return (
-    <div className="MyPets">
+    <div className='MyPets'>
       <ul>{userInfo}</ul>
       <PetForm />
     </div>

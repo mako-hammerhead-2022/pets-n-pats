@@ -7,7 +7,6 @@ const checkJwt = require('../auth0')
 router.get('/', (req, res) => {
   db.getTwoRandomPets()
     .then((data) => {
-      console.log(data)
       res.json(data)
     })
     .catch((err) => {
@@ -16,18 +15,15 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/:userId', (req, res) => {
-  // TODO: use auth0
-  const userId = req.params.userId
-  console.log(userId, 'userId')
+router.get('/my', checkJwt, (req, res) => {
+  const userId = req.user?.sub
   db.getPetsByUserId(userId)
     .then((userPets) => {
       res.json(userPets)
     })
     .catch((err) => {
-      console.log(err, 'err')
-      console.log(err.message, 'err.message')
-      res.status(500).send(err.message)
+      console.log(err)
+      res.status(500).send({ message: 'Something went wrong' })
     })
 })
 
