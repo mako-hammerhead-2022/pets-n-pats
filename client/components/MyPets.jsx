@@ -6,8 +6,6 @@ import PetForm from './PetForm'
 
 function MyPets() {
   const dispatch = useDispatch()
-  // TODO add Auth for user ID
-  const userId = 6
   const { getAccessTokenSilently } = useAuth0()
 
   const pets = useSelector((state) => state.myPets)
