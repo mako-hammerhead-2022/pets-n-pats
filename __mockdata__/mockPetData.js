@@ -1,26 +1,27 @@
-export const arrTwoPet = [{
-  id: 3,
-  userId: 'auth0|something',
-  name: 'Giralda',
-  bio: 'Customizable holistic conglomeration',
-  imageUrl: 'https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg',
-  animal: 'cat',
-  points: 17,
-  createdAt: '2022-04-26 22:28:54',
-  updatedAt: '2022-04-26 22:28:54',
-},
-{
-  id: 4,
-  userId: 'auth0|something',
-  name: 'Letizia',
-  bio: 'Open-architected systemic groupware',
-  imageUrl: 'https://images.dog.ceo/breeds/tervuren/yoda_in_garden.jpg',
-  animal: 'dog',
-  points: 83,
-  createdAt: '2022-04-26 22:28:54',
-  updatedAt: '2022-04-26 22:28:54',
-}]
-
+export const arrTwoPet = [
+  {
+    id: 3,
+    userId: 'auth0|something',
+    name: 'Giralda',
+    bio: 'Customizable holistic conglomeration',
+    imageUrl: 'https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg',
+    animal: 'cat',
+    points: 17,
+    createdAt: '2022-04-26 22:28:54',
+    updatedAt: '2022-04-26 22:28:54',
+  },
+  {
+    id: 4,
+    userId: 'auth0|something',
+    name: 'Letizia',
+    bio: 'Open-architected systemic groupware',
+    imageUrl: 'https://images.dog.ceo/breeds/tervuren/yoda_in_garden.jpg',
+    animal: 'dog',
+    points: 83,
+    createdAt: '2022-04-26 22:28:54',
+    updatedAt: '2022-04-26 22:28:54',
+  },
+]
 
 export const objTwoPet = {
   cat: {
@@ -38,7 +39,7 @@ export const objTwoPet = {
     id: 5,
     userID: 'auth0|something',
     name: 'The Balrog',
-    bio: 'I\'ll have those on my own desk by five',
+    bio: "I'll have those on my own desk by five",
     imageUrl: 'https://images.dog.ceo/breeds/tervuren/yoda_in_garden.jpg',
     animal: 'dog',
     points: 420,
@@ -46,3 +47,28 @@ export const objTwoPet = {
     updatedAt: '2011-04-26 22:28:54',
   },
 }
+
+export const fakePets = [
+  {
+    id: 1,
+    userId: '6',
+    name: 'Orel',
+    bio: 'Ameliorated dedicated extranet',
+    imageUrl: 'https://wallpaperaccess.com/full/2378663.jpg',
+    animal: 'dog',
+    points: 0,
+    createdAt: '2022-04-27 02:30:29',
+    updatedAt: '2022-04-27 02:30:29',
+  },
+  {
+    id: 3,
+    userId: '6',
+    name: 'Giralda',
+    bio: 'Customizable holistic conglomeration',
+    imageUrl: 'https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg',
+    animal: 'cat',
+    points: 17,
+    createdAt: '2022-04-27 02:30:29',
+    updatedAt: '2022-04-27 02:30:29',
+  },
+]

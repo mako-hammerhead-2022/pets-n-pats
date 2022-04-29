@@ -2,31 +2,17 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db/pets')
 
+import { fakePets } from '../../../__mockdata__/mockPetData'
+
+
 jest.mock('../../db/pets')
+
+beforeEach(() => jest.clearAllMocks())
 
 describe('GET /:userId', () => {
   test('gets the pets from the given userId', () => {
     db.getPetsByUserId.mockReturnValue(
-      Promise.resolve([
-        {
-          id: 5,
-          userId: '6',
-          name: 'Dominique',
-          bio: 'Reverse-engineered intermediate data-warehouse',
-          imageUrl: 'https://cdn2.thecatapi.com/images/b5TojsXM1.jpg',
-          animal: 'cat',
-          points: 190,
-        },
-
-        {
-          userId: '6',
-          name: 'Domin',
-          bio: 'Reverse-engineered',
-          imageUrl: 'https://',
-          animal: 'dog',
-          points: 140,
-        },
-      ])
+      Promise.resolve(fakePets)
     )
 
     const id = 6
@@ -39,5 +25,16 @@ describe('GET /:userId', () => {
 
   })
 
+  it('tests error in routes',() => {
+    expect.assertions(1)
+    const id = "6"
+    db.getPetsByUserId.mockImplementation(() => Promise.reject(new Error('not working')))
+    return request(server)
+      .get(`/api/pets/${id}`)
+      .then(res => {
+        expect(res.status).toBe(500)
+      })
+
+  })
 })
 

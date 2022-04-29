@@ -26,13 +26,14 @@ router.get('/', (req, res) => {
 
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId
-  console.log(userId)
+  console.log(userId, "userId")
   db.getPetsByUserId(userId)
     .then((userPets) => {
-      // console.log(userPets)
       res.json(userPets)
     })
     .catch((err) => {
+      console.log(err, "err")
+      console.log(err.message, "err.message")
       res.status(500).send(err.message)
     })
 })

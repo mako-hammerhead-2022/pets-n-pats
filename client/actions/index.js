@@ -1,11 +1,8 @@
 import api from '../apiClient'
-// import * as exampleActions from './examplePath'
 
 export const REQUEST_USER_PETS = 'REQUEST_USER_PETS'
 export const SHOW_ERROR = 'SHOW_ERROR'
-// export default {
-//   // ...exampleActions,
-// }
+
 
 export function requestUserPets(pets) {
   return {
@@ -22,10 +19,8 @@ export function showError(errorMessage) {
 }
 
 export function fetchUserPets(userId) {
-  // https://github.com/whai-2022/pets-n-pats/projects/1
 
   return (dispatch) => {
-    // acess api -> pets
     return api.getPetsByUserId(userId)
       .then((pets) => {
         dispatch(requestUserPets(pets))
