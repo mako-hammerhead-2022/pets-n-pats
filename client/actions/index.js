@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import api from '../apiClient'
 
 export const REQUEST_USER_PETS = 'REQUEST_USER_PETS'
@@ -31,3 +32,12 @@ export function fetchUserPets(userId) {
       })
   }
 }
+=======
+import {
+  fetchTwoPets,
+  receiveRandomPets,
+  RECEIVE_RANDOM_TWO_PETS,
+} from './pets'
+
+export { fetchTwoPets, receiveRandomPets, RECEIVE_RANDOM_TWO_PETS }
+>>>>>>> dev

@@ -31,6 +31,14 @@ describe('getPetsByUserId', () => {
       expect(pets).toHaveLength(2)
       expect(pets[0].name).toBe('Orel')
       return null
-    })
+    })})})
+describe('addPoints', () => {
+  it('should add 2 points', () => {
+    return db
+      .addPoints(4, testDb)
+      .then(() => db.getWinnerById(4, testDb))
+      .then((pet) => {
+        expect(pet.points).toEqual(83 + 2)
+      })
   })
 })
