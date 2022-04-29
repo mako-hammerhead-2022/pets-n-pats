@@ -2,6 +2,15 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchUserPets } from '../actions'
 import { useAuth0 } from '@auth0/auth0-react'
+import {
+  Image,
+  AspectRatio,
+  Box,
+  Flex,
+  Container,
+  Heading,
+  Text,
+} from '@chakra-ui/react'
 import PetForm from './PetForm'
 
 function MyPets() {
@@ -11,30 +20,38 @@ function MyPets() {
   const pets = useSelector((state) => state.myPets)
 
   useEffect(() => {
-    ;(async () => {
-      const token = await getAccessTokenSilently()
-      dispatch(fetchUserPets(token))
-    })()
+    getUserPets()
   }, [])
 
-  const userInfo = pets?.map((pet, i) => {
+  async function getUserPets() {
+    const token = await getAccessTokenSilently()
+    dispatch(fetchUserPets(token))
+  }
+
+  const renderedPets = pets?.map((pet) => {
     return (
-      <li key={i}>
-        {pet.id}
-        <h2>{pet.name}</h2>
-        <img
-          src={pet.imageUrl}
-          alt={`picture of the pet we put here in the tag of ${pet.name}`}
-        />
-        <p>{pets.bio}</p>
-      </li>
+      <Box w='200px' h='300px' key={pet.id} bg='gray.100'>
+        <AspectRatio maxW='200px' ratio={4 / 3}>
+          <Image
+            objectFit='cover'
+            src={pet.imageUrl}
+            alt={`picture of the pet we put here in the tag of ${pet.name}`}
+          />
+        </AspectRatio>
+        <Heading as='h4' fontSize='md'>
+          {pet.name}
+        </Heading>
+        <Text as='p'>{pet.bio}</Text>
+      </Box>
     )
   })
 
   return (
     <div className='MyPets'>
-      <ul>{userInfo}</ul>
-      <PetForm />
+      <PetForm onSuccess={getUserPets} />
+      <Container maxW='xl'>
+        <Flex justifyContent='space-between'>{renderedPets}</Flex>
+      </Container>
     </div>
   )
 }
