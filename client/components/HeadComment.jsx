@@ -11,37 +11,23 @@ import {
   FormControl,
   FormLabel,
   Input,
-  useToast,
   Portal
 } from '@chakra-ui/react'
 
 import { postComment } from '../apiClient/comments'
 
-  {/* This component is now a reusable module (not just for Head)
-      and expects an object prop that looks like this:
-
-       <Component ani={{id: #, name: ""}} />   */}
+  {/* This module expects an "ani" object prop with:
+        <Component ani={{id: #, name: ""}} />   */}
 
 
 export function HeadComment({ ani }) {
-
- // toast response handling
-// const toast = useToast()
-// const breadSlice = {
-//       title: 'Comment added',
-//       description: `Your comment on ${ani.name} has been added.`,
-//       status: 'success',
-//       duration: 9000,
-//       isClosable: true,
-//     }
-
     // local state
   const [comment, setComment] = useState('')
   const [loadCheck, setLoadCheck] = useState(false)
-  const [buttonFill, setButtonFill] = useState('Submit')
+  const [buttonFill, setButtonFill] = useState('Add Comment')
+  const [buttonIsBlocked, setButtonIsBlocked] = useState(false)
 
-  // popoverform handling
-
+  // popover form handling
   function handleChange(e) {
     e.preventDefault()
     setComment(e.target.value)
@@ -57,12 +43,17 @@ export function HeadComment({ ani }) {
     e.preventDefault()
     postComment(commentObj)
     .then(()=>{
+      setComment('')
       setLoadCheck(false)
       setButtonFill('Added!')
-      // button reponse value changes are
+      // disable comment buttons; spamming is immoral:
+      setButtonIsBlocked(true)
     })
-    // .then(()=>toast(breadSlice))
-    .catch((err)=>{console.log(err.message)})
+    .catch((err)=>{
+      console.log(err.message)
+      setLoadCheck(false)
+      setButtonFill('Failed!')
+    })
   }
 
   // prevent render errors on initial load
@@ -71,26 +62,26 @@ export function HeadComment({ ani }) {
   // screen render
   return (
     <>
-    <Popover  closeDelay={1500}>
+    <Popover>
       <PopoverTrigger>
-        <Button>Add Comment</Button>
+        <Button isDisabled={buttonIsBlocked} isLoading={loadCheck}>{buttonFill}</Button>
       </PopoverTrigger>
       <Portal>
-      <PopoverContent>
-        <PopoverArrow />
-        <PopoverCloseButton zIndex="6"/>
-        <PopoverBody>
-          <FormControl>
-              <FormLabel>{`Comment on ${ani.name}`}</FormLabel>
-              <Input onChange={handleChange} placeholder={`What do you think of ${ani.name}?`} value={comment} />
-            </FormControl>
-            </PopoverBody>
-            <PopoverFooter>
-          <Button onClick={handleSave} colorScheme='blue' mr={3} isLoading={loadCheck}>
-              {buttonFill}
-          </Button>
-          </PopoverFooter>
-      </PopoverContent>
+        <PopoverContent>
+          <PopoverArrow />
+          <PopoverCloseButton zIndex="6"/>
+          <PopoverBody>
+            <FormControl>
+                <FormLabel>{`Comment on ${ani.name}`}</FormLabel>
+                <Input onChange={handleChange} placeholder={`What do you think of ${ani.name}?`} value={comment} />
+              </FormControl>
+              </PopoverBody>
+              <PopoverFooter>
+            <Button isDisabled={buttonIsBlocked} onClick={handleSave} colorScheme='blue' mr={3} isLoading={loadCheck}>
+                Submit
+            </Button>
+            </PopoverFooter>
+        </PopoverContent>
       </Portal>
     </Popover>
     </>
