@@ -56,7 +56,7 @@ describe('<MyPets /> renders users pets', () => {
     const petNames = screen.getAllByRole('heading')
     // console.log(petName.textContent)
     expect(petNames[0].textContent).toContain('Domin')
-    expect(petNames).toHaveLength(2)
+    expect(petNames).toHaveLength(4)
   })
 
   it('alt text renders accessible image', () => {

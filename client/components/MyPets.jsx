@@ -6,10 +6,12 @@ import {
   Image,
   AspectRatio,
   Box,
-  Flex,
+  Wrap,
+  WrapItem,
   Container,
   Heading,
   Text,
+  Center,
 } from '@chakra-ui/react'
 import PetForm from './PetForm'
 
@@ -29,28 +31,41 @@ function MyPets() {
   }
 
   const renderedPets = pets?.map((pet) => {
+    console.log(pet.imageUrl)
     return (
-      <Box w='200px' h='300px' key={pet.id} bg='gray.100'>
-        <AspectRatio maxW='200px' ratio={4 / 3}>
-          <Image
-            objectFit='cover'
-            src={pet.imageUrl}
-            alt={`picture of the pet we put here in the tag of ${pet.name}`}
-          />
-        </AspectRatio>
-        <Heading as='h4' fontSize='md'>
-          {pet.name}
-        </Heading>
-        <Text as='p'>{pet.bio}</Text>
-      </Box>
+      <WrapItem w='200px' h='300px' key={pet.id} bg='gray.100'>
+        <Box>
+          <AspectRatio maxW='200px' ratio={4 / 3}>
+            <Image
+              objectFit='cover'
+              src={pet.imageUrl}
+              alt={`picture of the pet we put here in the tag of ${pet.name}`}
+            />
+          </AspectRatio>
+          <Box textAlign='left'>
+            <Heading as='h4' fontSize='md'>
+              {pet.name}
+            </Heading>
+            <Text as='p' fontSize='xs' mb={4}>
+              {pet.bio}
+            </Text>
+            <Heading as='h5' fontSize='xs'>
+              Points:
+            </Heading>
+            <Text as='p'>{pet.points}</Text>
+          </Box>
+        </Box>
+      </WrapItem>
     )
   })
 
   return (
     <div className='MyPets'>
       <PetForm onSuccess={getUserPets} />
-      <Container maxW='xl'>
-        <Flex justifyContent='space-between'>{renderedPets}</Flex>
+      <Container maxW='4xl' mt={6}>
+        <Center>
+          <Wrap justifyContent='space-between'>{renderedPets}</Wrap>
+        </Center>
       </Container>
     </div>
   )
