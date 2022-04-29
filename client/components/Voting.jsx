@@ -21,7 +21,6 @@ function Voting() {
     <>
       <Button
         colorScheme='teal'
-        m={2}
         value={id[0]}
         onClick={() => handleSubmit(id[0])}
       >
@@ -30,7 +29,6 @@ function Voting() {
       </Button>
       <Button
         colorScheme='teal'
-        m={2}
         value={null}
         onClick={() => handleSubmit('skip')}
       >
@@ -39,7 +37,6 @@ function Voting() {
       </Button>
       <Button
         colorScheme='teal'
-        m={2}
         value={id[1]}
         onClick={() => handleSubmit(id[1])}
       >
