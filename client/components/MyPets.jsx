@@ -31,7 +31,6 @@ function MyPets() {
   }
 
   const renderedPets = pets?.map((pet) => {
-    console.log(pet.imageUrl)
     return (
       <WrapItem w='200px' minH='300px' key={pet.id} bg='gray.100'>
         <Box p={2}>

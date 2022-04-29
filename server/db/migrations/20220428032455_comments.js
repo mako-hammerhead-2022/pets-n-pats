@@ -9,13 +9,12 @@ exports.up = (knex) => {
     table.string('authorId')
     table.string('content')
   })
-  
-};
+}
 
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema.dropTable('comments')
-};
+}

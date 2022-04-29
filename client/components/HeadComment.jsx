@@ -11,17 +11,18 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Portal
+  Portal,
 } from '@chakra-ui/react'
 
 import { postComment } from '../apiClient/comments'
 
-  {/* This module expects an "ani" object prop with:
-        <Component ani={{id: #, name: ""}} />   */}
-
+{
+  /* This module expects an "ani" object prop with:
+        <Component ani={{id: #, name: ""}} />   */
+}
 
 function HeadComment({ ani }) {
-    // local state
+  // local state
   const [comment, setComment] = useState('')
   const [loadCheck, setLoadCheck] = useState(false)
   const [buttonFill, setButtonFill] = useState('Add Comment')
@@ -37,53 +38,65 @@ function HeadComment({ ani }) {
     setLoadCheck(true)
     const commentObj = {
       petId: ani.id,
-      authorId: "auth0|something",
-      content: comment
+      authorId: 'auth0|something',
+      content: comment,
     }
     e.preventDefault()
     postComment(commentObj)
-    .then(()=>{
-      setComment('')
-      setLoadCheck(false)
-      setButtonFill('Added!')
-      // disable comment buttons; spamming is immoral:
-      setButtonIsBlocked(true)
-    })
-    .catch((err)=>{
-      console.log(err.message)
-      setLoadCheck(false)
-      setButtonFill('Failed!')
-    })
+      .then(() => {
+        setComment('')
+        setLoadCheck(false)
+        setButtonFill('Added!')
+        // disable comment buttons; spamming is immoral:
+        setButtonIsBlocked(true)
+      })
+      .catch((err) => {
+        console.log(err.message)
+        setLoadCheck(false)
+        setButtonFill('Failed!')
+      })
   }
 
   // prevent render errors on initial load
-  if(!ani) return null
+  if (!ani) return null
 
   // screen render
   return (
     <>
-    <Popover>
-      <PopoverTrigger>
-        <Button isDisabled={buttonIsBlocked} isLoading={loadCheck}>{buttonFill}</Button>
-      </PopoverTrigger>
-      <Portal>
-        <PopoverContent>
-          <PopoverArrow />
-          <PopoverCloseButton zIndex="6"/>
-          <PopoverBody>
-            <FormControl>
+      <Popover>
+        <PopoverTrigger>
+          <Button isDisabled={buttonIsBlocked} isLoading={loadCheck}>
+            {buttonFill}
+          </Button>
+        </PopoverTrigger>
+        <Portal>
+          <PopoverContent>
+            <PopoverArrow />
+            <PopoverCloseButton zIndex='6' />
+            <PopoverBody>
+              <FormControl>
                 <FormLabel>{`Comment on ${ani.name}`}</FormLabel>
-                <Input onChange={handleChange} placeholder={`What do you think of ${ani.name}?`} value={comment} />
+                <Input
+                  onChange={handleChange}
+                  placeholder={`What do you think of ${ani.name}?`}
+                  value={comment}
+                />
               </FormControl>
-              </PopoverBody>
-              <PopoverFooter>
-            <Button isDisabled={buttonIsBlocked} onClick={handleSave} colorScheme='blue' mr={3} isLoading={loadCheck}>
+            </PopoverBody>
+            <PopoverFooter>
+              <Button
+                isDisabled={buttonIsBlocked}
+                onClick={handleSave}
+                colorScheme='blue'
+                mr={3}
+                isLoading={loadCheck}
+              >
                 Submit
-            </Button>
+              </Button>
             </PopoverFooter>
-        </PopoverContent>
-      </Portal>
-    </Popover>
+          </PopoverContent>
+        </Portal>
+      </Popover>
     </>
   )
 }
