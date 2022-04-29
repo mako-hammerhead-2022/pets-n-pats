@@ -46,3 +46,9 @@ export const objTwoPet = {
     updatedAt: '2011-04-26 22:28:54',
   },
 }
+
+export const objComment ={
+  petId: 4,
+  authId: 'auth0|something',
+  content: 'this pet comment is for petId4, he big'
+}

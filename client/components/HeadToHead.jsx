@@ -3,7 +3,9 @@ import React from 'react'
 import { HStack, VStack, Heading, Image, Container, Box } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
-export function HeadToHead({ cat, dog }) {
+import HeadComment from './HeadComment'
+
+function HeadToHead({ cat, dog }) {
 
 const scaler = "500px"
 
@@ -50,6 +52,7 @@ const styleProps = {
             <Heading as="h4" fontSize='2xl' mb="5px">{cat.name}</Heading>
             <Box className="pet-bio" fontWeight={"semibold"}>{cat.bio}</Box>
           </Box>
+          <HeadComment ani={cat} />
         </VStack>
         <Heading alignSelf="center">vs</Heading>
         <VStack id="dog-box">
@@ -62,6 +65,7 @@ const styleProps = {
             <Heading as="h4" fontSize='2xl' mb="5px">{dog.name}</Heading>
             <Box className="pet-bio" fontWeight={"semibold"}>{dog.bio}</Box>
           </Box>
+          <HeadComment ani={dog} />
         </VStack>
       </HStack>
       </Container>
