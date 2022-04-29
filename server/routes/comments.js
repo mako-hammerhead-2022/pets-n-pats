@@ -5,10 +5,9 @@ const db = require('../db')
 
 router.post('/', (req, res) => {
   const comment = req.body
-  console.log(`req.body:`, req.body)
   db.insertComment(comment)
-  .then((commentRes) => {
-    return res.json(commentRes)
+  .then(() => {
+    return res.status(200).success({message: 'Successful'})
   })
   .catch((err) => {
     res.status(500).send(err.message)

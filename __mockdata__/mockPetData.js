@@ -24,7 +24,7 @@ export const arrTwoPet = [{
 
 export const objTwoPet = {
   cat: {
-    id: 2,
+    id: 6,
     userID: 'auth0|something',
     name: 'Cthulu',
     bio: 'Synergy synergy grab the bull by the horns gumption',
@@ -45,4 +45,10 @@ export const objTwoPet = {
     createdAt: '2011-04-26 22:28:54',
     updatedAt: '2011-04-26 22:28:54',
   },
+}
+
+export const objComment ={
+  petId: 4,
+  authId: 'auth0|something',
+  content: 'this pet comment is for petId4, he big'
 }

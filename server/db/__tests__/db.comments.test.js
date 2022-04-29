@@ -29,7 +29,6 @@ describe('insertComment', () => {
       return testDb('comments').select()
     })
     .then((db) =>{
-      console.log(`db return:`, db)
       expect(db[3].content).toContain('stinky')
       expect(db).toHaveLength(4)
     })
