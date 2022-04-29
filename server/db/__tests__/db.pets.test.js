@@ -30,8 +30,8 @@ describe('getTwoRandomPets', () => {
 
 describe('getPetsByUserId', () => {
   it('returns the correct pets array', () => {
-    return db.getPetsByUserId('6', testDb).then((pets) => {
-      expect(pets).toHaveLength(2)
+    return db.getPetsByUserId('auth0|something', testDb).then((pets) => {
+      expect(pets).toHaveLength(5)
       expect(pets[0].name).toBe('Orel')
       return null
     })

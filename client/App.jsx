@@ -13,7 +13,7 @@ function App() {
     <Box className='App'>
       <Login />
 
-      <Heading fontSize='3xl' opacity='80%' mt={6}>
+      <Heading fontSize='3xl' opacity='80%' mt={2} mb={4}>
         {"Welcome to Pets 'n' Pats"}
       </Heading>
       <Routes>
