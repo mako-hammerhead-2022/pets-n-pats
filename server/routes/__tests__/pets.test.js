@@ -2,7 +2,7 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
 
-import { arrTwoPet, dbNewPet } from '../../../__mockdata__/mockPetData'
+import { arrTwoPet, dbNewPet, objTwoPet } from '../../../__mockdata__/mockPetData'
 import checkJwt from '../../auth0'
 
 jest.mock('../../db')
@@ -24,18 +24,18 @@ afterAll(() => {
 describe('GET /api/pets', () => {
   it('returns two pets from db', () => {
     expect.assertions(3)
-    db.getAllPets.mockReturnValue(Promise.resolve(arrTwoPet))
+    db.getTwoRandomPets.mockReturnValue(Promise.resolve(objTwoPet))
     return request(server)
       .get('/api/pets')
       .then((res) => {
         expect(res.status).toBe(200)
         expect(res.body).toHaveProperty('cat')
-        expect(res.body.cat.name).toBe('Giralda')
+        expect(res.body.cat.name).toBe('Cthulu')
       })
   })
   it("should return status 500 and error when database doesn't work", () => {
     expect.assertions(2)
-    db.getAllPets.mockImplementation(() =>
+    db.getTwoRandomPets.mockImplementation(() =>
       Promise.reject(new Error('Something went wrong'))
     )
     return request(server)

@@ -18,10 +18,12 @@ afterAll(() => {
   return testDb.destroy()
 })
 
-describe('getAllPets', () => {
-  it('should return all pets', () => {
-    return db.getAllPets(testDb).then((pets) => {
-      expect(pets).toHaveLength(5)
+describe('getTwoRandomPets', () => {
+  it('should return a random cat and a random dog', () => {
+    return db.getTwoRandomPets(testDb).then((pets) => {
+      expect(pets).toHaveProperty('cat')
+      expect(pets).toHaveProperty('dog')
+      expect(pets.cat.animal).toContain('cat')
     })
   })
 })
