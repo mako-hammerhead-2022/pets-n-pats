@@ -35,7 +35,7 @@ function MyPets() {
     return (
       <WrapItem w='200px' minH='300px' key={pet.id} bg='gray.100'>
         <Box p={2}>
-          <AspectRatio maxW='200px' ratio={4 / 3}>
+          <AspectRatio maxW='200px' ratio={4 / 3} mb={2}>
             <Image
               objectFit='cover'
               src={pet.imageUrl}
