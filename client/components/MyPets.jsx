@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchUserPets } from '../actions'
+import PetForm from './PetForm'
 
 function MyPets() {
   const dispatch = useDispatch()
@@ -30,6 +31,7 @@ function MyPets() {
   return (
     <div className="MyPets">
       <ul>{userInfo}</ul>
+      <PetForm />
     </div>
   )
 }

@@ -25,30 +25,29 @@ router.get('/', (req, res) => {
     })
 })
 
-<<<<<<< HEAD
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId
-  console.log(userId, "userId")
+  console.log(userId, 'userId')
   db.getPetsByUserId(userId)
     .then((userPets) => {
       res.json(userPets)
     })
     .catch((err) => {
-      console.log(err, "err")
-      console.log(err.message, "err.message")
+      console.log(err, 'err')
+      console.log(err.message, 'err.message')
       res.status(500).send(err.message)
-=======
-router.post('/', checkJwt, (req, res) => {
-  const formData = req.body;
-  db.addPet(formData)
-    .then((pet) => {
-      res.json(pet)
     })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).send({ message: 'Something went wrong' })
->>>>>>> dev
-    })
+  router.post('/', checkJwt, (req, res) => {
+    const formData = req.body
+    db.addPet(formData)
+      .then((pet) => {
+        res.json(pet)
+      })
+      .catch((err) => {
+        console.log(err)
+        res.status(500).send({ message: 'Something went wrong' })
+      })
+  })
 })
 
 module.exports = router
