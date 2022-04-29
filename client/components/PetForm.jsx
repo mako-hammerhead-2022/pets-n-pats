@@ -45,6 +45,11 @@ const PetForm = ({ onSubmit }) => {
     }
     await api.addPet(formData, token)
 
+    setName('');
+    setBio('');
+    setAnimal('cat');
+    setSelectedFile(null);
+
     onClose()
   }
 
