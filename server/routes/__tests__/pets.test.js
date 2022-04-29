@@ -24,7 +24,7 @@ afterAll(() => {
 describe('GET /api/pets', () => {
   it('returns two pets from db', () => {
     expect.assertions(3)
-    db.getAllPets.mockReturnValue(Promise.resolve(objTwoPet))
+    db.getTwoRandomPets.mockReturnValue(Promise.resolve(objTwoPet))
     return request(server)
       .get('/api/pets')
       .then((res) => {
@@ -35,7 +35,7 @@ describe('GET /api/pets', () => {
   })
   it("should return status 500 and error when database doesn't work", () => {
     expect.assertions(2)
-    db.getAllPets.mockImplementation(() =>
+    db.getTwoRandomPets.mockImplementation(() =>
       Promise.reject(new Error('Something went wrong'))
     )
     return request(server)
