@@ -6,9 +6,9 @@ const theme = extendTheme({
       // styles for the `body`
       body: {
         bg: 'gray.50',
-      }
-    }
-  }
+      },
+    },
+  },
 })
 
 export default theme

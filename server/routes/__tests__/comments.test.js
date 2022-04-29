@@ -6,15 +6,15 @@ import { objComment } from '../../../__mockdata__/mockPetData'
 
 jest.mock('../../db')
 
-describe('POST /api/comments', ()=>{
-  it('adding a comment hits the db', ()=>{
+describe('POST /api/comments', () => {
+  it('adding a comment hits the db', () => {
     db.insertComment.mockReturnValue(Promise.resolve(objComment))
     return request(server)
-    .post('/api/comments')
-    .send(objComment)
-    .then((res) => {
-      expect(res.status).toBe(200)
-    })
+      .post('/api/comments')
+      .send(objComment)
+      .then((res) => {
+        expect(res.status).toBe(200)
+      })
   })
   it("should return status 500 and error when database doesn't work", () => {
     expect.assertions(2)

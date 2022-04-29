@@ -1,8 +1,4 @@
-// import nock from 'nock'
-
 import { REQUEST_USER_PETS, SHOW_ERROR, fetchUserPets } from '../index'
-
-// import * as actions from '../index'
 import { getUserPets } from '../../apiClient/pets'
 import { fakePets } from '../../../__mockdata__/mockPetData'
 
