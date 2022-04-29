@@ -9,3 +9,9 @@ export async function addPet(formData, token) {
       return res.body;
     })
 }
+
+export function getRandomPets() {
+  return request.get('/api/pets/').then((response) => {
+    return response.body
+  })
+}

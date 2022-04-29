@@ -42,3 +42,14 @@ describe('addPet', () => {
     })
   })
 })
+
+describe('addPoints', () => {
+  it('should add 2 points', () => {
+    return db
+      .addPoints(4, testDb)
+      .then(() => db.getWinnerById(4, testDb))
+      .then((pet) => {
+        expect(pet.points).toEqual(83 + 2)
+      })
+  })
+})

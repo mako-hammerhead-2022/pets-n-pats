@@ -1,5 +1,7 @@
-// import * as exampleActions from './examplePath'
+import {
+  fetchTwoPets,
+  receiveRandomPets,
+  RECEIVE_RANDOM_TWO_PETS,
+} from './pets'
 
-export default {
-  // ...exampleActions,
-}
+export { fetchTwoPets, receiveRandomPets, RECEIVE_RANDOM_TWO_PETS }
