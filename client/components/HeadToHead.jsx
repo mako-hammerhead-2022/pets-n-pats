@@ -3,9 +3,9 @@ import React from 'react'
 import { HStack, VStack, Heading, Image, Container, Box } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
-import { HeadComment } from './HeadComment'
+import HeadComment from './HeadComment'
 
-export function HeadToHead({ cat, dog }) {
+function HeadToHead({ cat, dog }) {
 
 const scaler = "500px"
 

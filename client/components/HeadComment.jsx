@@ -20,7 +20,7 @@ import { postComment } from '../apiClient/comments'
         <Component ani={{id: #, name: ""}} />   */}
 
 
-export function HeadComment({ ani }) {
+function HeadComment({ ani }) {
     // local state
   const [comment, setComment] = useState('')
   const [loadCheck, setLoadCheck] = useState(false)

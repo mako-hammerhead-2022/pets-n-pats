@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
   const comment = req.body
   db.insertComment(comment)
   .then(() => {
-    return res.status(200).success({message: 'Successful'})
+    return res.status(200).send({message: 'Successful'})
   })
   .catch((err) => {
     res.status(500).send(err.message)

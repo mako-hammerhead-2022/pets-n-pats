@@ -2,7 +2,7 @@ import React from 'react'
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { HeadToHead } from '../HeadToHead'
+import HeadToHead from '../HeadToHead'
 
 import { objTwoPet } from '../../../__mockdata__/mockPetData'
 
