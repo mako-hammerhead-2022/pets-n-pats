@@ -3,5 +3,5 @@ const commentsDb = require('./comments')
 
 module.exports = {
   ...petsDb,
-  ...commentsDb
+  ...commentsDb,
 }

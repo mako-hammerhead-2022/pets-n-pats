@@ -13,7 +13,8 @@
     "build:server": "npm run knex migrate:latest",
     "knex": "knex --knexfile server/db/knexfile.js",
     "lint": "eslint --ext .js,.jsx .",
-    "test": "jest --watchAll",
+    "format": "prettier --write .",
+    "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll --verbose"
   },

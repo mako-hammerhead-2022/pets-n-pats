@@ -10,6 +10,6 @@ describe('POST /api/comments', () => {
 
     const commentRes = await postComment(objComment)
     expect(commentRes.content).toBe(objComment.content)
-    scope.done()    
+    scope.done()
   })
 })
