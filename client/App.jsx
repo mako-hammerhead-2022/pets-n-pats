@@ -1,11 +1,9 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-// styles
 import './App.css'
 import { Heading, Box } from '@chakra-ui/react'
 
-// react front-end components
 import Home from './components/Home'
 import Login from './components/Login'
 import MyPets from './components/MyPets'
