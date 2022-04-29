@@ -75,15 +75,6 @@ describe('POST /api/pets', () => {
 })
 
 describe('PATCH/api/votes/add', () => {
-  beforeEach(() => {
-    // jest.clearAllMocks()
-    jest.spyOn(console, 'log')
-    console.log.mockImplementation(() => {})
-    console.log(console.log)
-  })
-  afterEach(() => {
-    console.log.mockRestore()
-  })
   it('rendering add page', () => {
     expect.assertions(1)
     db.addPoints.mockReturnValue(Promise.resolve(arrTwoPet))
