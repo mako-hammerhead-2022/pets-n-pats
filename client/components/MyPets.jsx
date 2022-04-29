@@ -33,8 +33,8 @@ function MyPets() {
   const renderedPets = pets?.map((pet) => {
     console.log(pet.imageUrl)
     return (
-      <WrapItem w='200px' h='300px' key={pet.id} bg='gray.100'>
-        <Box>
+      <WrapItem w='200px' minH='300px' key={pet.id} bg='gray.100'>
+        <Box p={2}>
           <AspectRatio maxW='200px' ratio={4 / 3}>
             <Image
               objectFit='cover'
@@ -46,7 +46,7 @@ function MyPets() {
             <Heading as='h4' fontSize='md'>
               {pet.name}
             </Heading>
-            <Text as='p' fontSize='xs' mb={4}>
+            <Text as='p' fontSize='xs' mb={2}>
               {pet.bio}
             </Text>
             <Heading as='h5' fontSize='xs'>
@@ -62,7 +62,7 @@ function MyPets() {
   return (
     <div className='MyPets'>
       <PetForm onSuccess={getUserPets} />
-      <Container maxW='4xl' mt={6}>
+      <Container maxW='4xl' mt={6} mb={20}>
         <Center>
           <Wrap justifyContent='space-between'>{renderedPets}</Wrap>
         </Center>
