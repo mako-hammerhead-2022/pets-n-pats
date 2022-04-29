@@ -27,6 +27,9 @@
       "babel-plugin-css-modules-transform"
     ]
   },
+  "engines": {
+    "node": "16.x"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
@@ -45,12 +48,11 @@
     "framer-motion": "^6.3.2",
     "jwks-rsa": "^2.1.0",
     "knex": "^1.0.7",
-    "nock": "^13.2.4",
+    "pg": "^8.7.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
-    "superagent": "^7.1.2",
-    "supertest": "^6.2.3"
+    "superagent": "^7.1.2"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.17.0",
@@ -72,7 +74,7 @@
     "react-redux": "^8.0.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
-    "supertest": "^6.2.2",
+    "supertest": "^6.2.3",
     "vite": "^2.9.5"
   }
 }
