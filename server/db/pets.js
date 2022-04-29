@@ -18,6 +18,17 @@ const randomDog = await db.select().from('pets').where('animal', 'dog').limit(do
 return {cat: randomCat, dog: randomDog}
 }
 
+function getPetById(id, db = connection) {
+  return db('pets').where('id', id).select().first()
+}
+
+function addPet(data, db = connection){
+  return db('pets').insert(data)
+    .then(res => {
+      return getPetById(res[0], db)
+    })
+}
+
 // select the winner by id from the pets db
 function getWinnerById(winnerId, db = connection) {
   return db('pets').select().where('id', winnerId).first()
@@ -30,6 +41,8 @@ function addPoints(petId, db = connection) {
 
 module.exports = {
   getTwoRandomPets,
+  getPetById,
+  addPet,
   addPoints,
   getWinnerById,
 }

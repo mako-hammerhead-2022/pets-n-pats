@@ -4,6 +4,8 @@ const testDb = knex(testConfig)
 
 const db = require('../pets')
 
+import { dbTestPet, dbNewPet } from '../../../__mockdata__/mockPetData'
+
 beforeAll(() => {
   return testDb.migrate.latest()
 })
@@ -22,6 +24,23 @@ describe('getTwoRandomPets', () => {
       expect(pets).toHaveProperty('cat')
       expect(pets).toHaveProperty('dog')
       expect(pets.cat.animal).toContain('cat')
+    })
+  })
+})
+
+describe('getPetById', () => {
+  it('should get the pet given the id', () => {
+    return db.getPetById(2, testDb)
+      .then(pet => {
+        expect(pet).toEqual({...dbTestPet, createdAt: expect.anything(), updatedAt: expect.anything()})
+      })
+  })
+})
+
+describe('addPet', () => {
+  it('should add a pet', () => {
+    return db.addPet(dbNewPet, testDb).then((pet) => {
+      expect(pet).toEqual({...dbNewPet, createdAt: expect.anything(), updatedAt: expect.anything(), points: expect.any(Number), id: 6})
     })
   })
 })
