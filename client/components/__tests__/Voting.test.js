@@ -1,6 +1,6 @@
 import React from 'react'
 import { screen, render } from '@testing-library/react'
-import { Provider, useDispatch } from 'react-redux'
+import { Provider } from 'react-redux'
 import userEvent from '@testing-library/user-event'
 import { objTwoPet } from '../../../__mockdata__/mockPetData'
 
