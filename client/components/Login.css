@@ -4,17 +4,6 @@
   margin: 10px;
 }
 
-.btn {
-  background-color: rgb(23, 197, 197);
-  color: white;
-  font-size: 14px;
-  border-radius: 5px;
-  border-style: none;
-  padding: 10px;
-  margin: 10px;
-  cursor: pointer;
-}
-
 .avatar {
   border-radius: 50%;
   width: 50px;
