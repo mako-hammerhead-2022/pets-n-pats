@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 
-const PetForm = ({ onSubmit }) => {
+const PetForm = ({ onSubmit, onSuccess }) => {
   const [name, setName] = useState('')
   const [bio, setBio] = useState('')
   const [animal, setAnimal] = useState('cat')
@@ -51,12 +51,13 @@ const PetForm = ({ onSubmit }) => {
     setSelectedFile(null)
 
     onClose()
+    onSuccess()
   }
 
   return (
     <>
       {isAuthenticated && (
-        <Button onClick={onOpen} colorScheme="teal">
+        <Button onClick={onOpen} colorScheme='teal'>
           + Add Pet
         </Button>
       )}
@@ -76,41 +77,41 @@ const PetForm = ({ onSubmit }) => {
               {(props) => (
                 <Form>
                   <FormControl>
-                    <FormLabel htmlFor="name">Name:</FormLabel>
+                    <FormLabel htmlFor='name'>Name:</FormLabel>
                     <Input
-                      type="text"
-                      id="name"
+                      type='text'
+                      id='name'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
                     />
-                    <FormLabel htmlFor="bio">Bio:</FormLabel>
+                    <FormLabel htmlFor='bio'>Bio:</FormLabel>
                     <Textarea
-                      type="text"
-                      id="bio"
+                      type='text'
+                      id='bio'
                       value={bio}
                       onChange={(e) => setBio(e.target.value)}
                       required
                     />
-                    <FormLabel htmlFor="animal">
+                    <FormLabel htmlFor='animal'>
                       Select type of animal:
                     </FormLabel>
                     <Select
-                      name="animal"
-                      id="animal"
+                      name='animal'
+                      id='animal'
                       value={animal}
                       onChange={(e) => setAnimal(e.target.value)}
                       required
                     >
-                      <option value="cat">Cat</option>
-                      <option value="dog">Dog</option>
+                      <option value='cat'>Cat</option>
+                      <option value='dog'>Dog</option>
                     </Select>
-                    <FormLabel htmlFor="image">Upload image:</FormLabel>
+                    <FormLabel htmlFor='image'>Upload image:</FormLabel>
                     <Input
-                      type="file"
-                      name="image"
-                      id="image"
-                      accept="image/*"
+                      type='file'
+                      name='image'
+                      id='image'
+                      accept='image/*'
                       onChange={handleFileChange}
                       required
                     />
@@ -118,9 +119,9 @@ const PetForm = ({ onSubmit }) => {
                   <Container centerContent>
                     <div>
                       <Button
-                        type="submit"
+                        type='submit'
                         isLoading={props.isSubmitting}
-                        colorScheme="teal"
+                        colorScheme='teal'
                         m={2}
                       >
                         Add Pet

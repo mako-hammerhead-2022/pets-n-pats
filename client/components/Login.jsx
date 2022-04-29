@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Button } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 import './Login.css'
 
@@ -17,6 +18,18 @@ const Login = () => {
 
   return (
     <div className='login'>
+      <nav>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          {isAuthenticated && (
+            <li>
+              <Link to='/mypets'>My Pets</Link>
+            </li>
+          )}
+        </ul>
+      </nav>
       {isAuthenticated && (
         <p
           aria-label='login message'
