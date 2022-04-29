@@ -2,9 +2,31 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
-// get all of the pets
-function getAllPets(db = connection) {
-  return db('pets').select()
+async function getTwoRandomPets(db = connection) {
+  const randomAnimal = (animalLength) => {
+    return Math.floor(Math.random() * animalLength)
+  }
+  const countOfCats = await db('pets').count().where('animal', 'cat')
+  const countOfDogs = await db('pets').count().where('animal', 'dog')
+  const catNumber = Object.values(countOfCats[0])[0]
+  const dogNumber = Object.values(countOfDogs[0])[0]
+  const randomCatNumber = randomAnimal(catNumber)
+  const randomDogNumber = randomAnimal(dogNumber)
+  const randomCat = await db
+    .select()
+    .from('pets')
+    .where('animal', 'cat')
+    .limit(catNumber)
+    .offset(randomCatNumber)
+    .first()
+  const randomDog = await db
+    .select()
+    .from('pets')
+    .where('animal', 'dog')
+    .limit(dogNumber)
+    .offset(randomDogNumber)
+    .first()
+  return { cat: randomCat, dog: randomDog }
 }
 
 function getPetsByUserId(userId, db = connection) {
@@ -33,8 +55,8 @@ function addPoints(petId, db = connection) {
 }
 
 module.exports = {
-  getAllPets,
   getPetsByUserId,
+  getTwoRandomPets,
   getPetById,
   addPet,
   addPoints,

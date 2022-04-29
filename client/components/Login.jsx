@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Button } from '@chakra-ui/react'
 
 import './Login.css'
 
@@ -24,15 +25,15 @@ const Login = () => {
       )}
       {isAuthenticated ? (
         <>
-          <button onClick={handleSignOut} className='btn'>
+          <Button onClick={handleSignOut} colorScheme='teal' m={2}>
             Sign Out
-          </button>
+          </Button>
           <img src={user.picture} className='avatar' />
         </>
       ) : (
-        <button onClick={handleSignIn} className='btn'>
+        <Button onClick={handleSignIn} colorScheme='teal' m={2}>
           Sign In
-        </button>
+        </Button>
       )}
     </div>
   )
