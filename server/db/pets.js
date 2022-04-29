@@ -38,7 +38,7 @@ function getPetById(id, db = connection) {
 }
 
 function addPet(data, db = connection) {
-  return db('pets').insert(data)
+  return db('pets').insert(data).returning('id')
 }
 
 function getWinnerById(winnerId, db = connection) {

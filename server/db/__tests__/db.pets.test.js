@@ -53,7 +53,7 @@ describe('addPet', () => {
   it('should add a pet', () => {
     return db
       .addPet(dbNewPet, testDb)
-      .then(([id]) => {
+      .then(([{ id }]) => {
         return db.getPetById(id, testDb)
       })
       .then((pet) => {
