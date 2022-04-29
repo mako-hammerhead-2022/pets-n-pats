@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Voting from './Voting'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { HeadToHead } from './HeadToHead.jsx'
+import HeadToHead from './HeadToHead'
 import { fetchTwoPets } from '../actions'
 
 function App() {

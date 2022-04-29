@@ -74,4 +74,8 @@ export const apiClientPet = {
   bio: 'random bio',
   animal: 'cat',
   imageUrl: 'image.jpg',
+export const objComment ={
+  petId: 4,
+  authId: 'auth0|something',
+  content: 'this pet comment is for petId4, he big'
 }
