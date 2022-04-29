@@ -9,7 +9,7 @@ const Login = () => {
   const { isAuthenticated, user, logout, loginWithRedirect } = useAuth0()
 
   const handleSignOut = () => {
-    logout()
+    logout({ returnTo: window.location.origin })
   }
 
   const handleSignIn = () => {
