@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 
-const PetForm = () => {
+const PetForm = ({ onSubmit }) => {
   const [name, setName] = useState('')
   const [bio, setBio] = useState('')
   const [animal, setAnimal] = useState('cat')
@@ -63,8 +63,8 @@ const PetForm = () => {
           <ModalBody>
             <Formik
               initialValues={{}}
-              onSubmit={ async (values, actions) => {
-                await actions.setSubmitting(false)
+              onSubmit={(values) => {
+                onSubmit(values)
                 handleSubmit()
               }}
             >
@@ -135,4 +135,7 @@ const PetForm = () => {
   )
 }
 
+PetForm.defaultProps = {
+  onSubmit: () => {},
+}
 export default PetForm
