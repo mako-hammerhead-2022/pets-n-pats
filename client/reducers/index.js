@@ -1,13 +1,8 @@
 import { combineReducers } from 'redux'
-<<<<<<< HEAD
 import myPetsReducer from './myPets'
+import petsReducer from './pets'
 
 export default combineReducers({
-  pets: myPetsReducer
-=======
-import pets from './pets'
-
-export default combineReducers({
-  pets,
->>>>>>> dev
+  myPets: myPetsReducer,
+  pets: petsReducer,
 })

@@ -7,13 +7,13 @@ function MyPets() {
   // TODO add Auth for user ID
   const userId = 6
 
-  const pets = useSelector((state) => state.pets)
+  const pets = useSelector((state) => state.myPets)
 
   useEffect(() => {
     dispatch(fetchUserPets(userId))
   }, [])
 
-  const userInfo = pets.map((pet, i) => {
+  const userInfo = pets?.map((pet, i) => {
     return (
       <li key={i}>
         {pet.id}
