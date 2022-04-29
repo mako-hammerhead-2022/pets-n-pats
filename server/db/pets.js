@@ -8,7 +8,20 @@ function getAllPets(db = connection) {
 }
 
 function getPetsByUserId(userId, db = connection) {
-  return db('pets').select().where('userId', userId)}
+  return db('pets').select().where('userId', userId)
+}
+function getPetById(id, db = connection) {
+  return db('pets').where('id', id).select().first()
+}
+
+function addPet(data, db = connection) {
+  return db('pets')
+    .insert(data)
+    .then((res) => {
+      return getPetById(res[0], db)
+    })
+}
+
 // select the winner by id from the pets db
 function getWinnerById(winnerId, db = connection) {
   return db('pets').select().where('id', winnerId).first()
@@ -22,6 +35,8 @@ function addPoints(petId, db = connection) {
 module.exports = {
   getAllPets,
   getPetsByUserId,
+  getPetById,
+  addPet,
   addPoints,
   getWinnerById,
 }

@@ -1,7 +1,10 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const fs = require('fs')
 const server = express()
+
+const imageRoutes = require('./routes/image');
 
 server.use(express.static(path.resolve(__dirname, '../dist')))
 server.use(express.static(path.resolve(__dirname, './public')))
@@ -9,6 +12,7 @@ server.use(express.static(path.resolve(__dirname, './public')))
 server.use(express.json())
 
 server.use('/api/pets', require('./routes/pets'))
+server.use('/api/image', imageRoutes)
 server.use('/api/votes', require('./routes/votes'))
 
 server.get('*', (req, res) => {

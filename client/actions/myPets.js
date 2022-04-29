@@ -1,5 +1,4 @@
 import api from '../apiClient'
-
 export const REQUEST_USER_PETS = 'REQUEST_USER_PETS'
 export const SHOW_ERROR = 'SHOW_ERROR'
 
