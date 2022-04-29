@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../db')
+const checkJwt = require('../auth0')
 
 router.get('/', (req, res) => {
   db.getAllPets()
@@ -17,6 +18,18 @@ router.get('/', (req, res) => {
       const randomCat = cats[randomAnimal(cats.length)]
       const randomDog = dogs[randomAnimal(dogs.length)]
       res.json({ cat: randomCat, dog: randomDog })
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).send({ message: 'Something went wrong' })
+    })
+})
+
+router.post('/', checkJwt, (req, res) => {
+  const formData = req.body;
+  db.addPet(formData)
+    .then((pet) => {
+      res.json(pet)
     })
     .catch((err) => {
       console.log(err)
