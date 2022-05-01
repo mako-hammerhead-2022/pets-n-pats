@@ -53,14 +53,13 @@ describe('GET /api/pets', () => {
 
 describe('POST /api/pets', () => {
   it('adds a pet to the database and returns the new pet', () => {
-    expect.assertions(2)
-    db.addPet.mockReturnValue(Promise.resolve(dbNewPet))
+    expect.assertions(1)
+    db.addPet.mockReturnValue(Promise.resolve([6]))
     return request(server)
       .post('/api/pets')
       .send(dbNewPet)
       .then((res) => {
-        expect(res.status).toBe(200)
-        expect(res.body).toEqual(dbNewPet)
+        expect(res.status).toBe(201)
       })
   })
   it("should return status 500 and error when database doesn't work", () => {

@@ -30,8 +30,8 @@ router.get('/my', checkJwt, (req, res) => {
 router.post('/', checkJwt, (req, res) => {
   const formData = req.body
   db.addPet(formData)
-    .then((pet) => {
-      res.json(pet)
+    .then(() => {
+      res.sendStatus(201)
     })
     .catch((err) => {
       console.log(err)

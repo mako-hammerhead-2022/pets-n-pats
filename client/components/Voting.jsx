@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 
 function Voting({ cat, dog }) {
   const dispatch = useDispatch()
+
   function handleSubmit(winnerId) {
     if (winnerId !== 'skip') {
       postVotes(winnerId)
@@ -15,7 +16,9 @@ function Voting({ cat, dog }) {
         .catch((err) => {
           console.log(err)
         })
-    } else dispatch(fetchTwoPets())
+    } else {
+      dispatch(fetchTwoPets())
+    }
   }
 
   return (
@@ -26,7 +29,6 @@ function Voting({ cat, dog }) {
           value={cat.name}
           onClick={() => handleSubmit(cat.id)}
         >
-          {/* Cat Button */}
           Pick Me!
         </Button>
         <Button
@@ -34,7 +36,6 @@ function Voting({ cat, dog }) {
           value='skip'
           onClick={() => handleSubmit('skip')}
         >
-          {/* Skip */}
           Skip, both cute!
         </Button>
         <Button
@@ -42,7 +43,6 @@ function Voting({ cat, dog }) {
           value={dog.name}
           onClick={() => handleSubmit(dog.id)}
         >
-          {/* Dog Button */}
           No, Pick Me!
         </Button>
       </HStack>

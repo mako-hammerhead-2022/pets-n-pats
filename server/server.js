@@ -1,18 +1,18 @@
-require('dotenv').config()
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  const envConfig = require('dotenv').config()
+  if (envConfig.error) throw envConfig.error
+}
 const express = require('express')
 const path = require('path')
 const fs = require('fs')
 const server = express()
 
-const imageRoutes = require('./routes/image')
-
 server.use(express.static(path.resolve(__dirname, '../dist')))
-server.use(express.static(path.resolve(__dirname, './public')))
 
 server.use(express.json())
 
 server.use('/api/pets', require('./routes/pets'))
-server.use('/api/image', imageRoutes)
+server.use('/api/image', require('./routes/image'))
 server.use('/api/comments', require('./routes/comments'))
 server.use('/api/votes', require('./routes/votes'))
 

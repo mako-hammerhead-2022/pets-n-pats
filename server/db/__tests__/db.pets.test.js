@@ -51,15 +51,20 @@ describe('getPetById', () => {
 
 describe('addPet', () => {
   it('should add a pet', () => {
-    return db.addPet(dbNewPet, testDb).then((pet) => {
-      expect(pet).toEqual({
-        ...dbNewPet,
-        createdAt: expect.anything(),
-        updatedAt: expect.anything(),
-        points: expect.any(Number),
-        id: 6,
+    return db
+      .addPet(dbNewPet, testDb)
+      .then(([id]) => {
+        return db.getPetById(id, testDb)
       })
-    })
+      .then((pet) => {
+        expect(pet).toEqual({
+          ...dbNewPet,
+          createdAt: expect.anything(),
+          updatedAt: expect.anything(),
+          points: expect.any(Number),
+          id: 6,
+        })
+      })
   })
 })
 

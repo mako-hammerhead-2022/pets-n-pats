@@ -20,8 +20,9 @@ describe('<PetForm /> renders when user is authenticated', () => {
       getAccessTokenSilently: jest.fn(),
     })
     const mockHandleSubmit = jest.fn()
+    const mockOnSuccess = jest.fn()
 
-    render(<PetForm onSubmit={mockHandleSubmit} onSuccess={jest.fn()} />)
+    render(<PetForm onSubmit={mockHandleSubmit} onSuccess={mockOnSuccess} />)
     const addPetButton = screen.getByRole('button', { name: /add pet/i })
     expect(addPetButton).toBeInTheDocument()
 

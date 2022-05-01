@@ -33,8 +33,8 @@ describe('<MyPets /> renders users pets', () => {
         animal: 'cat',
         points: 190,
       },
-
       {
+        id: 6,
         userId: '6',
         name: 'Domin',
         bio: 'Reverse-engineered',
@@ -51,10 +51,7 @@ describe('<MyPets /> renders users pets', () => {
         <MyPets />
       </Provider>
     )
-    // screen.debug()
-    // const dogName = screen.getByText('Orel')
     const petNames = screen.getAllByRole('heading')
-    // console.log(petName.textContent)
     expect(petNames[0].textContent).toContain('Domin')
     expect(petNames).toHaveLength(4)
   })
