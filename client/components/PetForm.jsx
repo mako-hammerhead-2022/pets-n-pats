@@ -34,8 +34,6 @@ const PetForm = ({ onSubmit, onSuccess }) => {
   }
 
   const handleSubmit = async () => {
-    console.log(selectedFiles)
-
     const token = await getAccessTokenSilently()
 
     const urls = [];
