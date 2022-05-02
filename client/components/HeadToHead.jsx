@@ -10,6 +10,13 @@ import {
 } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
+// Swiper 8 is ESM only, Swiper 6 does not work with Vite HMR
+// so we need to disable unresolved imports check to use Swiper 8
+// eslint-disable-next-line import/no-unresolved
+import { Swiper, SwiperSlide } from 'swiper/react'
+// eslint-disable-next-line import/no-unresolved
+import 'swiper/css'
+
 import HeadComment from './HeadComment'
 
 function HeadToHead({ cat, dog }) {
