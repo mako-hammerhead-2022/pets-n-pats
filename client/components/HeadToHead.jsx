@@ -24,7 +24,6 @@ function HeadToHead({ cat, dog }) {
   const dogImages = JSON.parse(dog.imageUrl);
   const dogIndex = Math.floor(Math.random() * catImages.length);
   const dogImage = dogImages[dogIndex];
-  console.log(catImage, dogImage)
 
   const styleProps = {
     image: {
