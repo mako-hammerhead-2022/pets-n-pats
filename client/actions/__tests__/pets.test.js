@@ -1,4 +1,4 @@
-import { fetchTwoPets, RECEIVE_RANDOM_TWO_PETS, SET_ERROR } from '../pets'
+import { fetchTwoPets, pets_receiveData, pets_setError } from '../pets'
 import * as api from '../../apiClient'
 import { objTwoPet } from '../../../__mockdata__/mockPetData'
 
@@ -19,7 +19,7 @@ describe('fetchTwoPets', () => {
     expect.assertions(1)
     return fetchTwoPets()(fakeDispatch).then(() => {
       expect(fakeDispatch).toHaveBeenCalledWith({
-        type: RECEIVE_RANDOM_TWO_PETS,
+        type: pets_receiveData,
         pets: objTwoPet,
       })
     })
@@ -33,7 +33,7 @@ describe('fetchTwoPets', () => {
     expect.assertions(1)
     return fetchTwoPets()(fakeDispatch).then(() => {
       expect(fakeDispatch).toHaveBeenCalledWith({
-        type: SET_ERROR,
+        type: pets_setError,
         errMessage: 'Something went wrong',
       })
     })

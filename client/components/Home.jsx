@@ -8,7 +8,7 @@ import { fetchTwoPets } from '../actions'
 function App() {
   const dispatch = useDispatch()
 
-  const pets = useSelector((state) => state.pets)
+  const pets = useSelector((state) => state.pets.data)
 
   useEffect(() => {
     dispatch(fetchTwoPets())

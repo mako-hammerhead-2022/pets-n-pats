@@ -1,10 +1,30 @@
-import { RECEIVE_RANDOM_TWO_PETS } from '../actions/pets'
-
 const initialState = []
+
+import {
+  pets_receiveData,
+  pets_setError,
+  pets_requestData,
+} from '../actions/pets'
+
 export default function pets(state = initialState, action) {
   switch (action.type) {
-    case RECEIVE_RANDOM_TWO_PETS:
-      return action.pets
+    case pets_receiveData:
+      return {
+        ...state,
+        data: action.pets,
+        error: null,
+      }
+    case pets_setError:
+      return {
+        ...state,
+        loading: false,
+        error: action.errMessage,
+      }
+    case pets_requestData:
+      return {
+        ...state,
+        loading: true,
+      }
     default:
       return state
   }
