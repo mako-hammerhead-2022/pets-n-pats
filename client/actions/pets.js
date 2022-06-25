@@ -1,4 +1,4 @@
-import api from '../apiClient'
+import * as api from '../apiClient'
 export const RECEIVE_RANDOM_TWO_PETS = 'RECEIVE_RANDOM_TWO_PETS'
 export const SET_ERROR = 'SET_ERROR'
 

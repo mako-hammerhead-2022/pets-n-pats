@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import api from '../apiClient'
+import * as api from '../apiClient'
 import { useAuth0 } from '@auth0/auth0-react'
 import {
   Modal,

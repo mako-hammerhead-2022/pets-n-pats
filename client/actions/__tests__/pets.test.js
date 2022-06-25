@@ -1,5 +1,5 @@
 import { fetchTwoPets, RECEIVE_RANDOM_TWO_PETS, SET_ERROR } from '../pets'
-import api from '../../apiClient'
+import * as api from '../../apiClient'
 import { objTwoPet } from '../../../__mockdata__/mockPetData'
 
 jest.mock('../../apiClient')
