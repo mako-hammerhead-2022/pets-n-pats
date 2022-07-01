@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../db')
-const checkJwt = require('../auth0')
+const { checkJwt } = require('../utils')
 
 router.get('/', (req, res) => {
   db.getTwoRandomPets()

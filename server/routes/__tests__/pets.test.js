@@ -2,15 +2,15 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
 
-import {
+const {
   arrTwoPet,
   dbNewPet,
   objTwoPet,
-} from '../../../__mockdata__/mockPetData'
-import checkJwt from '../../auth0'
+} = require('../../../__mockdata__/mockPetData')
+const { checkJwt } = require('../../utils')
 
 jest.mock('../../db')
-jest.mock('../../auth0')
+jest.mock('../../utils')
 
 beforeAll(() => {
   jest.spyOn(console, 'log')
