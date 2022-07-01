@@ -37,7 +37,7 @@ function MyPets() {
           <AspectRatio maxW='200px' ratio={4 / 3} mb={2}>
             <Image
               objectFit='cover'
-              src={pet.imageUrl}
+              src={JSON.parse(pet.imageUrl)[Math.floor(Math.random() * JSON.parse(pet.imageUrl).length)]} // get a random image
               alt={`picture of the pet we put here in the tag of ${pet.name}`}
             />
           </AspectRatio>

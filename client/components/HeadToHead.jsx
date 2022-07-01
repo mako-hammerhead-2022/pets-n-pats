@@ -15,6 +15,18 @@ import HeadComment from '@/components/HeadComment'
 function HeadToHead({ cat, dog }) {
   const scaler = '400px'
 
+  // get a random cat image
+  const catImages = JSON.parse(cat.imageUrl)
+  const catIndex = Math.floor(Math.random() * catImages.length)
+  const catImage = catImages[catIndex]
+
+  // get a random dog image
+  const dogImages = JSON.parse(dog.imageUrl)
+  console.log(dogImages.length)
+  const dogIndex = Math.floor(Math.random() * dogImages.length)
+  const dogImage = dogImages[dogIndex]
+  console.log(dogIndex, dogImage)
+
   const styleProps = {
     image: {
       width: scaler,
@@ -53,7 +65,7 @@ function HeadToHead({ cat, dog }) {
           <VStack id='cat-box'>
             <Image
               {...styleProps.image}
-              src={cat.imageUrl}
+              src={catImage}
               alt={`An image of ${cat.name}`}
             />
             <Box {...styleProps.bioBox}>
@@ -70,7 +82,7 @@ function HeadToHead({ cat, dog }) {
           <VStack id='dog-box'>
             <Image
               {...styleProps.image}
-              src={dog.imageUrl}
+              src={dogImage}
               alt={`An image of ${dog.name}`}
             />
             <Box {...styleProps.bioBox}>
