@@ -1,11 +1,11 @@
 import myPetsReducer from '@/reducers/myPets'
-import { REQUEST_USER_PETS } from '@/actions'
+import { userPets_requestData } from '@/actions'
 
 describe('myPetsReducer', () => {
   it('can get pets by user id', () => {
     // arrange
     const action = {
-      type: REQUEST_USER_PETS,
+      type: userPets_requestData,
       payload: { pets: [{ name: 'bob', id: 4 }] },
     }
 

@@ -1,10 +1,11 @@
-import { REQUEST_USER_PETS } from '@/actions'
+import { userPets_receieveData } from '@/actions'
 
 const initialState = []
 
 const myPetsReducer = (state = initialState, action) => {
+  // TODO: add loading and error state
   switch (action.type) {
-    case REQUEST_USER_PETS:
+    case userPets_receieveData:
       return action.payload.pets
 
     default:

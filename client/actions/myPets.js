@@ -1,31 +1,39 @@
 import * as api from '@/apiClient'
-export const REQUEST_USER_PETS = 'REQUEST_USER_PETS'
-export const SHOW_ERROR = 'SHOW_ERROR'
+export const userPets_receieveData = 'userPets/receieveData'
+export const userPets_requestData = 'userPets/requestData'
+export const userPets_setError = 'userPets/setError'
 
-export function requestUserPets(pets) {
+export function receieveUserPets(pets) {
   return {
-    type: REQUEST_USER_PETS,
+    type: userPets_receieveData,
     payload: { pets },
   }
 }
 
-export function showError(errorMessage) {
+export function setUserPetsError(errorMessage) {
   return {
-    type: SHOW_ERROR,
+    type: userPets_setError,
     errorMessage: errorMessage,
+  }
+}
+
+export function requestUserPets() {
+  return {
+    type: userPets_requestData,
   }
 }
 
 export function fetchUserPets(token) {
   return (dispatch) => {
+    dispatch(requestUserPets())
     return api
       .getUserPets(token)
       .then((pets) => {
-        dispatch(requestUserPets(pets))
+        dispatch(receieveUserPets(pets))
         return null
       })
       .catch((err) => {
-        dispatch(showError(err.message))
+        dispatch(setUserPetsError(err.message))
       })
   }
 }
