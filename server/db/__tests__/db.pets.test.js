@@ -40,7 +40,6 @@ describe('getPetsByUserId', () => {
 describe('getPetById', () => {
   it('should get the pet given the id', () => {
     return db.getPetById(2, testDb).then((pet) => {
-      console.log(pet)
       expect(pet).toEqual({
         ...dbTestPet,
         createdAt: expect.anything(),

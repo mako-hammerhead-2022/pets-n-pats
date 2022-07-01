@@ -11,7 +11,6 @@ jest.mock('../../utils')
 beforeAll(() => {
   jest.spyOn(console, 'log')
   console.log.mockImplementation(() => {})
-  console.log(console.log)
   checkJwt.mockImplementation((req, res, next) => {
     next()
   })
@@ -91,7 +90,6 @@ describe('PATCH/api/votes/add', () => {
     return request(server)
       .patch('/api/votes/add')
       .then((res) => {
-        console.log('line 69: ', res)
         expect(res.status).toBe(500)
         expect(res.text).toContain('Something went wrong')
       })

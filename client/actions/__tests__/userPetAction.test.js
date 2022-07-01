@@ -23,7 +23,6 @@ describe('fetchUserPets', () => {
     await thunkFn(fakeDispatch)
     const firstAction = fakeDispatch.mock.calls[0][0]
     const secondAction = fakeDispatch.mock.calls[1][0]
-    console.log({ secondAction })
     expect(firstAction.type).toEqual(userPets_requestData)
     expect(secondAction.type).toEqual(userPets_receieveData)
     expect(secondAction.payload).toEqual({ pets: fakePets })
