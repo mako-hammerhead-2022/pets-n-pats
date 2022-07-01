@@ -2,7 +2,7 @@ import React from 'react'
 import { screen, render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import userEvent from '@testing-library/user-event'
-import { objTwoPet } from '~/__mockdata__/mockPetData'
+import { objTwoPet } from '~/test/fake-data'
 
 import { postVotes } from '@/apiClient'
 jest.mock('@/apiClient')

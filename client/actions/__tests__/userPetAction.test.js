@@ -1,6 +1,6 @@
 import { REQUEST_USER_PETS, SHOW_ERROR, fetchUserPets } from '@/actions'
 import { getUserPets } from '@/apiClient'
-import { fakePets } from '~/__mockdata__/mockPetData'
+import { fakePets } from '~/test/fake-data'
 
 jest.mock('@/apiClient')
 const fakeDispatch = jest.fn()

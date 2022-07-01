@@ -1,6 +1,6 @@
 import { fetchTwoPets, pets_receiveData, pets_setError } from '@/actions'
 import * as api from '@/apiClient'
-import { objTwoPet } from '~/__mockdata__/mockPetData'
+import { objTwoPet } from '~/test/fake-data'
 
 jest.mock('@/apiClient')
 

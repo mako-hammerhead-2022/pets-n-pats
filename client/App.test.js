@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import { objTwoPet } from '~/__mockdata__/mockPetData'
+import { objTwoPet } from '~/test/fake-data'
 
 const fakeStore = {
   subscribe: jest.fn(),

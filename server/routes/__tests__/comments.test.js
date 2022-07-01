@@ -2,7 +2,7 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
 
-import { objComment } from '../../../__mockdata__/mockPetData'
+import { objComment } from '~/test/fake-data'
 
 jest.mock('../../db')
 

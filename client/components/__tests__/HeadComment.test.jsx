@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import HeadComment from '@/components/HeadComment'
-import { objTwoPet } from '~/__mockdata__/mockPetData'
+import { objTwoPet } from '~/test/fake-data'
 
 describe('<HeadComment />', () => {
   it('renders on the screen', () => {

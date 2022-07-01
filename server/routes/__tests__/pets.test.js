@@ -2,11 +2,7 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
 
-const {
-  arrTwoPet,
-  dbNewPet,
-  objTwoPet,
-} = require('../../../__mockdata__/mockPetData')
+const { arrTwoPet, dbNewPet, objTwoPet } = require('~/test/fake-data')
 const { checkJwt } = require('../../utils')
 
 jest.mock('../../db')

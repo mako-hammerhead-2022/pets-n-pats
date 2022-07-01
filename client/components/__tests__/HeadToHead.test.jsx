@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 
 import HeadToHead from '@/components/HeadToHead'
 
-import { objTwoPet } from '~/__mockdata__/mockPetData'
+import { objTwoPet } from '~/test/fake-data'
 
 const { cat, dog } = objTwoPet
 

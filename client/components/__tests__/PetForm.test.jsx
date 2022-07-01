@@ -4,7 +4,7 @@ import PetForm from '@/components/PetForm.jsx'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { apiClientPet } from '~/__mockdata__/mockPetData'
+import { apiClientPet } from '~/test/fake-data'
 const file = new File(['elephant_small'], 'elephant_small.png', {
   type: 'image/png',
 })
