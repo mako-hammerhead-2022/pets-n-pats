@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import Voting from './Voting'
 import { useDispatch, useSelector } from 'react-redux'
 
-import HeadToHead from './HeadToHead'
-import { fetchTwoPets } from '../actions'
+import { fetchTwoPets } from '@/actions'
+
+import Voting from '@/components/Voting'
+import HeadToHead from '@/components/HeadToHead'
 
 function App() {
   const dispatch = useDispatch()

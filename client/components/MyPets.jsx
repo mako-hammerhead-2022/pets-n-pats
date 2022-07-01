@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchUserPets } from '../actions'
+import { fetchUserPets } from '@/actions'
 import { useAuth0 } from '@auth0/auth0-react'
 import {
   Image,
@@ -13,7 +13,7 @@ import {
   Text,
   Center,
 } from '@chakra-ui/react'
-import PetForm from './PetForm'
+import PetForm from '@/components/PetForm'
 
 function MyPets() {
   const dispatch = useDispatch()

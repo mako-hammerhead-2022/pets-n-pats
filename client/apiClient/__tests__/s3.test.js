@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getImageUrl } from '../s3'
+import { getImageUrl } from '@/apiClient'
 
 const initialFile = {
   name: 'filename',

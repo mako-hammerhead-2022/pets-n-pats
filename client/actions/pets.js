@@ -1,4 +1,4 @@
-import * as api from '../apiClient'
+import * as api from '@/apiClient'
 
 export const pets_receiveData = 'pets/receiveData'
 export function receiveRandomPets(pets) {

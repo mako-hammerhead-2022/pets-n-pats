@@ -1,9 +1,10 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import Login from '../Login.jsx'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter as Router } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
+
+import Login from '@/components/Login.jsx'
 
 jest.mock('@auth0/auth0-react')
 

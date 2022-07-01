@@ -1,4 +1,4 @@
-import { REQUEST_USER_PETS } from '../actions'
+import { REQUEST_USER_PETS } from '@/actions'
 
 const initialState = []
 

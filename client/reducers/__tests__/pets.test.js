@@ -1,7 +1,7 @@
 // TODO: test pets_requestData, pets_setError
-import { pets_receiveData } from '../../actions/pets'
-import petsReducer from '../pets'
-import { objTwoPet } from '../../../__mockdata__/mockPetData'
+import { pets_receiveData } from '@/actions'
+import petsReducer from '@/reducers/pets'
+import { objTwoPet } from '~/__mockdata__/mockPetData'
 
 describe('pets reducer', () => {
   it('receives two random pets, one cat, one dog', () => {

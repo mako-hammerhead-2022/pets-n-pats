@@ -1,6 +1,6 @@
 import nock from 'nock'
-import { getRandomPets, addPet } from '../pets'
-import { objTwoPet, apiClientPet } from '../../../__mockdata__/mockPetData'
+import { getRandomPets, addPet } from '@/apiClient'
+import { objTwoPet, apiClientPet } from '~/__mockdata__/mockPetData'
 
 describe('GET /api/pets/', () => {
   test('Requests server route to get 2 random pet objects', async () => {

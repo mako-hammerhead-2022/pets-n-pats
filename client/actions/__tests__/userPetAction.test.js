@@ -1,8 +1,8 @@
-import { REQUEST_USER_PETS, SHOW_ERROR, fetchUserPets } from '../index'
-import { getUserPets } from '../../apiClient/pets'
-import { fakePets } from '../../../__mockdata__/mockPetData'
+import { REQUEST_USER_PETS, SHOW_ERROR, fetchUserPets } from '@/actions'
+import { getUserPets } from '@/apiClient'
+import { fakePets } from '~/__mockdata__/mockPetData'
 
-jest.mock('../../apiClient/pets')
+jest.mock('@/apiClient')
 const fakeDispatch = jest.fn()
 getUserPets.mockReturnValue(Promise.resolve(fakePets))
 

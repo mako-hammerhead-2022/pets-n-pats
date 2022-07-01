@@ -1,10 +1,6 @@
 const initialState = []
 
-import {
-  pets_receiveData,
-  pets_setError,
-  pets_requestData,
-} from '../actions/pets'
+import { pets_receiveData, pets_setError, pets_requestData } from '@/actions'
 
 export default function pets(state = initialState, action) {
   switch (action.type) {

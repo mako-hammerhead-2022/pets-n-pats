@@ -2,12 +2,12 @@ import React from 'react'
 import { screen, render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import userEvent from '@testing-library/user-event'
-import { objTwoPet } from '../../../__mockdata__/mockPetData'
+import { objTwoPet } from '~/__mockdata__/mockPetData'
 
-import { postVotes } from '../../apiClient/votes'
-jest.mock('../../apiClient/votes')
+import { postVotes } from '@/apiClient'
+jest.mock('@/apiClient')
 
-import Voting from '../Voting'
+import Voting from '@/components/Voting'
 
 const fakeStore = {
   subscribe: jest.fn(),

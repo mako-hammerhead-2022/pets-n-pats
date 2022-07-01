@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
-import HeadComment from './HeadComment'
+import HeadComment from '@/components/HeadComment'
 
 function HeadToHead({ cat, dog }) {
   const scaler = '400px'

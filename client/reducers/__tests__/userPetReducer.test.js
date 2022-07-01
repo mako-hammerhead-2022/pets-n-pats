@@ -1,5 +1,5 @@
-import myPetsReducer from '../myPets'
-import { REQUEST_USER_PETS } from '../../actions'
+import myPetsReducer from '@/reducers/myPets'
+import { REQUEST_USER_PETS } from '@/actions'
 
 describe('myPetsReducer', () => {
   it('can get pets by user id', () => {

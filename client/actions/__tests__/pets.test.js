@@ -1,8 +1,8 @@
-import { fetchTwoPets, pets_receiveData, pets_setError } from '../pets'
-import * as api from '../../apiClient'
-import { objTwoPet } from '../../../__mockdata__/mockPetData'
+import { fetchTwoPets, pets_receiveData, pets_setError } from '@/actions'
+import * as api from '@/apiClient'
+import { objTwoPet } from '~/__mockdata__/mockPetData'
 
-jest.mock('../../apiClient')
+jest.mock('@/apiClient')
 
 const fakeDispatch = jest.fn()
 api.getRandomPets.mockReturnValue(Promise.resolve(objTwoPet))

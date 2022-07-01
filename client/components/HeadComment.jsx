@@ -14,7 +14,7 @@ import {
   Portal,
 } from '@chakra-ui/react'
 
-import { postComment } from '../apiClient/comments'
+import { postComment } from '@/apiClient'
 
 {
   /* This module expects an "ani" object prop with:
