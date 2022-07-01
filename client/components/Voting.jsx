@@ -1,7 +1,7 @@
 import React from 'react'
-import { postVotes } from '../apiClient/votes.js'
+import { postVotes } from '@/apiClient'
 import { Button, HStack, Center } from '@chakra-ui/react'
-import { fetchTwoPets } from '../actions/pets.js'
+import { fetchTwoPets } from '@/actions'
 import { useDispatch } from 'react-redux'
 
 function Voting({ cat, dog }) {

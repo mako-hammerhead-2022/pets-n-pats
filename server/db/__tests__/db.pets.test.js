@@ -4,7 +4,7 @@ const testDb = knex(testConfig)
 
 const db = require('../pets')
 
-import { dbTestPet, dbNewPet } from '../../../__mockdata__/mockPetData'
+const { dbTestPet, dbNewPet } = require('~/test/fake-data')
 
 beforeAll(() => {
   return testDb.migrate.latest()

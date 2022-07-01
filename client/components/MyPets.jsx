@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchUserPets } from '../actions'
+import { fetchUserPets } from '@/actions'
 import { useAuth0 } from '@auth0/auth0-react'
 import {
   Image,
@@ -13,7 +13,7 @@ import {
   Text,
   Center,
 } from '@chakra-ui/react'
-import PetForm from './PetForm'
+import PetForm from '@/components/PetForm'
 
 function MyPets() {
   const dispatch = useDispatch()
@@ -37,7 +37,7 @@ function MyPets() {
           <AspectRatio maxW='200px' ratio={4 / 3} mb={2}>
             <Image
               objectFit='cover'
-              src={pet.imageUrl}
+              src={JSON.parse(pet.imageUrl)[Math.floor(Math.random() * JSON.parse(pet.imageUrl).length)]} // get a random image
               alt={`picture of the pet we put here in the tag of ${pet.name}`}
             />
           </AspectRatio>

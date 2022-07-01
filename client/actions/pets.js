@@ -1,32 +1,40 @@
-import api from '../apiClient'
-export const RECEIVE_RANDOM_TWO_PETS = 'RECEIVE_RANDOM_TWO_PETS'
-export const SET_ERROR = 'SET_ERROR'
+import * as api from '@/apiClient'
 
+export const pets_receiveData = 'pets/receiveData'
 export function receiveRandomPets(pets) {
   return {
-    type: RECEIVE_RANDOM_TWO_PETS,
+    type: pets_receiveData,
     pets: pets,
+  }
+}
+
+export const pets_setError = 'pets/setError'
+export function setPetsError(errMessage) {
+  return {
+    type: pets_setError,
+    errMessage,
+  }
+}
+
+export const pets_requestData = 'pets/requestData'
+export function requestRandomPets() {
+  return {
+    type: pets_requestData,
   }
 }
 
 export function fetchTwoPets() {
   return (dispatch) => {
+    dispatch(requestRandomPets())
     return api
       .getRandomPets()
-      .then((res) => {
-        dispatch(receiveRandomPets(res))
+      .then((pets) => {
+        dispatch(receiveRandomPets(pets))
         return null
       })
       .catch((err) => {
-        dispatch(setError(err.message))
+        dispatch(setPetsError(err.message))
         console.log(err)
       })
-  }
-}
-
-export function setError(errMessage) {
-  return {
-    type: SET_ERROR,
-    errMessage,
   }
 }

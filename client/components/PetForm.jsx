@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import api from '../apiClient'
+import * as api from '@/apiClient'
 import { useAuth0 } from '@auth0/auth0-react'
 import {
   Modal,
@@ -23,32 +23,38 @@ const PetForm = ({ onSubmit, onSuccess }) => {
   const [name, setName] = useState('')
   const [bio, setBio] = useState('')
   const [animal, setAnimal] = useState('cat')
-  const [selectedFile, setSelectedFile] = useState(null)
+  const [selectedFiles, setSelectedFiles] = useState(null)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const { isAuthenticated, user, getAccessTokenSilently } = useAuth0()
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0])
+    setSelectedFiles(e.target.files);
   }
 
   const handleSubmit = async () => {
     const token = await getAccessTokenSilently()
-    const imageUrl = await api.getImageUrl(selectedFile, token)
+
+    const urls = [];
+    for (let file of selectedFiles) {
+      const imageUrl = await api.getImageUrl(file, token)
+      urls.push(imageUrl);
+    }
+
     const formData = {
       userId: user.sub,
       name,
       bio,
       animal,
-      imageUrl,
+      imageUrl: JSON.stringify(urls),
     }
     await api.addPet(formData, token)
 
     setName('')
     setBio('')
     setAnimal('cat')
-    setSelectedFile(null)
+    setSelectedFiles(null)
 
     onClose()
     onSuccess()
@@ -112,6 +118,7 @@ const PetForm = ({ onSubmit, onSuccess }) => {
                       name='image'
                       id='image'
                       accept='image/*'
+                      multiple
                       onChange={handleFileChange}
                       required
                     />

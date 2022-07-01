@@ -1,12 +1,9 @@
 const request = require('supertest')
 const server = require('../../server')
 
-const generatePreSignedPutUrl = require('../../generateSignedUrl')
-import checkJwt from '../../auth0'
+const { checkJwt, generatePreSignedPutUrl } = require('../../utils')
 
-jest.mock('../../generateSignedUrl')
-
-jest.mock('../../auth0')
+jest.mock('../../utils')
 
 beforeAll(() => {
   checkJwt.mockImplementation((req, res, next) => {

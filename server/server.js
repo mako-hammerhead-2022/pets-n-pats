@@ -22,6 +22,7 @@ server.get('*', (req, res) => {
       path.resolve(__dirname, '../dist/index.html'),
       'utf8'
     )
+
     res.send(html)
   } catch (err) {
     if (err.message.includes('no such file or directory')) {

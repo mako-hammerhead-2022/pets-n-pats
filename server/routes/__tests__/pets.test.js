@@ -2,20 +2,15 @@ const request = require('supertest')
 const server = require('../../server')
 const db = require('../../db')
 
-import {
-  arrTwoPet,
-  dbNewPet,
-  objTwoPet,
-} from '../../../__mockdata__/mockPetData'
-import checkJwt from '../../auth0'
+const { arrTwoPet, dbNewPet, objTwoPet } = require('~/test/fake-data')
+const { checkJwt } = require('../../utils')
 
 jest.mock('../../db')
-jest.mock('../../auth0')
+jest.mock('../../utils')
 
 beforeAll(() => {
   jest.spyOn(console, 'log')
   console.log.mockImplementation(() => {})
-  console.log(console.log)
   checkJwt.mockImplementation((req, res, next) => {
     next()
   })
@@ -95,7 +90,6 @@ describe('PATCH/api/votes/add', () => {
     return request(server)
       .patch('/api/votes/add')
       .then((res) => {
-        console.log('line 69: ', res)
         expect(res.status).toBe(500)
         expect(res.text).toContain('Something went wrong')
       })

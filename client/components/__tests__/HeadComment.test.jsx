@@ -2,8 +2,8 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import HeadComment from '../HeadComment'
-import { objTwoPet } from '../../../__mockdata__/mockPetData'
+import HeadComment from '@/components/HeadComment'
+import { objTwoPet } from '~/test/fake-data'
 
 describe('<HeadComment />', () => {
   it('renders on the screen', () => {

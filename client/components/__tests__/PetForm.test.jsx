@@ -1,16 +1,16 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import PetForm from '../PetForm.jsx'
+import PetForm from '@/components/PetForm.jsx'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { apiClientPet } from '../../../__mockdata__/mockPetData'
+import { apiClientPet } from '~/test/fake-data'
 const file = new File(['elephant_small'], 'elephant_small.png', {
   type: 'image/png',
 })
 
 jest.mock('@auth0/auth0-react')
-jest.mock('../../apiClient')
+jest.mock('@/apiClient')
 
 describe('<PetForm /> renders when user is authenticated', () => {
   it('lets user submit a new pet', async () => {
