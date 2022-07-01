@@ -1,9 +1,15 @@
-import { REQUEST_USER_PETS, SHOW_ERROR, fetchUserPets } from '../index'
-import { getUserPets } from '../../apiClient/pets'
-import { fakePets } from '../../../__mockdata__/mockPetData'
+import {
+  userPets_receieveData,
+  userPets_requestData,
+  userPets_setError,
+  fetchUserPets,
+} from '@/actions'
+import { getUserPets } from '@/apiClient'
+import { fakePets } from '~/test/fake-data'
 
-jest.mock('../../apiClient/pets')
+jest.mock('@/apiClient')
 const fakeDispatch = jest.fn()
+
 getUserPets.mockReturnValue(Promise.resolve(fakePets))
 
 beforeEach(() => {
@@ -12,18 +18,23 @@ beforeEach(() => {
 
 describe('fetchUserPets', () => {
   it('dispatches', async () => {
-    expect.assertions(1)
+    expect.assertions(3)
     const thunkFn = fetchUserPets(6)
     await thunkFn(fakeDispatch)
     const firstAction = fakeDispatch.mock.calls[0][0]
-    expect(firstAction.type).toEqual(REQUEST_USER_PETS)
+    const secondAction = fakeDispatch.mock.calls[1][0]
+    expect(firstAction.type).toEqual(userPets_requestData)
+    expect(secondAction.type).toEqual(userPets_receieveData)
+    expect(secondAction.payload).toEqual({ pets: fakePets })
   })
   it('dispatches error when api call fails', () => {
     getUserPets.mockImplementation(() => Promise.reject(new Error('sadness')))
-    expect.assertions(2)
+    expect.assertions(3)
     return fetchUserPets(6)(fakeDispatch).finally(() => {
-      const secondAction = fakeDispatch.mock.calls[0][0]
-      expect(secondAction.type).toEqual(SHOW_ERROR)
+      const firstAction = fakeDispatch.mock.calls[0][0]
+      const secondAction = fakeDispatch.mock.calls[1][0]
+      expect(firstAction.type).toEqual(userPets_requestData)
+      expect(secondAction.type).toEqual(userPets_setError)
       expect(secondAction.errorMessage).toBe('sadness')
     })
   })

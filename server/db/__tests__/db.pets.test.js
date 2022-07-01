@@ -4,7 +4,7 @@ const testDb = knex(testConfig)
 
 const db = require('../pets')
 
-import { dbTestPet, dbNewPet } from '../../../__mockdata__/mockPetData'
+const { dbTestPet, dbNewPet } = require('~/test/fake-data')
 
 beforeAll(() => {
   return testDb.migrate.latest()
@@ -40,7 +40,6 @@ describe('getPetsByUserId', () => {
 describe('getPetById', () => {
   it('should get the pet given the id', () => {
     return db.getPetById(2, testDb).then((pet) => {
-      console.log(pet)
       expect(pet).toEqual({
         ...dbTestPet,
         createdAt: expect.anything(),
@@ -54,7 +53,7 @@ describe('addPet', () => {
   it('should add a pet', () => {
     return db
       .addPet(dbNewPet, testDb)
-      .then(([id]) => {
+      .then(([{ id }]) => {
         return db.getPetById(id, testDb)
       })
       .then((pet) => {

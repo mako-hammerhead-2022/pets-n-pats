@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getUserPets } from '../pets.js'
+import { getUserPets } from '@/apiClient'
 
 const fakePets = [
   {

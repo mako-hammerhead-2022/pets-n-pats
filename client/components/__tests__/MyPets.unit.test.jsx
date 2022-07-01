@@ -3,11 +3,8 @@ import '@testing-library/jest-dom'
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Provider } from 'react-redux'
-import MyPets from '../MyPets'
+import MyPets from '@/components/MyPets'
 
-// import { fetchUserPets } from '../../actions'
-
-jest.mock('../../store')
 jest.mock('@auth0/auth0-react')
 
 useAuth0.mockReturnValue({

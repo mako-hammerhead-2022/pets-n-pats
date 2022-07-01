@@ -21,7 +21,6 @@ module.exports = {
       directory: path.join(__dirname, 'migrations'),
     },
   },
-  // TODO: not yet configured for production
   production: {
     client: 'postgresql',
     connection: {

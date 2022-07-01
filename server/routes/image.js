@@ -1,8 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const generatePreSignedPutUrl = require('../generateSignedUrl')
-const checkJwt = require('../auth0')
+const { checkJwt, generatePreSignedPutUrl } = require('../utils')
 
 router.post('/', checkJwt, async (req, res) => {
   const { fileName, fileType } = req.body

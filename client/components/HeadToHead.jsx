@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
-import HeadComment from './HeadComment'
+import HeadComment from '@/components/HeadComment'
 
 function HeadToHead({ cat, dog }) {
   const scaler = '400px'
@@ -22,10 +22,8 @@ function HeadToHead({ cat, dog }) {
 
   // get a random dog image
   const dogImages = JSON.parse(dog.imageUrl)
-  console.log(dogImages.length)
   const dogIndex = Math.floor(Math.random() * dogImages.length)
   const dogImage = dogImages[dogIndex]
-  console.log(dogIndex, dogImage)
 
   const styleProps = {
     image: {

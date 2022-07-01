@@ -1,7 +1,6 @@
 const jwt = require('express-jwt')
 const jwks = require('jwks-rsa')
 
-// TODO: set the domain and audience (API Identifier)
 const domain = 'https://whai-2022-anna.au.auth0.com'
 const audience = 'https://pets-n-pats/api'
 
