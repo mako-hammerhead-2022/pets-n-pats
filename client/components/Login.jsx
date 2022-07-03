@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Button } from '@chakra-ui/react'
+import { Button, Flex } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 import './Login.css'
@@ -17,7 +17,7 @@ const Login = () => {
   }
 
   return (
-    <div className='login'>
+    <Flex justifyContent={'flex-end'} gap='10'>
       <nav>
         <ul>
           <li>
@@ -37,18 +37,18 @@ const Login = () => {
         >{`Welcome back, ${user.nickname}`}</p>
       )}
       {isAuthenticated ? (
-        <>
+        <div>
           <Button onClick={handleSignOut} colorScheme='teal' m={2}>
             Sign Out
           </Button>
           <img src={user.picture} className='avatar' />
-        </>
+        </div>
       ) : (
         <Button onClick={handleSignIn} colorScheme='teal' m={2}>
           Sign In
         </Button>
       )}
-    </div>
+    </Flex>
   )
 }
 

@@ -5,11 +5,8 @@ import { Provider } from 'react-redux'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { ChakraProvider } from '@chakra-ui/provider'
 
-import theme from './theme.js'
 import store from './store'
 import App from './App'
-
-import './globals.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -20,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         redirectUri={window.location.origin}
         audience='https://pets-n-pats/api'
       >
-        <ChakraProvider theme={theme}>
+        <ChakraProvider>
           <Provider store={store}>
             <App />
           </Provider>
