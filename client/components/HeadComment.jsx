@@ -17,11 +17,11 @@ import {
 import { postComment } from '@/apiClient'
 
 {
-  /* This module expects an "ani" object prop with:
-        <Component ani={{id: #, name: ""}} />   */
+  /* This module expects an "animal" object prop with:
+        <Component animal={{id: #, name: ""}} />   */
 }
 
-function HeadComment({ ani }) {
+function HeadComment({ animal }) {
   // local state
   const [comment, setComment] = useState('')
   const [loadCheck, setLoadCheck] = useState(false)
@@ -37,7 +37,7 @@ function HeadComment({ ani }) {
   function handleSave(e) {
     setLoadCheck(true)
     const commentObj = {
-      petId: ani.id,
+      petId: animal.id,
       authorId: 'auth0|something',
       content: comment,
     }
@@ -58,7 +58,7 @@ function HeadComment({ ani }) {
   }
 
   // prevent render errors on initial load
-  if (!ani) return null
+  if (!animal) return null
 
   // screen render
   return (
@@ -75,10 +75,10 @@ function HeadComment({ ani }) {
             <PopoverCloseButton zIndex='6' />
             <PopoverBody>
               <FormControl>
-                <FormLabel>{`Comment on ${ani.name}`}</FormLabel>
+                <FormLabel>{`Comment on ${animal.name}`}</FormLabel>
                 <Input
                   onChange={handleChange}
-                  placeholder={`What do you think of ${ani.name}?`}
+                  placeholder={`What do you think of ${animal.name}?`}
                   value={comment}
                 />
               </FormControl>

@@ -1,9 +1,7 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Button, Flex } from '@chakra-ui/react'
+import { Button, Flex, ListItem, List } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-
-import './Login.css'
 
 const Login = () => {
   const { isAuthenticated, user, logout, loginWithRedirect } = useAuth0()
@@ -19,16 +17,20 @@ const Login = () => {
   return (
     <Flex justifyContent={'flex-end'} gap='10'>
       <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          {isAuthenticated && (
-            <li>
-              <Link to='/mypets'>My Pets</Link>
-            </li>
-          )}
-        </ul>
+        <List>
+          <Flex>
+            <ListItem>
+              <Button as='div'>
+                <Link to='/'>Home</Link>
+              </Button>
+            </ListItem>
+            {isAuthenticated && (
+              <Button as='div'>
+                <Link to='/my-pets'>My Pets</Link>
+              </Button>
+            )}
+          </Flex>
+        </List>
       </nav>
       {isAuthenticated && (
         <p

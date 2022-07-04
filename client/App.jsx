@@ -19,7 +19,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/mypets' element={<MyPets />}></Route>
+          <Route path='/my-pets' element={<MyPets />}></Route>
         </Routes>
       </Container>
     </>
