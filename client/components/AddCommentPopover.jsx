@@ -14,6 +14,8 @@ import {
   Input,
   Portal,
   IconButton,
+  useDisclosure,
+  Tooltip,
 } from '@chakra-ui/react'
 import { EditIcon } from '@chakra-ui/icons'
 
@@ -21,7 +23,10 @@ import { postComment } from '@/apiClient'
 
 function AddCommentPopover({ animal }) {
   const { getAccessTokenSilently } = useAuth0()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   const [comment, setComment] = useState('')
+
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
@@ -32,6 +37,7 @@ function AddCommentPopover({ animal }) {
       const token = await getAccessTokenSilently()
       await postComment({ petId: animal.id, content: comment }, token)
       setHasSubmitted(true)
+      onClose()
     } catch (error) {
       console.log(error)
     } finally {
@@ -51,13 +57,17 @@ function AddCommentPopover({ animal }) {
   }
 
   return (
-    <Popover>
+    <Popover isOpen={isOpen} onClose={onClose}>
       <PopoverTrigger>
-        <IconButton
-          aria-label={buttonLabel}
-          icon={<EditIcon />}
-          colorScheme='teal'
-        />
+        <Tooltip label={buttonLabel} shouldWrapChildren>
+          <IconButton
+            aria-label={buttonLabel}
+            icon={<EditIcon />}
+            colorScheme='teal'
+            onClick={onOpen}
+            isDisabled={isSubmitting || hasSubmitted}
+          />
+        </Tooltip>
       </PopoverTrigger>
       <Portal>
         <PopoverContent>
