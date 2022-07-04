@@ -16,10 +16,11 @@ import {
   useDisclosure,
   FormControl,
   Container,
+  Center,
 } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 
-const PetForm = ({ onSubmit, onSuccess }) => {
+const PetForm = ({ onSubmit = () => {}, onSuccess = () => {} }) => {
   const [name, setName] = useState('')
   const [bio, setBio] = useState('')
   const [animal, setAnimal] = useState('cat')
@@ -30,16 +31,16 @@ const PetForm = ({ onSubmit, onSuccess }) => {
   const { isAuthenticated, user, getAccessTokenSilently } = useAuth0()
 
   const handleFileChange = (e) => {
-    setSelectedFiles(e.target.files);
+    setSelectedFiles(e.target.files)
   }
 
   const handleSubmit = async () => {
     const token = await getAccessTokenSilently()
 
-    const urls = [];
+    const urls = []
     for (let file of selectedFiles) {
       const imageUrl = await api.getImageUrl(file, token)
-      urls.push(imageUrl);
+      urls.push(imageUrl)
     }
 
     const formData = {
@@ -63,9 +64,11 @@ const PetForm = ({ onSubmit, onSuccess }) => {
   return (
     <>
       {isAuthenticated && (
-        <Button onClick={onOpen} colorScheme='teal'>
-          + Add Pet
-        </Button>
+        <Center>
+          <Button onClick={onOpen} colorScheme='teal'>
+            + Add Pet
+          </Button>
+        </Center>
       )}
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

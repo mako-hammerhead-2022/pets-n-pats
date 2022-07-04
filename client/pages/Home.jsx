@@ -1,29 +1,30 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Container } from '@chakra-ui/react'
 
 import { fetchTwoPets } from '@/actions'
 
-import Voting from '@/components/Voting'
+import Voting from '@/components/VotingButtons'
 import HeadToHead from '@/components/HeadToHead'
 
 function App() {
   const dispatch = useDispatch()
 
-  const pets = useSelector((state) => state.pets.data)
+  const { data: pets, loading } = useSelector((state) => state.pets)
 
   useEffect(() => {
     dispatch(fetchTwoPets())
   }, [])
 
   return (
-    <div>
-      {pets?.cat && pets?.dog && (
+    <Container>
+      {!loading && (
         <>
           <HeadToHead cat={pets.cat} dog={pets.dog} />
           <Voting cat={pets.cat} dog={pets.dog} />
         </>
       )}
-    </div>
+    </Container>
   )
 }
 
