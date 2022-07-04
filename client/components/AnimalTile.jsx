@@ -24,7 +24,6 @@ export default function AnimalTile({ animal }) {
         boxSize='400px'
         objectFit='cover'
         shadow='lg'
-        shadowColor='red.200'
         src={image}
         alt={`An image of ${animal.name}`}
         borderRadius='md'
@@ -35,7 +34,6 @@ export default function AnimalTile({ animal }) {
       <Box
         width='95%'
         bg='teal.100'
-        className='boo'
         roundedBottom='md'
         p='4'
         borderWidth='0 1px 1px 1px'
