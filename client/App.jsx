@@ -6,7 +6,7 @@ import { Heading, Container } from '@chakra-ui/react'
 import Home from '@/pages/Home'
 import MyPets from '@/pages/MyPets'
 
-import Login from '@/components/Login'
+import Login from '@/components/Header'
 
 function App() {
   return (

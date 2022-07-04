@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import Login from '@/components/Login.jsx'
+import Header from '@/components/Header.jsx'
 import Home from '@/pages/Home.jsx'
 
 import { objTwoPet } from '~/test/fake-data'
@@ -23,12 +23,12 @@ const fakeStore = {
   dispatch: jest.fn(),
 }
 
-jest.mock('@/components/Login.jsx')
+jest.mock('@/components/Header.jsx')
 jest.mock('@/pages/Home.jsx')
 
 describe('<App />', () => {
-  it('renders the Login component', () => {
-    Login.mockReturnValue(<div>Login Component</div>)
+  it('renders the Navigation and Home Page default Route', () => {
+    Header.mockReturnValue(<div>Header Component</div>)
     Home.mockReturnValue(<div>Home Component</div>)
     render(
       <Provider store={fakeStore}>
@@ -37,8 +37,8 @@ describe('<App />', () => {
         </Router>
       </Provider>
     )
-    const loginComponent = screen.getByText('Login Component')
-    expect(loginComponent).toBeInTheDocument()
+
+    expect(screen.getByText('Header Component')).toBeInTheDocument()
     expect(screen.getByText('Home Component')).toBeInTheDocument()
   })
 })
