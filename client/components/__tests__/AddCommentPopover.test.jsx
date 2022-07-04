@@ -2,12 +2,12 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import HeadComment from '@/components/HeadComment'
+import AddCommentPopover from '@/components/AddCommentPopover'
 import { objTwoPet } from '~/test/fake-data'
 
-describe('<HeadComment />', () => {
+describe('<AddCommentPopover />', () => {
   it('renders on the screen', () => {
-    render(<HeadComment ani={objTwoPet.cat} />)
+    render(<AddCommentPopover animal={objTwoPet.cat} />)
     expect(2).toBe(2)
     // TODO: finish these tests
     // const addComment = screen.getByRole('button', {name: 'Add Comment'})

@@ -22,8 +22,8 @@ function Voting({ cat, dog }) {
   }
 
   return (
-    <Center>
-      <HStack spacing={48} mt={8} mb={48}>
+    <Center width='full'>
+      <HStack spacing={40} mt={8} mb={48}>
         <Button
           colorScheme='teal'
           value={cat.name}
@@ -33,6 +33,7 @@ function Voting({ cat, dog }) {
         </Button>
         <Button
           colorScheme='teal'
+          variant='ghost'
           value='skip'
           onClick={() => handleSubmit('skip')}
         >

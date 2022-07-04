@@ -7,7 +7,7 @@ import { objTwoPet } from '~/test/fake-data'
 import { postVotes } from '@/apiClient'
 jest.mock('@/apiClient')
 
-import Voting from '@/components/Voting'
+import Voting from '@/components/VotingButtons'
 
 const fakeStore = {
   subscribe: jest.fn(),

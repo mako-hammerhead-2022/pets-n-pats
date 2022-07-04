@@ -15,23 +15,8 @@ const Login = () => {
   }
 
   return (
-    <Flex justifyContent={'flex-end'} gap='10'>
-      <nav>
-        <List>
-          <Flex>
-            <ListItem>
-              <Button as='div'>
-                <Link to='/'>Home</Link>
-              </Button>
-            </ListItem>
-            {isAuthenticated && (
-              <Button as='div'>
-                <Link to='/my-pets'>My Pets</Link>
-              </Button>
-            )}
-          </Flex>
-        </List>
-      </nav>
+    <Flex justifyContent={'flex-end'} gap='10' py='6'>
+      <Navigation />
       {isAuthenticated && (
         <p
           aria-label='login message'
@@ -40,17 +25,40 @@ const Login = () => {
       )}
       {isAuthenticated ? (
         <div>
-          <Button onClick={handleSignOut} colorScheme='teal' m={2}>
+          <Button onClick={handleSignOut} colorScheme='teal'>
             Sign Out
           </Button>
           <img src={user.picture} className='avatar' />
         </div>
       ) : (
-        <Button onClick={handleSignIn} colorScheme='teal' m={2}>
+        <Button onClick={handleSignIn} colorScheme='teal'>
           Sign In
         </Button>
       )}
     </Flex>
+  )
+}
+
+function Navigation() {
+  const { isAuthenticated } = useAuth0()
+
+  return (
+    <nav>
+      <List>
+        <Flex>
+          <ListItem>
+            <Button as='div'>
+              <Link to='/'>Home</Link>
+            </Button>
+          </ListItem>
+          {isAuthenticated && (
+            <Button as='div'>
+              <Link to='/my-pets'>My Pets</Link>
+            </Button>
+          )}
+        </Flex>
+      </List>
+    </nav>
   )
 }
 
