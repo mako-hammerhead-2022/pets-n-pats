@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux'
 function Voting({ cat, dog }) {
   const dispatch = useDispatch()
 
+  // win 2 points
+  // draw 1 point
   function handleSubmit(winnerId) {
     if (winnerId !== 'skip') {
       postVotes(winnerId)
@@ -22,8 +24,8 @@ function Voting({ cat, dog }) {
   }
 
   return (
-    <Center>
-      <HStack spacing={48} mt={8} mb={48}>
+    <Center width='full'>
+      <HStack spacing={40} mt={8} mb={48}>
         <Button
           colorScheme='teal'
           value={cat.name}
@@ -33,6 +35,7 @@ function Voting({ cat, dog }) {
         </Button>
         <Button
           colorScheme='teal'
+          variant='ghost'
           value='skip'
           onClick={() => handleSubmit('skip')}
         >

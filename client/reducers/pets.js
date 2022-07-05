@@ -1,4 +1,8 @@
-const initialState = []
+const initialState = {
+  pets: { cat: null, dog: null },
+  loading: true,
+  error: null,
+}
 
 import { pets_receiveData, pets_setError, pets_requestData } from '@/actions'
 
@@ -9,6 +13,7 @@ export default function pets(state = initialState, action) {
         ...state,
         data: action.pets,
         error: null,
+        loading: false,
       }
     case pets_setError:
       return {
@@ -20,6 +25,7 @@ export default function pets(state = initialState, action) {
       return {
         ...state,
         loading: true,
+        error: null,
       }
     default:
       return state

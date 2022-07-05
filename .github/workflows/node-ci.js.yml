@@ -24,6 +24,9 @@ jobs:
       - name: Install modules
         run: npm i
       - name: Run linting
-        run: npm run lint
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
       - name: Run unit tests
         run: npm run test
