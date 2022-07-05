@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux'
 function Voting({ cat, dog }) {
   const dispatch = useDispatch()
 
+  // win 2 points
+  // draw 1 point
   function handleSubmit(winnerId) {
     if (winnerId !== 'skip') {
       postVotes(winnerId)
