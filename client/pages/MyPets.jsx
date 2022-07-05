@@ -30,47 +30,51 @@ function MyPets() {
     dispatch(fetchUserPets(token))
   }
 
-  const renderedPets = pets?.map((pet) => {
-    return (
-      <WrapItem w='200px' minH='300px' key={pet.id} bg='gray.100'>
-        <Box p={2} width='full'>
-          <AspectRatio maxW='200px' ratio={4 / 3} mb={2}>
-            <Image
-              objectFit='cover'
-              src={
-                JSON.parse(pet.imageUrl)[
-                  Math.floor(Math.random() * JSON.parse(pet.imageUrl).length)
-                ]
-              } // get a random image
-              alt={`picture of the pet we put here in the tag of ${pet.name}`}
-            />
-          </AspectRatio>
-          <Box textAlign='left'>
-            <Heading as='h4' fontSize='md'>
-              {pet.name}
-            </Heading>
-            <Text as='p' fontSize='xs' mb={2}>
-              {pet.bio}
-            </Text>
-            <Heading as='h5' fontSize='xs'>
-              Points:
-            </Heading>
-            <Text as='p'>{pet.points}</Text>
-          </Box>
-        </Box>
-      </WrapItem>
-    )
-  })
-
   return (
     <div className='MyPets'>
       <PetForm onSuccess={getUserPets} />
       <Container maxW='4xl' mt={6} mb={20}>
         <Center>
-          <Wrap justifyContent='space-between'>{renderedPets}</Wrap>
+          <Wrap justifyContent='space-between'>
+            {pets?.map((pet) => {
+              return <AnimalTile pet={pet} key={pet.id} />
+            })}
+          </Wrap>
         </Center>
       </Container>
     </div>
+  )
+}
+
+function AnimalTile({ pet }) {
+  return (
+    <WrapItem w='200px' minH='300px' key={pet.id} bg='gray.100'>
+      <Box p={2} width='full'>
+        <AspectRatio maxW='200px' ratio={4 / 3} mb={2}>
+          <Image
+            objectFit='cover'
+            src={
+              JSON.parse(pet.imageUrl)[
+                Math.floor(Math.random() * JSON.parse(pet.imageUrl).length)
+              ]
+            } // get a random image
+            alt={`picture of the pet we put here in the tag of ${pet.name}`}
+          />
+        </AspectRatio>
+        <Box textAlign='left'>
+          <Heading as='h4' fontSize='md'>
+            {pet.name}
+          </Heading>
+          <Text as='p' fontSize='xs' mb={2}>
+            {pet.bio}
+          </Text>
+          <Heading as='h5' fontSize='xs'>
+            Points:
+          </Heading>
+          <Text as='p'>{pet.points}</Text>
+        </Box>
+      </Box>
+    </WrapItem>
   )
 }
 
