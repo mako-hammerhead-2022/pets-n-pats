@@ -14,7 +14,7 @@ exports.seed = async (knex) => {
   return await knex('pets').insert([
     {
       id: 2,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Aileen',
       bio: 'Fully-configurable intermediate focus group',
       imageUrl:
@@ -24,7 +24,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 3,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Giralda',
       bio: 'Customizable holistic conglomeration',
       imageUrl:
@@ -34,7 +34,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 4,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Letizia',
       bio: 'Open-architected systemic groupware',
       imageUrl:
@@ -44,7 +44,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 5,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Dominique',
       bio: 'Reverse-engineered intermediate data-warehouse',
       imageUrl:
@@ -54,7 +54,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 6,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Bob',
       bio: "For you I'll create, Artistic works of poo, since You save them in bags",
       imageUrl:
@@ -64,7 +64,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 7,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Bodhi',
       bio: 'Focused for four-legged fur friends fun, frolicking fast forever from fantastically frightening flickering ferns',
       imageUrl:
@@ -74,7 +74,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 8,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Bean',
       bio: 'It is 2am, time to lick your face until you pat me',
       imageUrl:
@@ -84,7 +84,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 9,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Soxis',
       bio: "One step closer and I'll show you what-for",
       imageUrl:
@@ -94,7 +94,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 10,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Missy',
       bio: 'Hold fast to dreams, For if dreams die, Life is a broken-winged bird, That cannot fly. Hold fast to dreams, For when dreams go, Life is a barren field, Frozen with snow.',
       imageUrl:
@@ -104,7 +104,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 11,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Mr. Piggy',
       bio: 'Carrots and hay I welcome, bacon and ham no thanks',
       imageUrl:
@@ -114,7 +114,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 12,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Bounty',
       bio: 'I want my mouse pad please',
       imageUrl:
@@ -124,7 +124,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 13,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Summer',
       bio: "I am snug. I am snug. Don't get mad, when I pee on rug.",
       imageUrl:
@@ -134,7 +134,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 14,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Dixie',
       bio: 'wizard cat, she likes to walk up to you and cast spells',
       imageUrl:
@@ -144,7 +144,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 15,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Hugo',
       bio: "I'm hungry but my bowl is only 80% full, time to YELL",
       imageUrl:
@@ -154,7 +154,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 16,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Scout',
       bio: 'I once met a dog from Peru, who\'d freely walk up to you: "That dinner was swell, But I had to expel, So I need to you to pick up my poo.',
       imageUrl:
@@ -164,7 +164,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 17,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Brazen',
       bio: "Violets are blue, roses are red. It's 2am, you'll sleep when you're dead",
       imageUrl:
@@ -174,7 +174,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 18,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Frankie',
       bio: "Roses are blue, violets are red. I'm a dog I can't see colours",
       imageUrl:
@@ -184,7 +184,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 19,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Jubbers',
       bio: 'Jubbers loves towels,all towels belong to Jubbers.',
       imageUrl:
@@ -194,7 +194,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 20,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Eriks Cat',
       bio: 'Always sitting on the fence, never taking sides',
       imageUrl:
@@ -204,7 +204,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 21,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'George',
       bio: "I'll take a rest and then clear out the pests",
       imageUrl:
@@ -214,7 +214,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 22,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Barkley',
       bio: "I'm Barkley the builder! Lets go to Bunnings!",
       imageUrl:
@@ -224,7 +224,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 23,
-      userId: 'google-oauth2|107865314401338889864',
+      userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Baldy',
       bio: "You're The Best Evil Son An Evil Dad Could Ever Ask For.",
       imageUrl:
