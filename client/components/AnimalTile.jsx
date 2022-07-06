@@ -18,6 +18,13 @@ export default function AnimalTile({ animal }) {
   const images = JSON.parse(animal.imageUrl)
   const randomIndex = Math.floor(Math.random() * images.length)
   const image = images[randomIndex]
+  
+  function whenImageSwipedLeft(e){
+    if (randomIndex === 0)
+
+  }
+
+
   return (
     <Flex width='400px' direction='column' alignItems={'center'}>
       <Image
