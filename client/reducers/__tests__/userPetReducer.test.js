@@ -1,22 +1,38 @@
 import myPetsReducer from '@/reducers/myPets'
-import { userPets_receieveData } from '@/actions'
+import { userPets_receiveData } from '@/actions'
 
 describe('myPetsReducer', () => {
   it('can get pets by user id', () => {
-    // arrange
+    // Arrange
     const action = {
-      type: userPets_receieveData,
-      payload: { pets: [{ name: 'bob', id: 4 }] },
+      type: userPets_receiveData,
+      payload: [
+        { id: 4, name: 'bob' },
+        { id: 20, name: 'bill' },
+      ],
     }
 
-    const inputState = [{ name: 'bill', id: 20 }]
-    const expectedOutputState = [{ id: 4, name: 'bob' }]
+    const initialState = {
+      data: [],
+      loading: true,
+      error: null,
+    }
 
-    // act
-    const outputState = myPetsReducer(inputState, action)
+    const expectedOutputState = {
+      data: [
+        { id: 4, name: 'bob' },
+        { id: 20, name: 'bill' },
+      ],
+      loading: false,
+      error: null,
+    }
 
-    // assert
+    // Act
+    const actualOutputState = myPetsReducer(initialState, action)
 
-    expect(outputState).toEqual(expectedOutputState)
+    // Assert
+    expect(actualOutputState).toEqual(expectedOutputState)
+    expect(actualOutputState.data).toHaveLength(2)
+    expect(actualOutputState.loading).toBeFalsy()
   })
 })

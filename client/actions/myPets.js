@@ -1,15 +1,15 @@
 import * as api from '@/apiClient'
-export const userPets_receiveData = 'userPets/receiveData'
-export const userPets_requestData = 'userPets/requestData'
-export const userPets_setError = 'userPets/setError'
 
+export const userPets_receiveData = 'userPets/receiveData'
 export function receiveUserPets(pets) {
+  console.log(pets)
   return {
     type: userPets_receiveData,
-    payload: { pets },
+    payload: pets,
   }
 }
 
+export const userPets_setError = 'userPets/setError'
 export function setUserPetsError(errorMessage) {
   return {
     type: userPets_setError,
@@ -17,6 +17,7 @@ export function setUserPetsError(errorMessage) {
   }
 }
 
+export const userPets_requestData = 'userPets/requestData'
 export function requestUserPets() {
   return {
     type: userPets_requestData,
@@ -34,6 +35,7 @@ export function fetchUserPets(token) {
       })
       .catch((err) => {
         dispatch(setUserPetsError(err.message))
+        console.log(err)
       })
   }
 }

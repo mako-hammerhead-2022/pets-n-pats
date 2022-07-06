@@ -7,7 +7,7 @@ describe('pets reducer', () => {
   it('receives two random pets, one cat, one dog', () => {
     const action = {
       type: pets_receiveData,
-      pets: objTwoPet,
+      payload: objTwoPet,
     }
     const inputState = { data: [], error: null, loading: false }
     const expectedOutputState = objTwoPet

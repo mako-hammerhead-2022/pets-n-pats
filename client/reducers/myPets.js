@@ -11,22 +11,26 @@ const initialState = {
 }
 
 const myPetsReducer = (state = initialState, action) => {
-  // TODO: add loading and error state
-  // const { data } = action.payload
-  console.log(action)
-
   switch (action.type) {
     case userPets_receiveData:
       return {
         ...state,
-        data: action.payload.pets,
+        data: action.payload,
         loading: false,
         error: null,
       }
-    // case userPets_requestData:
-    //   return something
-    // case userPets_setError:
-    //   return somethingElse
+    case userPets_requestData:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      }
+    case userPets_setError:
+      return {
+        ...state,
+        loading: false,
+        error: action.errorMessage,
+      }
     default:
       return state
   }
