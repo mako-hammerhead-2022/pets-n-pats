@@ -13,13 +13,15 @@ router.patch('/add', (req, res) => {
 })
 
 router.patch('/addTie', (req, res) => {
-  console.log(req.body)
   const catId = req.body.catId
   const dogId = req.body.dogId
   db.addPoints(catId, 1)
     .then(() => {
       db.addPoints(dogId, 1)
-      res.sendStatus(200)
+        .then(() => {
+          res.sendStatus(200)
+        })
+        .catch((err) => res.status(500).send(err.message))
     })
     .catch((err) => res.status(500).send(err.message))
 })
