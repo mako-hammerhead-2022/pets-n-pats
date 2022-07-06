@@ -25,7 +25,7 @@ describe('fetchTopTen', () => {
     return fetchTopTen()(fakeDispatch).then(() => {
       expect(fakeDispatch).toHaveBeenCalledWith({
         type: leaderboard_receiveData,
-        pets: petsWithScores,
+        leaderboard: petsWithScores,
       })
     })
   })

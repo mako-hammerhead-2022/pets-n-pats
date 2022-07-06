@@ -11,7 +11,7 @@ export const leaderboard_receiveData = 'leaderboard/receiveData'
 export function receiveTopTen(pets) {
   return {
     type: leaderboard_receiveData,
-    pets,
+    leaderboard: pets,
   }
 }
 
