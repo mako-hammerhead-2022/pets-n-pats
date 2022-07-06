@@ -1,11 +1,11 @@
 import * as api from '@/apiClient'
-export const userPets_receieveData = 'userPets/receieveData'
+export const userPets_receiveData = 'userPets/receiveData'
 export const userPets_requestData = 'userPets/requestData'
 export const userPets_setError = 'userPets/setError'
 
-export function receieveUserPets(pets) {
+export function receiveUserPets(pets) {
   return {
-    type: userPets_receieveData,
+    type: userPets_receiveData,
     payload: { pets },
   }
 }
@@ -29,7 +29,7 @@ export function fetchUserPets(token) {
     return api
       .getUserPets(token)
       .then((pets) => {
-        dispatch(receieveUserPets(pets))
+        dispatch(receiveUserPets(pets))
         return null
       })
       .catch((err) => {
