@@ -73,6 +73,30 @@ export const fakePets = [
   },
 ]
 
+export const petsWithScores = [
+  {
+    id: 1,
+    name: 'Betty',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'dog',
+    points: 13,
+  },
+  {
+    id: 3,
+    name: 'Jimbob',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'dog',
+    points: 54,
+  },
+  {
+    id: 5,
+    name: 'NOFX',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'cat',
+    points: 0,
+  },
+]
+
 export const dbNewPet = {
   id: 6,
   userId: 'auth0|testId',
