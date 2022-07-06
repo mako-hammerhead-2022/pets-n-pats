@@ -45,8 +45,8 @@ function getWinnerById(winnerId, db = connection) {
   return db('pets').select().where('id', winnerId).first()
 }
 
-function addPoints(petId, db = connection) {
-  return db('pets').increment('points', 2).where('id', petId)
+function addPoints(petId, points, db = connection) {
+  return db('pets').increment('points', points).where('id', petId)
 }
 
 module.exports = {

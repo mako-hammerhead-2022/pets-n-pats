@@ -9,6 +9,14 @@ export function postVotes(winnerId) {
     .then((res) => res.body)
 }
 
+export function postVotesTie(catId, dogId) {
+  return request
+    .patch(`${votesURL}/addTie`)
+    .send({ catId: catId, dogId: dogId })
+    .then((res) => res.body)
+}
+
 export default {
   postVotes,
+  postVotesTie,
 }
