@@ -5,6 +5,7 @@ import { Heading, Container } from '@chakra-ui/react'
 
 import Home from '@/pages/Home'
 import MyPets from '@/pages/MyPets'
+import NotFound from '@/pages/NotFound'
 
 import Login from '@/components/Header'
 
@@ -18,8 +19,9 @@ function App() {
         </Heading>
 
         <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/my-pets' element={<MyPets />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
+          <Route exact path='/' element={<Home />}></Route>
+          <Route exact path='/my-pets' element={<MyPets />}></Route>
         </Routes>
       </Container>
     </>
