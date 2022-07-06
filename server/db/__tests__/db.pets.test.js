@@ -37,6 +37,7 @@ describe('getPetsByUserId', () => {
     })
   })
 })
+
 describe('getPetById', () => {
   it('should get the pet given the id', () => {
     return db.getPetById(2, testDb).then((pet) => {
@@ -45,6 +46,23 @@ describe('getPetById', () => {
         createdAt: expect.anything(),
         updatedAt: expect.anything(),
       })
+    })
+  })
+})
+
+describe('getPetsWithPoints', () => {
+  const testObj = {
+    id: 1,
+    name: 'Orel',
+    imageUrl: 'https://wallpaperaccess.com/full/2378663.jpg',
+    animal: 'dog',
+    points: 0,
+  }
+  test('get pets out of db with their points', () => {
+    expect.assertions(2)
+    return db.getPetsWithPoints(testDb).then((pets) => {
+      expect(pets).toHaveLength(5)
+      expect(pets[0]).toEqual(testObj)
     })
   })
 })
