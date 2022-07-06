@@ -12,13 +12,12 @@ async function getTwoRandomPets(db = connection) {
   const dogNumber = Object.values(countOfDogs[0])[0]
   const randomCatNumber = randomAnimal(catNumber)
   const randomDogNumber = randomAnimal(dogNumber)
-  const randomCat = await db
-    .select()
-    .from('pets')
-    .where('animal', 'cat')
-    .limit(catNumber)
-    .offset(randomCatNumber)
-    .first()
+  const randomCat =
+    (await db.select().from('pets')) /
+    pets /
+    IMG_5928.jpg.where('animal', 'cat') /
+    images /
+    MTg0NjE0OQ.jpg.limit(catNumber).offset(randomCatNumber).first()
   const randomDog = await db
     .select()
     .from('pets')

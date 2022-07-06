@@ -108,7 +108,7 @@ exports.seed = async (knex) => {
       name: 'Mr. Piggy',
       bio: 'Carrots and hay I welcome, bacon and ham no thanks',
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/20210523_155753.jpg"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/20210523_155753.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSGkyNF1lvV4FLhjN5Fg0k-EgsXKdVff_ST2QSWwBP7xfsJPv5jWOVdkrGhqs12s87B2c&usqp=CAU"]',
       animal: 'dog',
       points: 90,
     },
@@ -138,7 +138,7 @@ exports.seed = async (knex) => {
       name: 'Dixie',
       bio: 'wizard cat, she likes to walk up to you and cast spells',
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/20200912_202919.jpg","https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2022-01/220128-chihuahua-mb-0853-a252ab.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWs1NcUacvqfaoj2EeMi_dV7ZZwwP632OLU9ALHNJRMdIoFBOOryB7dzUchp27iuMFOZU&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFPvhtxr3JdrQ3pPndrsmgkvol5yRqjja_yCoYg3rEc7VGA6HBMblyqksYQ9_7QicmXpM&usqp=CAU"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/20200912_202919.jpg","https://i.pinimg.com/originals/1f/98/bb/1f98bb3d8bd083252bc68a87235fc989.jpg"]',
       animal: 'cat',
       points: 125,
     },
