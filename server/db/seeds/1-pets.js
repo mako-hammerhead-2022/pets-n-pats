@@ -128,7 +128,7 @@ exports.seed = async (knex) => {
       name: 'Summer',
       bio: "I am snug. I am snug. Don't get mad, when I pee on rug.",
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/Snapchat-2118970990__01.jpg"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/Snapchat-2118970990__01.jpg","https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2022-01/220128-chihuahua-mb-0853-a252ab.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWs1NcUacvqfaoj2EeMi_dV7ZZwwP632OLU9ALHNJRMdIoFBOOryB7dzUchp27iuMFOZU&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFPvhtxr3JdrQ3pPndrsmgkvol5yRqjja_yCoYg3rEc7VGA6HBMblyqksYQ9_7QicmXpM&usqp=CAU"]',
       animal: 'dog',
       points: 200,
     },

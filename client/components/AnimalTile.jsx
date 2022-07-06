@@ -13,6 +13,9 @@ import {
 } from '@chakra-ui/react'
 import { EditIcon } from '@chakra-ui/icons'
 
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import { Carousel } from 'react-responsive-carousel'
+
 import AddCommentPopover from '@/components/AddCommentPopover'
 
 export default function AnimalTile({ animal }) {
@@ -20,44 +23,56 @@ export default function AnimalTile({ animal }) {
   const randomIndex = Math.floor(Math.random() * images.length)
   const [currentIndex, setCurrentIndex] = useState(randomIndex)
   const image = images[currentIndex]
-  const handlers = useSwipeable({
-    onSwipedLeft: () => {
-      if (currentIndex === 0) {
-        setCurrentIndex(images.length - 1)
-      } else {
-        setCurrentIndex(currentIndex - 1)
-      }
-    },
-    onSwipedRight: () => {
-      if (currentIndex === images.length - 1) {
-        setCurrentIndex(0)
-      } else {
-        setCurrentIndex(currentIndex + 1)
-      }
-    },
-    swipeDuration: 500,
-    preventScrollOnSwipe: true,
-    trackMouse: true,
-    trackTouch: true,
-  })
-  console.log(image)
+  // const handlers = useSwipeable({
+  //   onSwipedLeft: () => {
+  //     if (currentIndex === 0) {
+  //       setCurrentIndex(images.length - 1)
+  //     } else {
+  //       setCurrentIndex(currentIndex - 1)
+  //     }
+  //   },
+  //   onSwipedRight: () => {
+  //     if (currentIndex === images.length - 1) {
+  //       setCurrentIndex(0)
+  //     } else {
+  //       setCurrentIndex(currentIndex + 1)
+  //     }
+  //   },
+  //   swipeDuration: Infinity,
+  //   preventScrollOnSwipe: true,
+  //   trackMouse: true,
+  //   trackTouch: true,
+  // })
+  // console.log(image)
+
   return (
     <Flex width='400px' direction='column' alignItems={'center'}>
-      <Image
-        boxSize='400px'
-        objectFit='cover'
-        shadow='lg'
-        src={image}
-        alt={`An image of ${animal.name}`}
-        borderRadius='md'
-        zIndex='2'
-        borderWidth='0 1px 1px 1px'
-        borderColor='teal.900'
-        {...handlers}
-        onMouseMove={(e) => {
-          e.preventDefault()
-        }}
-      />
+      <Carousel
+        swipeable
+        emulateTouch
+        showStatus={false}
+        infiniteLoop
+        transitionTime='700'
+      >
+        {images?.map((imgURL) => {
+          return (
+            <Image
+              boxSize='400px'
+              objectFit='cover'
+              shadow='lg'
+              src={imgURL}
+              alt={`An image of `}
+              borderRadius='md'
+              zIndex='2'
+              borderWidth='0 1px 1px 1px'
+              borderColor='teal.900'
+              onMouseMove={(e) => {
+                e.preventDefault()
+              }}
+            />
+          )
+        })}
+      </Carousel>
       <Box
         width='95%'
         bg='teal.100'
