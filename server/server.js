@@ -15,6 +15,7 @@ server.use('/api/pets', require('./routes/pets'))
 server.use('/api/image', require('./routes/image'))
 server.use('/api/comments', require('./routes/comments'))
 server.use('/api/votes', require('./routes/votes'))
+server.use('/api/*', require('./routes/notFound'))
 
 server.get('*', (req, res) => {
   try {
