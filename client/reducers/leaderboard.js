@@ -15,7 +15,7 @@ export default function leaderboard(state = initialState, action) {
     case leaderboard_receiveData:
       return {
         ...state,
-        data: action.leaderboard,
+        leaderboard: action.leaderboard,
         error: null,
         loading: false,
       }

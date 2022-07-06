@@ -4,7 +4,6 @@ import {
   leaderboard_setError,
 } from '@/actions'
 import * as api from '@/apiClient'
-import { getTopTenPets } from '@/apiClient'
 import { petsWithScores } from '~/test/fake-data'
 
 jest.mock('@/apiClient')
