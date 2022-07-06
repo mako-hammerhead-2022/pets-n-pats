@@ -18,7 +18,7 @@ exports.seed = async (knex) => {
       name: 'Aileen',
       bio: 'Fully-configurable intermediate focus group',
       imageUrl:
-        '["https://images.dog.ceo/breeds/cotondetulear/100_2013.jpg, "https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=620&quality=85&auto=format&fit=max&s=56d5de4c5609ca98def0c3382bd569b4","https://www.northogdencity.com/sites/default/files/styles/full_node_primary/public/imageattachments/police/page/1971/golden-retriever-puppy.jpg?itok=3B6EF9n4","https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2020/03/GettyImages-512366437-e1583519258231-920x598.jpg"]',
+        '["https://images.dog.ceo/breeds/cotondetulear/100_2013.jpg", "https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=620&quality=85&auto=format&fit=max&s=56d5de4c5609ca98def0c3382bd569b4","https://www.northogdencity.com/sites/default/files/styles/full_node_primary/public/imageattachments/police/page/1971/golden-retriever-puppy.jpg?itok=3B6EF9n4","https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2020/03/GettyImages-512366437-e1583519258231-920x598.jpg"]',
       animal: 'dog',
       points: 11,
     },

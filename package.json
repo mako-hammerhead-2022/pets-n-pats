@@ -55,6 +55,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
+    "react-swipeable": "^7.0.0",
     "superagent": "^7.1.2"
   },
   "devDependencies": {
