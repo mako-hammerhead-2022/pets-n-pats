@@ -5,7 +5,7 @@ const db = require('../db')
 
 router.get('/', (req, res) => {
   return db
-    .getPetsWithPoints()
+    .getTopTenPets()
     .then((pets) => {
       res.json(pets)
     })

@@ -16,27 +16,27 @@ afterAll(() => {
 })
 
 describe('GET /api/leaderboard', () => {
-  it('returns an objects for all the pets', () => {
+  it('returns 10 pet objects sorted by most points', () => {
     const firstExpected = {
       id: 1,
       name: 'Betty',
       imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
       animal: 'dog',
-      points: 13,
+      points: 1001,
     }
     expect.assertions(3)
-    db.getPetsWithPoints.mockReturnValue(Promise.resolve(petsWithScores))
+    db.getTopTenPets.mockReturnValue(Promise.resolve(petsWithScores))
     return request(server)
       .get('/api/leaderboard')
       .then((res) => {
         expect(res.status).toBe(200)
-        expect(res.body).toHaveLength(3)
+        expect(res.body).toHaveLength(10)
         expect(res.body[0]).toEqual(firstExpected)
       })
   })
   it("should return status 500 and error when database doesn't work", () => {
     expect.assertions(2)
-    db.getPetsWithPoints.mockImplementation(() =>
+    db.getTopTenPets.mockImplementation(() =>
       Promise.reject(new Error('Something went wrong'))
     )
     return request(server)

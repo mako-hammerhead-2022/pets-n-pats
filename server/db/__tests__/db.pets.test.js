@@ -31,7 +31,7 @@ describe('getTwoRandomPets', () => {
 describe('getPetsByUserId', () => {
   it('returns the correct pets array', () => {
     return db.getPetsByUserId('auth0|something', testDb).then((pets) => {
-      expect(pets).toHaveLength(5)
+      expect(pets).toHaveLength(1)
       expect(pets[0].name).toBe('Orel')
       return null
     })
@@ -40,7 +40,7 @@ describe('getPetsByUserId', () => {
 
 describe('getPetById', () => {
   it('should get the pet given the id', () => {
-    return db.getPetById(2, testDb).then((pet) => {
+    return db.getPetById(1, testDb).then((pet) => {
       expect(pet).toEqual({
         ...dbTestPet,
         createdAt: expect.anything(),
@@ -50,19 +50,12 @@ describe('getPetById', () => {
   })
 })
 
-describe('getPetsWithPoints', () => {
-  const testObj = {
-    id: 1,
-    name: 'Orel',
-    imageUrl: 'https://wallpaperaccess.com/full/2378663.jpg',
-    animal: 'dog',
-    points: 0,
-  }
-  test('get pets out of db with their points', () => {
+describe('getTopTenPets', () => {
+  test('returns the top 10 pets by most points', () => {
     expect.assertions(2)
-    return db.getPetsWithPoints(testDb).then((pets) => {
-      expect(pets).toHaveLength(5)
-      expect(pets[0]).toEqual(testObj)
+    return db.getTopTenPets(testDb).then((pets) => {
+      expect(pets).toHaveLength(10)
+      expect(pets[0].points).toBe(2500)
     })
   })
 })

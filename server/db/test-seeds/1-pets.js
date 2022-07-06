@@ -1,0 +1,229 @@
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+exports.seed = async (knex) => {
+  // this is entered separately to the rest of the seed file
+  // because knex doesn't support .defaultTo() when using
+  // .insert() with an array
+  await knex('pets').insert({
+    id: 1,
+    // replace with your own auth0Id when developing
+    userId: 'auth0|something',
+    name: 'Orel',
+    // the bios are automatically generated (thanks David for Mockaroo)
+    // feel free to change them if your are on a bio related ticket
+    bio: 'Ameliorated dedicated extranet',
+    // imageUrl is null here, uses fallback image when queried for
+    animal: 'dog',
+    points: 0,
+  })
+  return await knex('pets').insert([
+    {
+      id: 2,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Aileen',
+      bio: 'Fully-configurable intermediate focus group',
+      imageUrl: '["https://images.dog.ceo/breeds/cotondetulear/100_2013.jpg"]',
+      animal: 'dog',
+      points: 11,
+    },
+    {
+      id: 3,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Giralda',
+      bio: 'Customizable holistic conglomeration',
+      imageUrl: '["https://cdn2.thecatapi.com/images/MTg0NjE0OQ.jpg"]',
+      animal: 'cat',
+      points: 17,
+    },
+    {
+      id: 4,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Letizia',
+      bio: 'Open-architected systemic groupware',
+      imageUrl: '["https://images.dog.ceo/breeds/tervuren/yoda_in_garden.jpg"]',
+      animal: 'dog',
+      points: 83,
+    },
+    {
+      id: 5,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Dominique',
+      bio: 'Reverse-engineered intermediate data-warehouse',
+      imageUrl: '["https://cdn2.thecatapi.com/images/b5TojsXM1.jpg"]',
+      animal: 'cat',
+      points: 190,
+    },
+    {
+      id: 7,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Bodhi',
+      bio: 'Focused for four-legged fur friends fun, frolicking fast forever from fantastically frightening flickering ferns',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/unknown2.png"]',
+      animal: 'dog',
+      points: 2500,
+    },
+    {
+      id: 8,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Bean',
+      bio: 'It is 2am, time to lick your face until you pat me',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/76640151_417269875631782_438672244328103936_n.jpg"]',
+      animal: 'cat',
+      points: 50,
+    },
+    {
+      id: 9,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Soxis',
+      bio: "One step closer and I'll show you what-for",
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/20200827_223755.jpg"]',
+      animal: 'cat',
+      points: 100,
+    },
+    {
+      id: 10,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Missy',
+      bio: 'Hold fast to dreams, For if dreams die, Life is a broken-winged bird, That cannot fly. Hold fast to dreams, For when dreams go, Life is a barren field, Frozen with snow.',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_20220429_151501.jpg"]',
+      animal: 'cat',
+      points: 30,
+    },
+    {
+      id: 11,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Mr. Piggy',
+      bio: 'Carrots and hay I welcome, bacon and ham no thanks',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/20210523_155753.jpg"]',
+      animal: 'dog',
+      points: 90,
+    },
+    {
+      id: 12,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Bounty',
+      bio: 'I want my mouse pad please',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/SPOILER_13084240_10154139378190522_22079373_n.jpg"]',
+      animal: 'dog',
+      points: 30,
+    },
+    {
+      id: 13,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Summer',
+      bio: "I am snug. I am snug. Don't get mad, when I pee on rug.",
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/Snapchat-2118970990__01.jpg"]',
+      animal: 'dog',
+      points: 200,
+    },
+    {
+      id: 14,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Dixie',
+      bio: 'wizard cat, she likes to walk up to you and cast spells',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/20200912_202919.jpg"]',
+      animal: 'cat',
+      points: 125,
+    },
+    {
+      id: 15,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Hugo',
+      bio: "I'm hungry but my bowl is only 80% full, time to YELL",
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/54DEEFAF-230F-4F18-B499-AC00966F533F.jpg"]',
+      animal: 'cat',
+      points: 130,
+    },
+    {
+      id: 16,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Scout',
+      bio: 'I once met a dog from Peru, who\'d freely walk up to you: "That dinner was swell, But I had to expel, So I need to you to pick up my poo.',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_4777.jpg"]',
+      animal: 'cat',
+      points: 125,
+    },
+    {
+      id: 17,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Brazen',
+      bio: "Violets are blue, roses are red. It's 2am, you'll sleep when you're dead",
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_5928.jpg"]',
+      animal: 'cat',
+      points: 140,
+    },
+    {
+      id: 18,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Frankie',
+      bio: "Roses are blue, violets are red. I'm a dog I can't see colours",
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_0057.jpg"]',
+      animal: 'dog',
+      points: 50,
+    },
+    {
+      id: 19,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Jubbers',
+      bio: 'Jubbers loves towels,all towels belong to Jubbers.',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/unknown4.png"]',
+      animal: 'dog',
+      points: 190,
+    },
+    {
+      id: 20,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Eriks Cat',
+      bio: 'Always sitting on the fence, never taking sides',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_6362.JPG"]',
+      animal: 'cat',
+      points: 125,
+    },
+    {
+      id: 21,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'George',
+      bio: "I'll take a rest and then clear out the pests",
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_6307.JPG"]',
+      animal: 'cat',
+      points: 175,
+    },
+    {
+      id: 22,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Barkley',
+      bio: "I'm Barkley the builder! Lets go to Bunnings!",
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_7948.JPG"]',
+      animal: 'cat',
+      points: 110,
+    },
+    {
+      id: 23,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Baldy',
+      bio: "You're The Best Evil Son An Evil Dad Could Ever Ask For.",
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_7586.PNG"]',
+      animal: 'cat',
+      points: 125,
+    },
+  ])
+}
