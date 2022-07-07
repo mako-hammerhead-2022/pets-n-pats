@@ -9,17 +9,10 @@ jest.mock('../../db')
 jest.mock('../../utils')
 
 beforeAll(() => {
-  jest.spyOn(console, 'log')
-  console.log.mockImplementation(() => {})
   checkJwt.mockImplementation((req, res, next) => {
     req.user = { sub: objComment.authorId }
     next()
   })
-})
-
-afterAll(() => {
-  console.log.mockRestore()
-  jest.restoreAllMocks()
 })
 
 describe('POST /api/comments', () => {
