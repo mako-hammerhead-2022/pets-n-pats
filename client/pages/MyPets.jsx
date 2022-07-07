@@ -14,7 +14,6 @@ import {
   Center,
 } from '@chakra-ui/react'
 import PetForm from '@/components/PetForm'
-
 function MyPets() {
   const dispatch = useDispatch()
   const { getAccessTokenSilently } = useAuth0()
