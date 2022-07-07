@@ -1,5 +1,5 @@
 import React from 'react'
-import { postVotes } from '@/apiClient'
+import { postVotes, postVotesTie } from '@/apiClient'
 import { Button, HStack, Center } from '@chakra-ui/react'
 import { fetchTwoPets } from '@/actions'
 import { useDispatch } from 'react-redux'
@@ -8,19 +8,26 @@ function Voting({ cat, dog }) {
   const dispatch = useDispatch()
 
   // win 2 points
-  // draw 1 point
   function handleSubmit(winnerId) {
-    if (winnerId !== 'skip') {
-      postVotes(winnerId)
-        .then(() => {
-          dispatch(fetchTwoPets())
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    } else {
-      dispatch(fetchTwoPets())
-    }
+    postVotes(winnerId)
+      .then(() => {
+        dispatch(fetchTwoPets())
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  // draw 1 point
+  function handleTie(catId, dogId) {
+    console.log('cats and dogs', catId, dogId)
+    postVotesTie(catId, dogId)
+      .then(() => {
+        dispatch(fetchTwoPets())
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   return (
@@ -37,7 +44,7 @@ function Voting({ cat, dog }) {
           colorScheme='teal'
           variant='ghost'
           value='skip'
-          onClick={() => handleSubmit('skip')}
+          onClick={() => handleTie(cat.id, dog.id)}
         >
           Skip, both cute!
         </Button>
