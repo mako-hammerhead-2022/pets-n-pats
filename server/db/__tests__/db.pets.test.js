@@ -50,11 +50,11 @@ describe('getPetById', () => {
   })
 })
 
-describe('getTopTenPets', () => {
-  test('returns the top 10 pets by most points', () => {
+describe('getAllPetsSortedByPoints', () => {
+  test('returns all the pets sorted by most points', () => {
     expect.assertions(2)
-    return db.getTopTenPets(testDb).then((pets) => {
-      expect(pets).toHaveLength(10)
+    return db.getAllPetsSortedByPoints(testDb).then((pets) => {
+      expect(pets).toHaveLength(22)
       expect(pets[0].points).toBe(2500)
     })
   })

@@ -25,7 +25,7 @@ describe('GET /api/leaderboard', () => {
       points: 1001,
     }
     expect.assertions(3)
-    db.getTopTenPets.mockReturnValue(Promise.resolve(petsWithScores))
+    db.getAllPetsSortedByPoints.mockReturnValue(Promise.resolve(petsWithScores))
     return request(server)
       .get('/api/leaderboard')
       .then((res) => {
@@ -36,7 +36,7 @@ describe('GET /api/leaderboard', () => {
   })
   it("should return status 500 and error when database doesn't work", () => {
     expect.assertions(2)
-    db.getTopTenPets.mockImplementation(() =>
+    db.getAllPetsSortedByPoints.mockImplementation(() =>
       Promise.reject(new Error('Something went wrong'))
     )
     return request(server)
