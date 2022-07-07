@@ -1,16 +1,15 @@
 import myPetsReducer from '@/reducers/myPets'
-import { userPets_receiveData } from '@/actions'
+import { receiveUserPets, requestUserPets, setUserPetsError } from '@/actions'
 
 describe('myPetsReducer', () => {
+  const pets = [
+    { id: 4, name: 'bob' },
+    { id: 20, name: 'bill' },
+  ]
   it('can get pets by user id', () => {
     // Arrange
-    const action = {
-      type: userPets_receiveData,
-      payload: [
-        { id: 4, name: 'bob' },
-        { id: 20, name: 'bill' },
-      ],
-    }
+
+    const action = receiveUserPets(pets)
 
     const initialState = {
       data: [],
@@ -19,10 +18,7 @@ describe('myPetsReducer', () => {
     }
 
     const expectedOutputState = {
-      data: [
-        { id: 4, name: 'bob' },
-        { id: 20, name: 'bill' },
-      ],
+      data: pets,
       loading: false,
       error: null,
     }
@@ -32,7 +28,47 @@ describe('myPetsReducer', () => {
 
     // Assert
     expect(actualOutputState).toEqual(expectedOutputState)
-    expect(actualOutputState.data).toHaveLength(2)
-    expect(actualOutputState.loading).toBeFalsy()
+  })
+  it('set error correctly', () => {
+    const initialState = {
+      data: pets,
+      loading: true,
+      error: null,
+    }
+
+    const action = setUserPetsError('sadness')
+
+    const expectedOutputState = {
+      data: pets,
+      loading: false,
+      error: 'sadness',
+    }
+
+    // Act
+    const actualOutputState = myPetsReducer(initialState, action)
+
+    // Assert
+    expect(actualOutputState).toEqual(expectedOutputState)
+  })
+  it('set loading correctly', () => {
+    const initialState = {
+      data: pets,
+      loading: false,
+      error: null,
+    }
+
+    const action = requestUserPets()
+
+    const expectedOutputState = {
+      data: pets,
+      loading: true,
+      error: null,
+    }
+
+    // Act
+    const actualOutputState = myPetsReducer(initialState, action)
+
+    // Assert
+    expect(actualOutputState).toEqual(expectedOutputState)
   })
 })

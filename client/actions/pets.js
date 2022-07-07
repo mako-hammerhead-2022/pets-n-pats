@@ -28,13 +28,7 @@ export function fetchTwoPets() {
     dispatch(requestRandomPets())
     return api
       .getRandomPets()
-      .then((pets) => {
-        dispatch(receiveRandomPets(pets))
-        return null
-      })
-      .catch((err) => {
-        dispatch(setPetsError(err.message))
-        console.log(err)
-      })
+      .then((pets) => dispatch(receiveRandomPets(pets)))
+      .catch((err) => dispatch(setPetsError(err.message)))
   }
 }

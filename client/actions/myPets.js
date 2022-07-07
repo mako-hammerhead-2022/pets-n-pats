@@ -2,7 +2,6 @@ import * as api from '@/apiClient'
 
 export const userPets_receiveData = 'userPets/receiveData'
 export function receiveUserPets(pets) {
-  console.log(pets)
   return {
     type: userPets_receiveData,
     payload: pets,
@@ -29,13 +28,7 @@ export function fetchUserPets(token) {
     dispatch(requestUserPets())
     return api
       .getUserPets(token)
-      .then((pets) => {
-        dispatch(receiveUserPets(pets))
-        return null
-      })
-      .catch((err) => {
-        dispatch(setUserPetsError(err.message))
-        console.log(err)
-      })
+      .then((pets) => dispatch(receiveUserPets(pets)))
+      .catch((err) => dispatch(setUserPetsError(err.message)))
   }
 }
