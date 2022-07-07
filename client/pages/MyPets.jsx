@@ -18,7 +18,7 @@ function MyPets() {
   const dispatch = useDispatch()
   const { getAccessTokenSilently } = useAuth0()
 
-  const pets = useSelector((state) => state.myPets)
+  const pets = useSelector((state) => state.myPets.data)
 
   useEffect(() => {
     getUserPets()
