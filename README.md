@@ -33,4 +33,6 @@ npm run lint
 npm run test
 ```
 
+Happy patting! 🐶😺
+
 Happy patting!

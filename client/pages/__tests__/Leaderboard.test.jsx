@@ -1,5 +1,5 @@
 import React from 'react'
-import { screen, render, within } from '@testing-library/react'
+import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import Leaderboard from '../Leaderboard'
@@ -49,7 +49,6 @@ describe('<Leaderboard />', () => {
     PointsTable.mockReturnValue(fakeChild)
     useSelector.mockReturnValue(petsWithScores)
     render(<Leaderboard />)
-
     expect(PointsTable).toHaveBeenNthCalledWith(
       3,
       {

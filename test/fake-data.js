@@ -180,3 +180,13 @@ export const objComment = {
   authId: 'auth0|something',
   content: 'this pet comment is for petId4, he big',
 }
+
+export const dbTestCat = {
+  id: 10,
+  userId: 'auth0|something',
+  name: 'beep boop',
+  bio: 'Fully-configurable intermediate focus group',
+  imageUrl: '["https://images.dog.ceo/breeds/cotondetulear/100_2013.jpg"]',
+  animal: 'cat',
+  points: 14,
+}

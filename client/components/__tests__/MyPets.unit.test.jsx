@@ -20,26 +20,30 @@ describe('<MyPets /> renders users pets', () => {
     getState: jest.fn(),
   }
   fakeStore.getState.mockReturnValue({
-    myPets: [
-      {
-        id: 5,
-        userId: '6',
-        name: 'Dominique',
-        bio: 'Reverse-engineered intermediate data-warehouse',
-        imageUrl: '["https://cdn2.thecatapi.com/images/b5TojsXM1.jpg"]',
-        animal: 'cat',
-        points: 190,
-      },
-      {
-        id: 6,
-        userId: '6',
-        name: 'Domin',
-        bio: 'Reverse-engineered',
-        imageUrl: '["https://cdn2.thecatapi.com/images/b5TojsXM1.jpg"]',
-        animal: 'dog',
-        points: 140,
-      },
-    ],
+    myPets: {
+      data: [
+        {
+          id: 5,
+          userId: '6',
+          name: 'Dominique',
+          bio: 'Reverse-engineered intermediate data-warehouse',
+          imageUrl: '["https://cdn2.thecatapi.com/images/b5TojsXM1.jpg"]',
+          animal: 'cat',
+          points: 190,
+        },
+        {
+          id: 6,
+          userId: '6',
+          name: 'Domin',
+          bio: 'Reverse-engineered',
+          imageUrl: '["https://cdn2.thecatapi.com/images/b5TojsXM1.jpg"]',
+          animal: 'dog',
+          points: 140,
+        },
+      ],
+      loading: false,
+      error: null,
+    },
   })
 
   it('renders with the given prop', () => {

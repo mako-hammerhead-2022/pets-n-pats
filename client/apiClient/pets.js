@@ -6,6 +6,7 @@ export function getUserPets(token) {
     .set('authorization', `Bearer ${token}`)
     .then((res) => res.body)
 }
+
 export async function addPet(formData, token) {
   return request
     .post('/api/pets')

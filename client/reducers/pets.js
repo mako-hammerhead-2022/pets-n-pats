@@ -1,5 +1,5 @@
 const initialState = {
-  pets: { cat: null, dog: null },
+  data: { cat: null, dog: null },
   loading: true,
   error: null,
 }
@@ -11,21 +11,21 @@ export default function pets(state = initialState, action) {
     case pets_receiveData:
       return {
         ...state,
-        data: action.pets,
+        data: action.payload,
+        loading: false,
         error: null,
-        loading: false,
-      }
-    case pets_setError:
-      return {
-        ...state,
-        loading: false,
-        error: action.errMessage,
       }
     case pets_requestData:
       return {
         ...state,
         loading: true,
         error: null,
+      }
+    case pets_setError:
+      return {
+        ...state,
+        loading: false,
+        error: action.errMessage,
       }
     default:
       return state
