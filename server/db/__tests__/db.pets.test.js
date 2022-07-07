@@ -31,20 +31,31 @@ describe('getTwoRandomPets', () => {
 describe('getPetsByUserId', () => {
   it('returns the correct pets array', () => {
     return db.getPetsByUserId('auth0|something', testDb).then((pets) => {
-      expect(pets).toHaveLength(5)
+      expect(pets).toHaveLength(1)
       expect(pets[0].name).toBe('Orel')
       return null
     })
   })
 })
+
 describe('getPetById', () => {
   it('should get the pet given the id', () => {
-    return db.getPetById(2, testDb).then((pet) => {
+    return db.getPetById(1, testDb).then((pet) => {
       expect(pet).toEqual({
         ...dbTestPet,
         createdAt: expect.anything(),
         updatedAt: expect.anything(),
       })
+    })
+  })
+})
+
+describe('getTopTenPets', () => {
+  test('returns the top 10 pets by most points', () => {
+    expect.assertions(2)
+    return db.getTopTenPets(testDb).then((pets) => {
+      expect(pets).toHaveLength(10)
+      expect(pets[0].points).toBe(2500)
     })
   })
 })
@@ -70,38 +81,11 @@ describe('addPet', () => {
 
 describe('addPoints', () => {
   it('should add 2 points', () => {
-    const INITIAL_POINTS = 83
-    const NUM_POINTS_SCORED = 2
-    const PET_ID = 4
     return db
-      .addPoints(PET_ID, NUM_POINTS_SCORED, testDb)
-      .then(() => db.getWinnerById(PET_ID, testDb))
+      .addPoints(4, testDb)
+      .then(() => db.getWinnerById(4, testDb))
       .then((pet) => {
-        expect(pet.points).toEqual(INITIAL_POINTS + NUM_POINTS_SCORED)
-      })
-  })
-})
-
-describe('addPointsTie', () => {
-  it('should add 1 point to each animal', () => {
-    const INITIAL_POINTS1 = 11
-    const INITIAL_POINTS2 = 190
-    const NUM_POINTS_SCORED = 1
-
-    const PET_ID1 = 2
-    const PET_ID2 = 5
-    return db
-      .addPoints(PET_ID1, NUM_POINTS_SCORED, testDb)
-      .then(() => db.getPetById(PET_ID1, testDb))
-      .then((pet) => {
-        console.log('pet1', pet)
-        expect(pet.points).toEqual(INITIAL_POINTS1 + NUM_POINTS_SCORED)
-        return db.addPoints(PET_ID2, NUM_POINTS_SCORED, testDb)
-      })
-      .then(() => db.getPetById(PET_ID2, testDb))
-      .then((pet) => {
-        console.log('PET2!', pet)
-        expect(pet.points).toEqual(INITIAL_POINTS2 + NUM_POINTS_SCORED)
+        expect(pet.points).toEqual(83 + 2)
       })
   })
 })
