@@ -12,6 +12,15 @@ import {
   Heading,
   Text,
   Center,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+  Button,
 } from '@chakra-ui/react'
 import PetForm from '@/components/PetForm'
 
@@ -47,9 +56,11 @@ function MyPets() {
 }
 
 function AnimalTile({ pet }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <WrapItem w='200px' minH='300px' key={pet.id} bg='gray.100'>
-      <Box p={2} width='full'>
+      <Box p={2} width='full' onClick={onOpen}>
         <AspectRatio maxW='200px' ratio={4 / 3} mb={2}>
           <Image
             objectFit='cover'
@@ -74,7 +85,28 @@ function AnimalTile({ pet }) {
           <Text as='p'>{pet.points}</Text>
         </Box>
       </Box>
+      <AnimalModal pet={pet} isOpen={isOpen} onClose={onClose} />
     </WrapItem>
+  )
+}
+
+function AnimalModal({ pet, isOpen, onClose }) {
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Modal Title</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>{pet.name}</ModalBody>
+
+        <ModalFooter>
+          <Button colorScheme='blue' mr={3} onClick={onClose}>
+            Close
+          </Button>
+          <Button variant='ghost'>Secondary Action</Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   )
 }
 
