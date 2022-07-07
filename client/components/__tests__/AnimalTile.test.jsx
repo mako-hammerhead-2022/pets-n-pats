@@ -4,8 +4,6 @@ import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
-import Home from '@/pages/Home'
-import HeadToHead from '@/components/HeadToHead'
 import AnimalTile from '@/components/AnimalTile'
 
 jest.mock('react-redux')

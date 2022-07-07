@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { HStack, Heading, Container } from '@chakra-ui/react'
 
 import AnimalTile from '@/components/AnimalTile'
