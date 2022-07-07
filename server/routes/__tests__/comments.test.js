@@ -12,6 +12,8 @@ beforeAll(() => {
   jest.spyOn(console, 'log')
   console.log.mockImplementation(() => {})
   checkJwt.mockImplementation((req, res, next) => {
+    const auth0Id = req.user?.sub
+    objComment.authorId = auth0Id
     next()
   })
 })
@@ -23,21 +25,28 @@ afterAll(() => {
 
 describe('POST /api/comments', () => {
   it('adding a comment hits the db', () => {
-    db.insertComment.mockReturnValue(Promise.resolve(objComment))
+    expect.assertions(2)
+
+    const dbFunction = db.insertComment.mockReturnValue(
+      Promise.resolve(objComment)
+    )
 
     return request(server)
       .post('/api/comments')
       .send(objComment)
       .then((res) => {
         expect(res.status).toBe(200)
+        expect(dbFunction).toHaveBeenCalledWith(objComment)
       })
   })
 
   it("should return status 500 and error when database doesn't work", () => {
     expect.assertions(2)
+
     db.insertComment.mockImplementation(() =>
       Promise.reject(new Error('Something went wrong'))
     )
+
     return request(server)
       .post('/api/comments')
       .send(objComment)
