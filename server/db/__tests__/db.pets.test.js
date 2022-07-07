@@ -94,13 +94,11 @@ describe('addPointsTie', () => {
       .addPoints(PET_ID1, NUM_POINTS_SCORED, testDb)
       .then(() => db.getPetById(PET_ID1, testDb))
       .then((pet) => {
-        console.log('pet1', pet)
         expect(pet.points).toEqual(INITIAL_POINTS1 + NUM_POINTS_SCORED)
         return db.addPoints(PET_ID2, NUM_POINTS_SCORED, testDb)
       })
       .then(() => db.getPetById(PET_ID2, testDb))
       .then((pet) => {
-        console.log('PET2!', pet)
         expect(pet.points).toEqual(INITIAL_POINTS2 + NUM_POINTS_SCORED)
       })
   })

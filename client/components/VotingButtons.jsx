@@ -20,7 +20,6 @@ function Voting({ cat, dog }) {
 
   // draw 1 point
   function handleTie(catId, dogId) {
-    console.log('cats and dogs', catId, dogId)
     postVotesTie(catId, dogId)
       .then(() => {
         dispatch(fetchTwoPets())
