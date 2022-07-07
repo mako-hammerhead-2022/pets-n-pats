@@ -1,22 +1,74 @@
 import myPetsReducer from '@/reducers/myPets'
-import { userPets_receieveData } from '@/actions'
+import { receiveUserPets, requestUserPets, setUserPetsError } from '@/actions'
 
 describe('myPetsReducer', () => {
+  const pets = [
+    { id: 4, name: 'bob' },
+    { id: 20, name: 'bill' },
+  ]
   it('can get pets by user id', () => {
-    // arrange
-    const action = {
-      type: userPets_receieveData,
-      payload: { pets: [{ name: 'bob', id: 4 }] },
+    // Arrange
+
+    const action = receiveUserPets(pets)
+
+    const initialState = {
+      data: [],
+      loading: true,
+      error: null,
     }
 
-    const inputState = [{ name: 'bill', id: 20 }]
-    const expectedOutputState = [{ id: 4, name: 'bob' }]
+    const expectedOutputState = {
+      data: pets,
+      loading: false,
+      error: null,
+    }
 
-    // act
-    const outputState = myPetsReducer(inputState, action)
+    // Act
+    const actualOutputState = myPetsReducer(initialState, action)
 
-    // assert
+    // Assert
+    expect(actualOutputState).toEqual(expectedOutputState)
+  })
+  it('set error correctly', () => {
+    const initialState = {
+      data: pets,
+      loading: true,
+      error: null,
+    }
 
-    expect(outputState).toEqual(expectedOutputState)
+    const action = setUserPetsError('sadness')
+
+    const expectedOutputState = {
+      data: pets,
+      loading: false,
+      error: 'sadness',
+    }
+
+    // Act
+    const actualOutputState = myPetsReducer(initialState, action)
+
+    // Assert
+    expect(actualOutputState).toEqual(expectedOutputState)
+  })
+  it('set loading correctly', () => {
+    const initialState = {
+      data: pets,
+      loading: false,
+      error: null,
+    }
+
+    const action = requestUserPets()
+
+    const expectedOutputState = {
+      data: pets,
+      loading: true,
+      error: null,
+    }
+
+    // Act
+    const actualOutputState = myPetsReducer(initialState, action)
+
+    // Assert
+    expect(actualOutputState).toEqual(expectedOutputState)
   })
 })

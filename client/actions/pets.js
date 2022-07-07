@@ -4,15 +4,15 @@ export const pets_receiveData = 'pets/receiveData'
 export function receiveRandomPets(pets) {
   return {
     type: pets_receiveData,
-    pets: pets,
+    payload: pets,
   }
 }
 
 export const pets_setError = 'pets/setError'
-export function setPetsError(errMessage) {
+export function setPetsError(errorMessage) {
   return {
     type: pets_setError,
-    errMessage,
+    errorMessage: errorMessage,
   }
 }
 
@@ -28,13 +28,7 @@ export function fetchTwoPets() {
     dispatch(requestRandomPets())
     return api
       .getRandomPets()
-      .then((pets) => {
-        dispatch(receiveRandomPets(pets))
-        return null
-      })
-      .catch((err) => {
-        dispatch(setPetsError(err.message))
-        console.log(err)
-      })
+      .then((pets) => dispatch(receiveRandomPets(pets)))
+      .catch((err) => dispatch(setPetsError(err.message)))
   }
 }
