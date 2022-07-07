@@ -39,7 +39,7 @@ export default function AnimalTile({ animal }) {
               objectFit='cover'
               shadow='lg'
               src={imgURL}
-              alt={`An image of `}
+              alt={`Image ${index + 1} of ${animal.name}`}
               borderRadius='md'
               zIndex='2'
               borderWidth='0 1px 1px 1px'

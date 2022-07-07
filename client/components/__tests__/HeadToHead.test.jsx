@@ -11,8 +11,8 @@ const { cat, dog } = objTwoPet
 describe('<HeadToHead />', () => {
   it('receives props', () => {
     render(<HeadToHead cat={cat} dog={dog} />)
-    const catName = screen.getByAltText(/Cthulu/i)
-    expect(catName.src).toContain('MTg0NjE0OQ')
+    const catName = screen.getByRole('heading', { name: /Cthulu/i })
+    expect(catName).toBeInTheDocument()
     const DogName = screen.getByRole('heading', { name: /Balrog/i })
     expect(DogName).toBeInTheDocument()
   })
