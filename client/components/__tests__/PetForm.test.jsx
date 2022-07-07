@@ -57,5 +57,5 @@ describe('<PetForm /> renders when user is authenticated', () => {
         file,
       })
     })
-  })
+  }, 15000)
 })
