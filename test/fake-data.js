@@ -73,6 +73,79 @@ export const fakePets = [
   },
 ]
 
+export const petsWithScores = [
+  {
+    id: 1,
+    name: 'Betty',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'dog',
+    points: 1001,
+  },
+  {
+    id: 2,
+    name: 'Jimbob',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'dog',
+    points: 800,
+  },
+  {
+    id: 3,
+    name: 'NOFX',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'cat',
+    points: 755,
+  },
+  {
+    id: 4,
+    name: 'Loch',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'dog',
+    points: 689,
+  },
+  {
+    id: 5,
+    name: 'Chris',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'cat',
+    points: 450,
+  },
+  {
+    id: 6,
+    name: 'Bill',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'cat',
+    points: 368,
+  },
+  {
+    id: 7,
+    name: 'Zed',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'dog',
+    points: 333,
+  },
+  {
+    id: 8,
+    name: 'Peter',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'dog',
+    points: 200,
+  },
+  {
+    id: 9,
+    name: 'Larry',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'cat',
+    points: 10,
+  },
+  {
+    id: 10,
+    name: 'Gab',
+    imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+    animal: 'dog',
+    points: 0,
+  },
+]
+
 export const dbNewPet = {
   id: 6,
   userId: 'auth0|testId',
@@ -85,13 +158,13 @@ export const dbNewPet = {
 }
 
 export const dbTestPet = {
-  id: 2,
+  id: 1,
   userId: 'auth0|something',
-  name: 'Aileen',
-  bio: 'Fully-configurable intermediate focus group',
-  imageUrl: '["https://images.dog.ceo/breeds/cotondetulear/100_2013.jpg"]',
+  name: 'Orel',
+  bio: 'Ameliorated dedicated extranet',
+  imageUrl: 'https://wallpaperaccess.com/full/2378663.jpg',
   animal: 'dog',
-  points: 11,
+  points: 0,
 }
 
 export const apiClientPet = {
