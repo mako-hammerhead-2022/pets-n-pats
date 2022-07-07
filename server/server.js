@@ -5,6 +5,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 const express = require('express')
 const path = require('path')
 const fs = require('fs')
+const { send } = require('process')
 const server = express()
 
 server.use(express.static(path.resolve(__dirname, '../dist')))
@@ -15,6 +16,9 @@ server.use('/api/pets', require('./routes/pets'))
 server.use('/api/image', require('./routes/image'))
 server.use('/api/comments', require('./routes/comments'))
 server.use('/api/votes', require('./routes/votes'))
+server.use('/api/*', (req, res) => {
+  return res.sendStatus(404)
+})
 
 server.get('*', (req, res) => {
   try {
