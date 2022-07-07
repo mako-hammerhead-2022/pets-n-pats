@@ -20,7 +20,7 @@ describe('<PointsTable />', () => {
     render(<PointsTable petScores={petsWithScores} />)
     const table = screen.getByRole('table')
     const firstRow = within(table).getAllByRole('row')[1]
-    const cells = within(firstRow).getAllByRole('gridcell')
+    const cells = within(firstRow).getAllByRole('cell')
     expect(cells[0].textContent).toBe('Betty')
     expect(cells[1].textContent).toBe('1001')
     expect(cells[2].textContent).toBe('🐶')
@@ -32,3 +32,19 @@ describe('<PointsTable />', () => {
     expect(rows).toHaveLength(11)
   })
 })
+
+// Helper
+function makeTestAnimals(num) {
+  return new Array(num)
+    .fill({})
+    .map((cell, i) => {
+      return {
+        id: i + 1,
+        name: `Pet ${i + 1}`,
+        imageUrl: '["https://wallpaperaccess.com/full/2378663.jpg"]',
+        animal: (i + 1) % 2 ? 'cat' : 'dog',
+        points: (i + 1) * 10,
+      }
+    })
+    .reverse()
+}

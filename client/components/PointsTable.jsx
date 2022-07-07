@@ -14,17 +14,12 @@ import {
 export default function PointsTable({ petScores }) {
   const data = petScores
     ? React.useMemo(() =>
-        petScores.map((petObject, i) => {
+        petScores.map((petObject) => {
           return {
             col1: petObject.name,
             col2: petObject.points,
             col3: petObject.animal === 'cat' ? '🐱' : '🐶',
           }
-          // <Tr key={i}>
-          //   <Td>{petObject.name}</Td>
-          //   <Td isNumeric>{petObject.points}</Td>
-          //   <Td>{petObject.animal === 'cat' ? '🐱' : '🐶'}</Td>
-          // </Tr>
         })
       )
     : []
@@ -33,7 +28,7 @@ export default function PointsTable({ petScores }) {
     () => [
       {
         Header: 'Name',
-        accessor: 'col1', // accessor is the "key" in the data
+        accessor: 'col1',
       },
       {
         Header: 'Points',
