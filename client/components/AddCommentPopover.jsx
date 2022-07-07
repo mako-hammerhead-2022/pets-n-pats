@@ -35,7 +35,13 @@ function AddCommentPopover({ animal }) {
     setIsSubmitting(true)
     try {
       const token = await getAccessTokenSilently()
-      await postComment({ petId: animal.id, content: comment }, token)
+      await postComment(
+        {
+          petId: animal.id,
+          content: comment,
+        },
+        token
+      )
       setHasSubmitted(true)
       onClose()
     } catch (error) {
