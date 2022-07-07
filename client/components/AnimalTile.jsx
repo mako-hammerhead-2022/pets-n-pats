@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { useSwipeable } from 'react-swipeable' -> superseded
+
 import { useAuth0 } from '@auth0/auth0-react'
 import {
   Flex,
@@ -20,30 +20,6 @@ import AddCommentPopover from '@/components/AddCommentPopover'
 
 export default function AnimalTile({ animal }) {
   const images = JSON.parse(animal.imageUrl)
-  const randomIndex = Math.floor(Math.random() * images.length)
-  const [currentIndex, setCurrentIndex] = useState(randomIndex)
-  const image = images[currentIndex]
-  // const handlers = useSwipeable({
-  //   onSwipedLeft: () => {
-  //     if (currentIndex === 0) {
-  //       setCurrentIndex(images.length - 1)
-  //     } else {
-  //       setCurrentIndex(currentIndex - 1)
-  //     }
-  //   },
-  //   onSwipedRight: () => {
-  //     if (currentIndex === images.length - 1) {
-  //       setCurrentIndex(0)
-  //     } else {
-  //       setCurrentIndex(currentIndex + 1)
-  //     }
-  //   },
-  //   swipeDuration: Infinity,
-  //   preventScrollOnSwipe: true,
-  //   trackMouse: true,
-  //   trackTouch: true,
-  // })
-  // console.log(image)
 
   return (
     <Flex width='400px' direction='column' alignItems={'center'}>
@@ -53,10 +29,12 @@ export default function AnimalTile({ animal }) {
         showStatus={false}
         infiniteLoop
         transitionTime='700'
+        showThumbs={false}
       >
-        {images?.map((imgURL) => {
+        {images?.map((imgURL, index) => {
           return (
             <Image
+              key={index}
               boxSize='400px'
               objectFit='cover'
               shadow='lg'
