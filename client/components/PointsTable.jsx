@@ -1,4 +1,6 @@
 import React from 'react'
+import { useTable } from 'react-table'
+
 import {
   Table,
   Thead,
@@ -10,30 +12,75 @@ import {
 } from '@chakra-ui/react'
 
 export default function PointsTable({ petScores }) {
-  const animalsWithScores = petScores
-    ? petScores.map((petObject, i) => {
-        return (
-          <Tr key={i}>
-            <Td>{petObject.name}</Td>
-            <Td isNumeric>{petObject.points}</Td>
-            <Td>{petObject.animal === 'cat' ? '🐱' : '🐶'}</Td>
-          </Tr>
-        )
-      })
+  const data = petScores
+    ? React.useMemo(() =>
+        petScores.map((petObject, i) => {
+          return {
+            col1: petObject.name,
+            col2: petObject.points,
+            col3: petObject.animal === 'cat' ? '🐱' : '🐶',
+          }
+          // <Tr key={i}>
+          //   <Td>{petObject.name}</Td>
+          //   <Td isNumeric>{petObject.points}</Td>
+          //   <Td>{petObject.animal === 'cat' ? '🐱' : '🐶'}</Td>
+          // </Tr>
+        })
+      )
     : []
+
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Name',
+        accessor: 'col1', // accessor is the "key" in the data
+      },
+      {
+        Header: 'Points',
+        accessor: 'col2',
+      },
+      {
+        Header: 'Species',
+        accessor: 'col3',
+      },
+    ],
+    []
+  )
+
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data })
 
   return (
     <div alt='The points table'>
       <TableContainer>
-        <Table variant='simple'>
+        <Table variant='simple' {...getTableProps()}>
           <Thead>
-            <Tr>
-              <Th>Name</Th>
-              <Th>Points</Th>
-              <Th>Species</Th>
-            </Tr>
+            {headerGroups.map((headerGroup, i) => (
+              <Tr key={i} {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column, j) => (
+                  <Th key={`${j}-${i}`} {...column.getHeaderProps()}>
+                    {column.render('Header')}
+                  </Th>
+                ))}
+              </Tr>
+            ))}
           </Thead>
-          <Tbody>{animalsWithScores}</Tbody>
+          <Tbody {...getTableBodyProps()}>
+            {rows.map((row, i) => {
+              prepareRow(row)
+              return (
+                <Tr key={i} {...row.getRowProps()}>
+                  {row.cells.map((cell, j) => {
+                    return (
+                      <Td key={j} {...cell.getCellProps()}>
+                        {cell.render('Cell')}
+                      </Td>
+                    )
+                  })}
+                </Tr>
+              )
+            })}
+          </Tbody>
         </Table>
       </TableContainer>
     </div>
