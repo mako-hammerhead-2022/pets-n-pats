@@ -17,11 +17,15 @@ const fakeStore = {
   dispatch: jest.fn(),
 }
 
+beforeEach(() => {
+  jest.clearAllMocks()
+})
+
 describe('<Voting />', () => {
   postVotes.mockReturnValue(Promise.resolve())
   postVotesTie.mockReturnValue(Promise.resolve())
 
-  it('renders on the screen', async () => {
+  it('Postvotes is called when Pick me! button is clicked', async () => {
     render(
       <Provider store={fakeStore}>
         <Voting cat={objTwoPet.cat} dog={objTwoPet.dog} />
@@ -31,8 +35,18 @@ describe('<Voting />', () => {
 
     expect(postVotes).toHaveBeenCalledWith(objTwoPet.cat.id)
   })
+  it('Postvotes is called on No Pick me button', async () => {
+    render(
+      <Provider store={fakeStore}>
+        {' '}
+        <Voting cat={objTwoPet.cat} dog={objTwoPet.dog} />
+      </Provider>
+    )
+    await userEvent.click(screen.getByRole('button', { name: 'No, Pick Me!' }))
+    expect(postVotes).toHaveBeenCalledWith(objTwoPet.dog.id)
+  })
 
-  it('after button click expect new pets to render', async () => {
+  it('PostvotesTie is called when skip button is clicked', async () => {
     render(
       <Provider store={fakeStore}>
         <Voting cat={objTwoPet.cat} dog={objTwoPet.dog} />
