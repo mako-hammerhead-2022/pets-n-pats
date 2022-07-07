@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSwipeable } from 'react-swipeable'
+// import { useSwipeable } from 'react-swipeable' -> superseded
 import { useAuth0 } from '@auth0/auth0-react'
 import {
   Flex,
