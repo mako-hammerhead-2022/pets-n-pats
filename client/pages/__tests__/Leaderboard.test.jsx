@@ -7,7 +7,7 @@ import Leaderboard from '../Leaderboard'
 import { petsWithScores } from '~/test/fake-data'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTopTen } from '@/actions'
+import { fetchSortedPets } from '@/actions'
 import PointsTable from '@/components/PointsTable'
 
 jest.mock('react-redux')
@@ -38,7 +38,7 @@ describe('<Leaderboard />', () => {
     const fakeDispatch = jest.fn()
     const fakeFetchAction = jest.fn()
     useDispatch.mockReturnValue(fakeDispatch)
-    fetchTopTen.mockReturnValue(fakeFetchAction)
+    fetchSortedPets.mockReturnValue(fakeFetchAction)
     render(<Leaderboard />)
     expect(fakeDispatch).toHaveBeenCalledWith(fakeFetchAction)
   })

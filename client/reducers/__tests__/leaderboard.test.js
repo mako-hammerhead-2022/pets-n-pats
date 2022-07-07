@@ -6,8 +6,8 @@ import {
 import leaderboardReducer from '@/reducers/leaderboard'
 import { petsWithScores } from '~/test/fake-data'
 
-describe('top 10 pets reducer', () => {
-  it('receives 10 top scoring pets', () => {
+describe('all pets reducer', () => {
+  it('receives all pets sorted by scores', () => {
     const action = {
       type: leaderboard_receiveData,
       leaderboard: petsWithScores,

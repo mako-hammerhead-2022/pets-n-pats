@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getTopTenPets } from '@/apiClient'
+import { getAllPetsSortedByPoints } from '@/apiClient/pets'
 import { petsWithScores } from '~/test/fake-data'
 
 test('GET /api/leaderboard', () => {
@@ -8,7 +8,7 @@ test('GET /api/leaderboard', () => {
     .get('/api/leaderboard')
     .reply(200, petsWithScores)
 
-  return getTopTenPets().then((pets) => {
+  return getAllPetsSortedByPoints().then((pets) => {
     expect(pets).toEqual(petsWithScores)
     scope.done()
     return null

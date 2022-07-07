@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchTopTen } from '@/actions'
+import { fetchSortedPets } from '@/actions'
 import PointsTable from '@/components/PointsTable'
 
 export default function Leaderboard() {
@@ -9,7 +9,7 @@ export default function Leaderboard() {
   const petScores = useSelector((state) => state.leaderboard.leaderboard)
 
   useEffect(() => {
-    dispatch(fetchTopTen())
+    dispatch(fetchSortedPets())
   }, [])
 
   return (

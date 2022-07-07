@@ -23,7 +23,7 @@ export function getRandomPets() {
   })
 }
 
-export function getTopTenPets() {
+export function getAllPetsSortedByPoints() {
   return request.get('/api/leaderboard').then((response) => {
     return response.body
   })
