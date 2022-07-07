@@ -8,21 +8,17 @@ function Voting({ cat, dog }) {
   const dispatch = useDispatch()
 
   // win 2 points
-  // draw 1 point
   function handleSubmit(winnerId) {
-    if (winnerId !== 'skip') {
-      postVotes(winnerId)
-        .then(() => {
-          dispatch(fetchTwoPets())
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    } else {
-      dispatch(fetchTwoPets())
-    }
+    postVotes(winnerId)
+      .then(() => {
+        dispatch(fetchTwoPets())
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
+  // draw 1 point
   function handleTie(catId, dogId) {
     console.log('cats and dogs', catId, dogId)
     postVotesTie(catId, dogId)
