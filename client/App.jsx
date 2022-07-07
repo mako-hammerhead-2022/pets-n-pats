@@ -5,6 +5,7 @@ import { Heading, Container } from '@chakra-ui/react'
 
 import Home from '@/pages/Home'
 import MyPets from '@/pages/MyPets'
+import Leaderboard from '@/pages/Leaderboard'
 
 import Login from '@/components/Header'
 
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/my-pets' element={<MyPets />}></Route>
+          <Route path='/leaderboard' element={<Leaderboard />} />
         </Routes>
       </Container>
     </>
