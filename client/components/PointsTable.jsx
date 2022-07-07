@@ -6,17 +6,26 @@ import {
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
 } from '@chakra-ui/react'
 
 export default function PointsTable({ petScores }) {
-  const firstAnimal = petScores[0]
+  const animalsWithScores = petScores
+    ? petScores.map((petObject, i) => {
+        return (
+          <Tr key={i}>
+            <Td>{petObject.name}</Td>
+            <Td isNumeric>{petObject.points}</Td>
+            <Td>{petObject.animal === 'cat' ? '🐱' : '🐶'}</Td>
+          </Tr>
+        )
+      })
+    : []
+
   return (
     <div alt='The points table'>
       <TableContainer>
         <Table variant='simple'>
-          <TableCaption>Pet Leaderboard</TableCaption>
           <Thead>
             <Tr>
               <Th>Name</Th>
@@ -24,13 +33,7 @@ export default function PointsTable({ petScores }) {
               <Th>Species</Th>
             </Tr>
           </Thead>
-          <Tbody>
-            <Tr>
-              <Td>{firstAnimal.name}</Td>
-              <Td isNumeric>{firstAnimal.points}</Td>
-              <Td>{firstAnimal.animal}</Td>
-            </Tr>
-          </Tbody>
+          <Tbody>{animalsWithScores}</Tbody>
         </Table>
       </TableContainer>
     </div>

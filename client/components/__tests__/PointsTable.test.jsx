@@ -23,6 +23,12 @@ describe('<PointsTable />', () => {
     const cells = within(firstRow).getAllByRole('gridcell')
     expect(cells[0].textContent).toBe('Betty')
     expect(cells[1].textContent).toBe('1001')
-    expect(cells[2].textContent).toBe('dog')
+    expect(cells[2].textContent).toBe('🐶')
+  })
+  it('renders ten + 1 header rows to the table', () => {
+    render(<PointsTable petScores={petsWithScores} />)
+    const table = screen.getByRole('table')
+    const rows = within(table).getAllByRole('row')
+    expect(rows).toHaveLength(11)
   })
 })

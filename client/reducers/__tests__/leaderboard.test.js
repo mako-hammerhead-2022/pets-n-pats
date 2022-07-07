@@ -12,7 +12,7 @@ describe('top 10 pets reducer', () => {
     const expectedOutputState = petsWithScores
     const actualOutputState = leaderboardReducer(inputState, action)
 
-    expect(actualOutputState.data).toEqual(expectedOutputState)
+    expect(actualOutputState.leaderboard).toEqual(expectedOutputState)
     expect(actualOutputState).not.toBe(inputState)
   })
 })
