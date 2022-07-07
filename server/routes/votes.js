@@ -17,11 +17,10 @@ router.patch('/addTie', (req, res) => {
   const dogId = req.body.dogId
   db.addPoints(catId, 1)
     .then(() => {
-      db.addPoints(dogId, 1)
-        .then(() => {
-          res.sendStatus(200)
-        })
-        .catch((err) => res.status(500).send(err.message))
+      return db.addPoints(dogId, 1)
+    })
+    .then(() => {
+      res.sendStatus(200)
     })
     .catch((err) => res.status(500).send(err.message))
 })
