@@ -12,8 +12,7 @@ beforeAll(() => {
   jest.spyOn(console, 'log')
   console.log.mockImplementation(() => {})
   checkJwt.mockImplementation((req, res, next) => {
-    const auth0Id = req.user?.sub
-    objComment.authorId = auth0Id
+    req.user = { sub: objComment.authorId }
     next()
   })
 })
