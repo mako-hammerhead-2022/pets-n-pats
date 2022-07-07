@@ -16,6 +16,9 @@ server.use('/api/image', require('./routes/image'))
 server.use('/api/comments', require('./routes/comments'))
 server.use('/api/votes', require('./routes/votes'))
 server.use('/api/leaderboard', require('./routes/leaderboard'))
+server.use('/api/*', (req, res) => {
+  return res.sendStatus(404)
+})
 
 server.get('*', (req, res) => {
   try {
