@@ -25,10 +25,17 @@ function Navigation() {
             </Button>
           </ListItem>
           {isAuthenticated && (
-            <Button as='div' variant='ghost' colorScheme='teal'>
-              <Link to='/my-pets'>My Pets</Link>
-            </Button>
+            <ListItem>
+              <Button as='div' variant='ghost' colorScheme='teal'>
+                <Link to='/my-pets'>My Pets</Link>
+              </Button>
+            </ListItem>
           )}
+          <ListItem>
+            <Button as='div' variant='ghost' colorScheme='teal'>
+              <Link to='/leaderboard'>Leaderboard</Link>
+            </Button>
+          </ListItem>
         </HStack>
       </List>
     </nav>
