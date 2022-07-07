@@ -6,7 +6,6 @@ import { fetchTwoPets } from '@/actions'
 
 import Voting from '@/components/VotingButtons'
 import HeadToHead from '@/components/HeadToHead'
-import MainLayout from '@/components/layouts/MainLayout'
 
 function App() {
   const dispatch = useDispatch()
@@ -19,7 +18,6 @@ function App() {
 
   return (
     <Container>
-      <MainLayout />
       {!loading && (
         <>
           <HeadToHead cat={pets.cat} dog={pets.dog} />

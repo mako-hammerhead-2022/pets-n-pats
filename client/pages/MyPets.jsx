@@ -14,8 +14,6 @@ import {
   Center,
 } from '@chakra-ui/react'
 import PetForm from '@/components/PetForm'
-import MainLayout from '@/components/layouts/MainLayout'
-
 function MyPets() {
   const dispatch = useDispatch()
   const { getAccessTokenSilently } = useAuth0()
@@ -33,7 +31,6 @@ function MyPets() {
 
   return (
     <div className='MyPets'>
-      <MainLayout />
       <PetForm onSuccess={getUserPets} />
       <Container maxW='4xl' mt={6} mb={20}>
         <Center>
