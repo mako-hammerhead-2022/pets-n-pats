@@ -6,6 +6,7 @@ export function getUserPets(token) {
     .set('authorization', `Bearer ${token}`)
     .then((res) => res.body)
 }
+
 export async function addPet(formData, token) {
   return request
     .post('/api/pets')
@@ -18,6 +19,12 @@ export async function addPet(formData, token) {
 
 export function getRandomPets() {
   return request.get('/api/pets/').then((response) => {
+    return response.body
+  })
+}
+
+export function getTopTenPets() {
+  return request.get('/api/leaderboard').then((response) => {
     return response.body
   })
 }

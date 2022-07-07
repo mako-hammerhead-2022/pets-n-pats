@@ -3,14 +3,21 @@
  * @returns { Promise<void> }
  */
 exports.seed = async (knex) => {
-  // await knex('pets').insert({
-  //   id: 1,
-  //   userId: 'auth0|something',
-  //   name: 'Orel',
-  //   bio: 'Ameliorated dedicated extranet',
-  //   animal: 'dog',
-  //   points: 0,
-  // })
+  // this is entered separately to the rest of the seed file
+  // because knex doesn't support .defaultTo() when using
+  // .insert() with an array
+  await knex('pets').insert({
+    id: 1,
+    // replace with your own auth0Id when developing
+    userId: 'auth0|something',
+    name: 'Orel',
+    // the bios are automatically generated (thanks David for Mockaroo)
+    // feel free to change them if your are on a bio related ticket
+    bio: 'Ameliorated dedicated extranet',
+    // imageUrl is null here, uses fallback image when queried for
+    animal: 'dog',
+    points: 0,
+  })
   return await knex('pets').insert([
     {
       id: 2,
@@ -47,16 +54,6 @@ exports.seed = async (knex) => {
       imageUrl: '["https://cdn2.thecatapi.com/images/b5TojsXM1.jpg"]',
       animal: 'cat',
       points: 190,
-    },
-    {
-      id: 6,
-      userId: 'auth0|62c51507db258278248c7a0c',
-      name: 'Bob',
-      bio: "For you I'll create, Artistic works of poo, since You save them in bags",
-      imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_6205.jpg"]',
-      animal: 'dog',
-      points: 2500,
     },
     {
       id: 7,

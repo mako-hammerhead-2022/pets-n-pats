@@ -37,12 +37,19 @@ function getPetById(id, db = connection) {
   return db('pets').where('id', id).select().first()
 }
 
-function addPet(data, db = connection) {
-  return db('pets').insert(data).returning('id')
+function getTopTenPets(db = connection) {
+  return db('pets')
+    .select('id', 'name', 'imageUrl', 'animal', 'points')
+    .orderBy('points', 'desc')
+    .limit(10)
 }
 
 function getWinnerById(winnerId, db = connection) {
   return db('pets').select().where('id', winnerId).first()
+}
+
+function addPet(data, db = connection) {
+  return db('pets').insert(data).returning('id')
 }
 
 function addPoints(petId, db = connection) {
@@ -56,4 +63,5 @@ module.exports = {
   addPet,
   addPoints,
   getWinnerById,
+  getTopTenPets,
 }
