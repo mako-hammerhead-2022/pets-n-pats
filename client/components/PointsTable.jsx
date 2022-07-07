@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTable } from 'react-table'
+import { useTable, usePagination } from 'react-table'
 
 import {
   Table,
@@ -12,17 +12,17 @@ import {
 } from '@chakra-ui/react'
 
 export default function PointsTable({ petScores }) {
-  const data = petScores
-    ? React.useMemo(() =>
-        petScores.map((petObject) => {
-          return {
-            col1: petObject.name,
-            col2: petObject.points,
-            col3: petObject.animal === 'cat' ? '🐱' : '🐶',
-          }
-        })
-      )
-    : []
+  const data = React.useMemo(
+    () =>
+      petScores.map((petObject) => {
+        return {
+          col1: petObject.name,
+          col2: petObject.points,
+          col3: petObject.animal === 'cat' ? '🐱' : '🐶',
+        }
+      }),
+    []
+  )
 
   const columns = React.useMemo(
     () => [
@@ -42,8 +42,26 @@ export default function PointsTable({ petScores }) {
     []
   )
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data })
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    prepareRow,
+    page,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    nextPage,
+    previousPage,
+    state: { pageIndex },
+  } = useTable(
+    {
+      columns,
+      data,
+      initialState: { pageIndex: 0 },
+    },
+    usePagination
+  )
 
   return (
     <div alt='The points table'>
@@ -61,7 +79,7 @@ export default function PointsTable({ petScores }) {
             ))}
           </Thead>
           <Tbody {...getTableBodyProps()}>
-            {rows.map((row, i) => {
+            {page.map((row, i) => {
               prepareRow(row)
               return (
                 <Tr key={i} {...row.getRowProps()}>
@@ -78,6 +96,20 @@ export default function PointsTable({ petScores }) {
           </Tbody>
         </Table>
       </TableContainer>
+      <div className='pagination'>
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          {'<'}
+        </button>{' '}
+        <span>
+          Page{' '}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>{' '}
+        </span>
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+          {'>'}
+        </button>
+      </div>
     </div>
   )
 }
