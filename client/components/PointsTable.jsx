@@ -10,7 +10,8 @@ import {
   TableContainer,
 } from '@chakra-ui/react'
 
-export default function PointsTable() {
+export default function PointsTable({ petScores }) {
+  const firstAnimal = petScores[0]
   return (
     <div alt='The points table'>
       <TableContainer>
@@ -18,18 +19,16 @@ export default function PointsTable() {
           <TableCaption>Pet Leaderboard</TableCaption>
           <Thead>
             <Tr>
-              <Th>Pet Image</Th>
-              <Th>Pet Name</Th>
-              <Th>Score</Th>
+              <Th>Name</Th>
+              <Th>Points</Th>
               <Th>Species</Th>
             </Tr>
           </Thead>
           <Tbody>
             <Tr>
-              <Td>Foo</Td>
-              <Td>Bar</Td>
-              <Td isNumeric>25</Td>
-              <Td>Cat</Td>
+              <Td>{firstAnimal.name}</Td>
+              <Td isNumeric>{firstAnimal.points}</Td>
+              <Td>{firstAnimal.animal}</Td>
             </Tr>
           </Tbody>
         </Table>
