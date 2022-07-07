@@ -21,9 +21,9 @@ describe('<AnimalTile />', () => {
   }
 
   it('changes the image when prev button clicked', async () => {
-    render(<AnimalTile animal={fakeProps} />)
+    const { container } = render(<AnimalTile animal={fakeProps} />)
 
-    const sliderContainer = screen.querySelector('.carousel-root')
+    const sliderContainer = container.querySelector('.carousel-root')
 
     const [, slides] = within(sliderContainer).getAllByRole('list')
 
