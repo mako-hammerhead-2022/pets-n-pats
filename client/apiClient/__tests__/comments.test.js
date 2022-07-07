@@ -7,8 +7,10 @@ describe('POST /api/comments', () => {
     const scope = nock('http://localhost')
       .post('/api/comments')
       .reply(200, objComment)
+    const token = 'auth0|something'
 
-    const commentRes = await postComment(objComment)
+    const commentRes = await postComment(objComment, token)
+
     expect(commentRes.content).toBe(objComment.content)
     scope.done()
   })

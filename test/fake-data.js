@@ -177,6 +177,6 @@ export const apiClientPet = {
 
 export const objComment = {
   petId: 4,
-  authId: 'auth0|something',
+  authorId: 'auth0|something',
   content: 'this pet comment is for petId4, he big',
 }
