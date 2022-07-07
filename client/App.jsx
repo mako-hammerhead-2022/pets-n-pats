@@ -4,6 +4,7 @@ import { Container } from '@chakra-ui/react'
 
 import Home from '@/pages/Home'
 import MyPets from '@/pages/MyPets'
+import Leaderboard from '@/pages/Leaderboard'
 import NotFound from '@/pages/NotFound'
 
 import MainLayout from '@/components/layouts/MainLayout'
@@ -16,6 +17,7 @@ function App() {
           <Route element={<MainLayout />}>
             <Route exact path='/' element={<Home />} />
             <Route exact path='/my-pets' element={<MyPets />} />
+            <Route exact path='/leaderboard' element={<Leaderboard />} />
           </Route>
 
           <Route path='*' element={<NotFound />} />
