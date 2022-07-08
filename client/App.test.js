@@ -41,4 +41,16 @@ describe('<App />', () => {
     expect(screen.getByText('Header Component')).toBeInTheDocument()
     expect(screen.getByText('Home Component')).toBeInTheDocument()
   })
+
+  it('renders 404 Not Found when URL is garbage', () => {
+    render(
+      <Provider store={fakeStore}>
+        <Router initialEntries={['/34132ntif32cvds']}>
+          <App />
+        </Router>
+      </Provider>
+    )
+
+    expect(screen.getByText(/404/i)).toBeInTheDocument()
+  })
 })

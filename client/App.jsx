@@ -1,27 +1,26 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-
-import { Heading, Container } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 
 import Home from '@/pages/Home'
 import MyPets from '@/pages/MyPets'
 import Leaderboard from '@/pages/Leaderboard'
+import NotFound from '@/pages/NotFound'
 
-import Login from '@/components/Header'
+import MainLayout from '@/components/layouts/MainLayout'
 
 function App() {
   return (
     <>
       <Container maxW='4xl' centerContent>
-        <Login />
-        <Heading fontSize='3xl' opacity='80%' mt={2} mb={4}>
-          {"Welcome to Pets 'n' Pats"}
-        </Heading>
-
         <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/my-pets' element={<MyPets />}></Route>
-          <Route path='/leaderboard' element={<Leaderboard />} />
+          <Route element={<MainLayout />}>
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/my-pets' element={<MyPets />} />
+            <Route exact path='/leaderboard' element={<Leaderboard />} />
+          </Route>
+
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Container>
     </>
