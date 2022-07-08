@@ -42,7 +42,7 @@ describe('<PointsTable />', () => {
     expect(rows).toHaveLength(11)
   })
 
-  it('button click changes page', async () => {
+  it('button click(s) change page forwards and backwards', async () => {
     useSelector.mockReturnValue(petsWithScores)
     const { container } = render(<PointsTable />)
     const pageText = container.getElementsByClassName('page-number')[0]
@@ -57,6 +57,15 @@ describe('<PointsTable />', () => {
     )
     pageNumber = pageText.textContent.split(' ')[1]
     expect(pageNumber).toBe('2')
+    fireEvent(
+      screen.getByRole('button', { name: '<' }),
+      new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+      })
+    )
+    pageNumber = pageText.textContent.split(' ')[1]
+    expect(pageNumber).toBe('1')
   })
 
   it('sorts by alphabetical order on clicking the name column', async () => {
