@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTable, usePagination } from 'react-table'
+import { useSelector } from 'react-redux'
 
 import {
   Table,
@@ -11,7 +12,9 @@ import {
   TableContainer,
 } from '@chakra-ui/react'
 
-export default function PointsTable({ petScores }) {
+export default function PointsTable() {
+  const petScores = useSelector((state) => state.leaderboard.leaderboard)
+
   const data = React.useMemo(
     () =>
       petScores.map((petObject) => {
@@ -100,7 +103,7 @@ export default function PointsTable({ petScores }) {
         <button onClick={() => previousPage()} disabled={!canPreviousPage}>
           {'<'}
         </button>{' '}
-        <span>
+        <span className='page-number'>
           Page{' '}
           <strong>
             {pageIndex + 1} of {pageOptions.length}
