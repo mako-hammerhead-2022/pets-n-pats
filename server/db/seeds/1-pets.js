@@ -232,5 +232,59 @@ exports.seed = async (knex) => {
       animal: 'cat',
       points: 125,
     },
+    {
+      id: 24,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Polar Bear',
+      bio: 'Fluffy Cloud',
+      animal: 'dog',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/samoyed.jpg"]',
+    },
+    {
+      id: 25,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Hazel',
+      bio: 'I was a tidy cat but now I am fat!',
+      animal: 'cat',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/Hazel.png"]',
+    },
+    {
+      id: 26,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Zelda',
+      bio: 'Who cares how many toys I have, cardboard IS the best toy',
+      animal: 'cat',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/6F2B4230-8947-4607-9388-33291BCB8C60.jpg"]',
+    },
+    {
+      id: 27,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Kitty',
+      bio: "My owner weren't very original",
+      animal: 'cat',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/20151207_191721.jpg"]',
+    },
+    {
+      id: 28,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Mickey',
+      bio: "On the Internet, nobody knows you're a dog",
+      animal: 'dog',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/20151202_233200.jpg"]',
+    },
+    {
+      id: 29,
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Hooch',
+      bio: '1 going on 60, reads Nietzsche and listens to hard house. Only stretches by leaving his back legs on the couch as he contemplates if floor food is worth getting up for.',
+      animal: 'dog',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/Hooch-3.jpg","https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/Hooch-2.jpg","https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/Hooch-1.jpg"]',
+    },
   ])
 }

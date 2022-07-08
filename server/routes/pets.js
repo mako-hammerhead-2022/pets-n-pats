@@ -29,6 +29,7 @@ router.get('/my', checkJwt, (req, res) => {
 
 router.post('/', checkJwt, (req, res) => {
   const formData = req.body
+  console.log(formData)
   db.addPet(formData)
     .then(() => {
       res.sendStatus(201)
