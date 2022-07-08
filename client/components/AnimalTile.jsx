@@ -85,7 +85,12 @@ function AddCommentIcon({ animal }) {
   } else {
     return (
       <Tooltip hasArrow label='Sign in to add a comment' shouldWrapChildren>
-        <IconButton icon={<EditIcon />} isDisabled colorScheme='teal' />
+        <IconButton
+          aria-label='Sign in to add a comment'
+          icon={<EditIcon />}
+          isDisabled
+          colorScheme='teal'
+        />
       </Tooltip>
     )
   }

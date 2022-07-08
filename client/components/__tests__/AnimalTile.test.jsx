@@ -1,12 +1,17 @@
 import React from 'react'
 
-import { render, within } from '@testing-library/react'
+import { render, within, screen } from '@testing-library/react'
+import { useAuth0 } from '@auth0/auth0-react'
+
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
 import AnimalTile from '@/components/AnimalTile'
 
 jest.mock('react-redux')
+jest.mock('@auth0/auth0-react')
+
+useAuth0.mockReturnValue({ isAuthenticated: true })
 
 describe('<AnimalTile />', () => {
   const fakeProps = {
@@ -32,11 +37,13 @@ describe('<AnimalTile />', () => {
     const nextButton = within(sliderContainer).getByRole('button', {
       name: /next slide/i,
     })
+
     const prevButton = within(sliderContainer).getByRole('button', {
       name: /previous slide/i,
     })
 
     const [, first, second, third] = slidesListItems
+    expect.assertions(8)
 
     expect(first).toHaveClass('selected')
     await userEvent.click(nextButton)
@@ -52,5 +59,33 @@ describe('<AnimalTile />', () => {
       within(sliderContainer).getByRole('button', { name: /slide item 1/i })
     )
     expect(first).toHaveClass('selected')
+  })
+
+  it('renders comment box when user is authenticated', () => {
+    render(<AnimalTile animal={fakeProps} />)
+
+    const button = screen.getByRole('button', { name: 'Add Comment' })
+    expect.assertions(2)
+
+    expect(button).toBeInTheDocument()
+
+    expect(
+      screen.queryByRole('button', { name: 'Sign in to add a comment' })
+    ).toBeNull()
+  })
+
+  it('Renders Sign in to add a comment when user has not been authenticated', async () => {
+    useAuth0.mockReturnValue({ isAuthenticated: false })
+
+    render(<AnimalTile animal={fakeProps} />)
+
+    const button = screen.getByRole('button', {
+      name: 'Sign in to add a comment',
+    })
+
+    expect.assertions(2)
+    expect(button).toBeInTheDocument()
+
+    expect(screen.queryByRole('button', { name: 'Add Comment' })).toBeNull()
   })
 })
