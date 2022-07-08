@@ -13,7 +13,6 @@ exports.seed = async (knex) => {
   // })
   return await knex('pets').insert([
     {
-      id: 2,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Aileen',
       bio: 'Fully-configurable intermediate focus group',
@@ -23,7 +22,6 @@ exports.seed = async (knex) => {
       points: 11,
     },
     {
-      id: 3,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Giralda',
       bio: 'Customizable holistic conglomeration',
@@ -33,7 +31,6 @@ exports.seed = async (knex) => {
       points: 17,
     },
     {
-      id: 4,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Letizia',
       bio: 'Open-architected systemic groupware',
@@ -43,7 +40,6 @@ exports.seed = async (knex) => {
       points: 83,
     },
     {
-      id: 5,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Dominique',
       bio: 'Reverse-engineered intermediate data-warehouse',
@@ -53,7 +49,6 @@ exports.seed = async (knex) => {
       points: 190,
     },
     {
-      id: 6,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Bob',
       bio: "For you I'll create, Artistic works of poo, since You save them in bags",
@@ -63,7 +58,6 @@ exports.seed = async (knex) => {
       points: 2500,
     },
     {
-      id: 7,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Bodhi',
       bio: 'Focused for four-legged fur friends fun, frolicking fast forever from fantastically frightening flickering ferns',
@@ -73,7 +67,6 @@ exports.seed = async (knex) => {
       points: 2500,
     },
     {
-      id: 8,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Bean',
       bio: 'It is 2am, time to lick your face until you pat me',
@@ -83,7 +76,6 @@ exports.seed = async (knex) => {
       points: 50,
     },
     {
-      id: 9,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Soxis',
       bio: "One step closer and I'll show you what-for",
@@ -93,7 +85,6 @@ exports.seed = async (knex) => {
       points: 100,
     },
     {
-      id: 10,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Missy',
       bio: 'Hold fast to dreams, For if dreams die, Life is a broken-winged bird, That cannot fly. Hold fast to dreams, For when dreams go, Life is a barren field, Frozen with snow.',
@@ -103,7 +94,6 @@ exports.seed = async (knex) => {
       points: 30,
     },
     {
-      id: 11,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Mr. Piggy',
       bio: 'Carrots and hay I welcome, bacon and ham no thanks',
@@ -113,7 +103,6 @@ exports.seed = async (knex) => {
       points: 90,
     },
     {
-      id: 12,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Bounty',
       bio: 'I want my mouse pad please',
@@ -123,7 +112,6 @@ exports.seed = async (knex) => {
       points: 30,
     },
     {
-      id: 13,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Summer',
       bio: "I am snug. I am snug. Don't get mad, when I pee on rug.",
@@ -133,7 +121,6 @@ exports.seed = async (knex) => {
       points: 200,
     },
     {
-      id: 14,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Dixie',
       bio: 'wizard cat, she likes to walk up to you and cast spells',
@@ -143,7 +130,6 @@ exports.seed = async (knex) => {
       points: 125,
     },
     {
-      id: 15,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Hugo',
       bio: "I'm hungry but my bowl is only 80% full, time to YELL",
@@ -153,7 +139,6 @@ exports.seed = async (knex) => {
       points: 130,
     },
     {
-      id: 16,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Scout',
       bio: 'I once met a dog from Peru, who\'d freely walk up to you: "That dinner was swell, But I had to expel, So I need to you to pick up my poo.',
@@ -163,7 +148,6 @@ exports.seed = async (knex) => {
       points: 125,
     },
     {
-      id: 17,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Brazen',
       bio: "Violets are blue, roses are red. It's 2am, you'll sleep when you're dead",
@@ -173,7 +157,6 @@ exports.seed = async (knex) => {
       points: 140,
     },
     {
-      id: 18,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Frankie',
       bio: "Roses are blue, violets are red. I'm a dog I can't see colours",
@@ -183,7 +166,6 @@ exports.seed = async (knex) => {
       points: 50,
     },
     {
-      id: 19,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Jubbers',
       bio: 'Jubbers loves towels,all towels belong to Jubbers.',
@@ -193,7 +175,6 @@ exports.seed = async (knex) => {
       points: 190,
     },
     {
-      id: 20,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Eriks Cat',
       bio: 'Always sitting on the fence, never taking sides',
@@ -203,7 +184,6 @@ exports.seed = async (knex) => {
       points: 125,
     },
     {
-      id: 21,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'George',
       bio: "I'll take a rest and then clear out the pests",
@@ -213,7 +193,6 @@ exports.seed = async (knex) => {
       points: 175,
     },
     {
-      id: 22,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Barkley',
       bio: "I'm Barkley the builder! Lets go to Bunnings!",
@@ -223,7 +202,6 @@ exports.seed = async (knex) => {
       points: 110,
     },
     {
-      id: 23,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Baldy',
       bio: "You're The Best Evil Son An Evil Dad Could Ever Ask For.",
@@ -233,7 +211,6 @@ exports.seed = async (knex) => {
       points: 125,
     },
     {
-      id: 24,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Polar Bear',
       bio: 'Fluffy Cloud',
@@ -242,7 +219,6 @@ exports.seed = async (knex) => {
         '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/samoyed.jpg"]',
     },
     {
-      id: 25,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Hazel',
       bio: 'I was a tidy cat but now I am fat!',
@@ -251,7 +227,6 @@ exports.seed = async (knex) => {
         '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/Hazel.png"]',
     },
     {
-      id: 26,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Zelda',
       bio: 'Who cares how many toys I have, cardboard IS the best toy',
@@ -260,7 +235,6 @@ exports.seed = async (knex) => {
         '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/6F2B4230-8947-4607-9388-33291BCB8C60.jpg"]',
     },
     {
-      id: 27,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Kitty',
       bio: "My owner weren't very original",
@@ -269,7 +243,6 @@ exports.seed = async (knex) => {
         '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/20151207_191721.jpg"]',
     },
     {
-      id: 28,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Mickey',
       bio: "On the Internet, nobody knows you're a dog",
@@ -278,7 +251,6 @@ exports.seed = async (knex) => {
         '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/20151202_233200.jpg"]',
     },
     {
-      id: 29,
       userId: 'auth0|62c51507db258278248c7a0c',
       name: 'Hooch',
       bio: '1 going on 60, reads Nietzsche and listens to hard house. Only stretches by leaving his back legs on the couch as he contemplates if floor food is worth getting up for.',
