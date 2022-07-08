@@ -258,5 +258,13 @@ exports.seed = async (knex) => {
       imageUrl:
         '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/Hooch-3.jpg","https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/Hooch-2.jpg","https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/Hooch-1.jpg"]',
     },
+    {
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Molly',
+      bio: 'I can be nice or not so nice...',
+      animal: 'dog',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/20151201_133014.jpg","https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/molly1.jpg"]',
+    },
   ])
 }
