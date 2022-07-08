@@ -40,4 +40,16 @@ router.post('/', checkJwt, (req, res) => {
     })
 })
 
+router.patch('/', checkJwt, (req, res) => {
+  const petData = req.body
+  db.updatePet(petData)
+    .then(() => {
+      res.sendStatus(201)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).send({ message: 'Something went wrong' })
+    })
+})
+
 module.exports = router

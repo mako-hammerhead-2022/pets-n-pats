@@ -55,6 +55,15 @@ function addPet(data, db = connection) {
   return db('pets').insert(data).returning('id')
 }
 
+function updatePet(data, db = connection) {
+  return db('pets')
+    .update({
+      name: data.name,
+      bio: data.bio,
+    })
+    .where({ id: data.id })
+}
+
 module.exports = {
   getPetsByUserId,
   getTwoRandomPets,
@@ -62,5 +71,6 @@ module.exports = {
   addPet,
   addPoints,
   getWinnerById,
-  getAllPetsSortedByPoints: getAllPetsSortedByPoints,
+  getAllPetsSortedByPoints,
+  updatePet,
 }

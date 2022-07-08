@@ -17,6 +17,14 @@ export async function addPet(formData, token) {
     })
 }
 
+export function updatePet(petData, token) {
+  return request
+    .patch('/api/pets/')
+    .set('authorization', `Bearer ${token}`)
+    .send(petData)
+    .then((res) => res.body)
+}
+
 export function getRandomPets() {
   return request.get('/api/pets/').then((response) => {
     return response.body

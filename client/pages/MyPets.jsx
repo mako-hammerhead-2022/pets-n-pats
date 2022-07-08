@@ -12,8 +12,14 @@ import {
   Heading,
   Text,
   Center,
+  useDisclosure,
+  IconButton,
+  Flex,
 } from '@chakra-ui/react'
+import { EditIcon } from '@chakra-ui/icons'
 import PetForm from '@/components/PetForm'
+import EditAnimalModal from '@/components/EditAnimalModal'
+
 function MyPets() {
   const dispatch = useDispatch()
   const { getAccessTokenSilently } = useAuth0()
@@ -46,9 +52,10 @@ function MyPets() {
 }
 
 function AnimalTile({ pet }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <WrapItem w='200px' minH='300px' key={pet.id} bg='gray.100'>
-      <Box p={2} width='full'>
+      <Flex p={2} width='full' direction='column'>
         <AspectRatio maxW='200px' ratio={4 / 3} mb={2}>
           <Image
             objectFit='cover'
@@ -72,7 +79,16 @@ function AnimalTile({ pet }) {
           </Heading>
           <Text as='p'>{pet.points}</Text>
         </Box>
-      </Box>
+        <Flex justify='flex-end'>
+          <IconButton
+            label='Edit Pet'
+            colorScheme='gray'
+            onClick={onOpen}
+            icon={<EditIcon />}
+          />
+        </Flex>
+      </Flex>
+      <EditAnimalModal pet={pet} isOpen={isOpen} onClose={onClose} />
     </WrapItem>
   )
 }
