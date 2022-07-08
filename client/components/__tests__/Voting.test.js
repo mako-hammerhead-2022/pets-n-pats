@@ -30,13 +30,15 @@ afterAll(() => {
   jest.restoreAllMocks()
 })
 
-beforeEach(() => {
+afterEach(() => {
   jest.clearAllMocks()
 })
 
 describe('<Voting />', () => {
-  postVotes.mockReturnValue(Promise.resolve())
-  postVotesTie.mockReturnValue(Promise.resolve())
+  beforeAll(() => {
+    postVotes.mockReturnValue(Promise.resolve())
+    postVotesTie.mockReturnValue(Promise.resolve())
+  })
 
   it('Postvotes is called when Pick me! button is clicked', async () => {
     render(
@@ -47,9 +49,8 @@ describe('<Voting />', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Pick Me!' }))
 
     expect(postVotes).toHaveBeenCalledWith(objTwoPet.cat.id)
-    waitFor(() => {
-      expect(fakeStore.dispatch).toHaveBeenCalledTimes(1)
-    })
+    await waitFor(() => fakeStore.dispatch.mock.calls.length > 0)
+    expect(fakeStore.dispatch).toHaveBeenCalledTimes(1)
   })
   it('Postvotes is called on No Pick me button', async () => {
     render(
@@ -81,37 +82,42 @@ describe('<Voting />', () => {
       expect(fakeStore.dispatch).toHaveBeenCalledWith(fetchTwoPets())
     })
   })
-  const error = new Error('Error brain overload')
-  const error2 = new Error('Error brain overload again')
-  postVotes.mockImplementation(() => Promise.reject(error))
-  postVotesTie.mockImplementation(() => Promise.reject(error2))
 
-  it('returns err when when postVotes promise rejected', async () => {
-    render(
-      <Provider store={fakeStore}>
-        <Voting cat={objTwoPet.cat} dog={objTwoPet.dog} />
-      </Provider>
-    )
+  describe('when postVotes and postVotesTie fail', () => {
+    const error = new Error('Error brain overload')
+    const error2 = new Error('Error brain overload again')
+    beforeAll(() => {
+      postVotes.mockImplementation(() => Promise.reject(error))
+      postVotesTie.mockImplementation(() => Promise.reject(error2))
+    })
 
-    await userEvent.click(screen.getByRole('button', { name: 'Pick Me!' }))
-    expect(postVotes).toHaveBeenCalledWith(objTwoPet.cat.id)
-    expect(console.log).toHaveBeenCalledWith(error)
-    expect(fakeStore.dispatch).not.toHaveBeenCalled()
-  })
+    it('returns err when when postVotes promise rejected', async () => {
+      render(
+        <Provider store={fakeStore}>
+          <Voting cat={objTwoPet.cat} dog={objTwoPet.dog} />
+        </Provider>
+      )
 
-  it('returns err when postVotesTie promise is rejected', async () => {
-    render(
-      <Provider store={fakeStore}>
-        <Voting cat={objTwoPet.cat} dog={objTwoPet.dog} />
-      </Provider>
-    )
+      await userEvent.click(screen.getByRole('button', { name: 'Pick Me!' }))
+      expect(postVotes).toHaveBeenCalledWith(objTwoPet.cat.id)
+      expect(console.log).toHaveBeenCalledWith(error)
+      expect(fakeStore.dispatch).not.toHaveBeenCalled()
+    })
 
-    await userEvent.click(screen.getByRole('button', { name: /skip/i }))
-    expect(postVotesTie).toHaveBeenCalledWith(
-      objTwoPet.cat.id,
-      objTwoPet.dog.id
-    )
-    expect(console.log).toHaveBeenCalledWith(error2)
-    expect(fakeStore.dispatch).not.toHaveBeenCalled()
+    it('returns err when postVotesTie promise is rejected', async () => {
+      render(
+        <Provider store={fakeStore}>
+          <Voting cat={objTwoPet.cat} dog={objTwoPet.dog} />
+        </Provider>
+      )
+
+      await userEvent.click(screen.getByRole('button', { name: /skip/i }))
+      expect(postVotesTie).toHaveBeenCalledWith(
+        objTwoPet.cat.id,
+        objTwoPet.dog.id
+      )
+      expect(console.log).toHaveBeenCalledWith(error2)
+      expect(fakeStore.dispatch).not.toHaveBeenCalled()
+    })
   })
 })
