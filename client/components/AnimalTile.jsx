@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { useAuth0 } from '@auth0/auth0-react'
 import {
   Flex,
@@ -12,25 +13,44 @@ import {
 } from '@chakra-ui/react'
 import { EditIcon } from '@chakra-ui/icons'
 
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import { Carousel } from 'react-responsive-carousel'
+
 import AddCommentPopover from '@/components/AddCommentPopover'
 
 export default function AnimalTile({ animal }) {
   const images = JSON.parse(animal.imageUrl)
-  const randomIndex = Math.floor(Math.random() * images.length)
-  const image = images[randomIndex]
+
   return (
     <Flex width='400px' direction='column' alignItems={'center'}>
-      <Image
-        boxSize='400px'
-        objectFit='cover'
-        shadow='lg'
-        src={image}
-        alt={`An image of ${animal.name}`}
-        borderRadius='md'
-        zIndex='2'
-        borderWidth='0 1px 1px 1px'
-        borderColor='teal.900'
-      />
+      <Carousel
+        swipeable
+        emulateTouch
+        showStatus={false}
+        infiniteLoop
+        transitionTime='700'
+        showThumbs={false}
+      >
+        {images?.map((imgURL, index) => {
+          return (
+            <Image
+              key={index}
+              boxSize='400px'
+              objectFit='cover'
+              shadow='lg'
+              src={imgURL}
+              alt={`Image ${index + 1} of ${animal.name}`}
+              borderRadius='md'
+              zIndex='2'
+              borderWidth='0 1px 1px 1px'
+              borderColor='teal.900'
+              onMouseMove={(e) => {
+                e.preventDefault()
+              }}
+            />
+          )
+        })}
+      </Carousel>
       <Box
         width='95%'
         bg='teal.100'
@@ -65,7 +85,12 @@ function AddCommentIcon({ animal }) {
   } else {
     return (
       <Tooltip hasArrow label='Sign in to add a comment' shouldWrapChildren>
-        <IconButton icon={<EditIcon />} isDisabled colorScheme='teal' />
+        <IconButton
+          aria-label='Sign in to add a comment'
+          icon={<EditIcon />}
+          isDisabled
+          colorScheme='teal'
+        />
       </Tooltip>
     )
   }

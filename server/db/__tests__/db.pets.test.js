@@ -81,11 +81,36 @@ describe('addPet', () => {
 
 describe('addPoints', () => {
   it('should add 2 points', () => {
+    const INITIAL_POINTS = 83
+    const NUM_POINTS_SCORED = 2
+    const PET_ID = 4
     return db
-      .addPoints(4, testDb)
-      .then(() => db.getWinnerById(4, testDb))
+      .addPoints(PET_ID, NUM_POINTS_SCORED, testDb)
+      .then(() => db.getWinnerById(PET_ID, testDb))
       .then((pet) => {
-        expect(pet.points).toEqual(83 + 2)
+        expect(pet.points).toEqual(INITIAL_POINTS + NUM_POINTS_SCORED)
+      })
+  })
+})
+
+describe('addPointsTie', () => {
+  it('should add 1 point to each animal', () => {
+    const INITIAL_POINTS1 = 11
+    const INITIAL_POINTS2 = 190
+    const NUM_POINTS_SCORED = 1
+
+    const PET_ID1 = 2
+    const PET_ID2 = 5
+    return db
+      .addPoints(PET_ID1, NUM_POINTS_SCORED, testDb)
+      .then(() => db.getPetById(PET_ID1, testDb))
+      .then((pet) => {
+        expect(pet.points).toEqual(INITIAL_POINTS1 + NUM_POINTS_SCORED)
+        return db.addPoints(PET_ID2, NUM_POINTS_SCORED, testDb)
+      })
+      .then(() => db.getPetById(PET_ID2, testDb))
+      .then((pet) => {
+        expect(pet.points).toEqual(INITIAL_POINTS2 + NUM_POINTS_SCORED)
       })
   })
 })

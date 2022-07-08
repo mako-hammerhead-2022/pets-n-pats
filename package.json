@@ -54,6 +54,7 @@
     "pg": "^8.7.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-table": "^7.8.0",
     "superagent": "^7.1.2"
@@ -80,6 +81,6 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "supertest": "^6.2.3",
-    "vite": "^2.9.5"
+    "vite": "^2.9.13"
   }
 }
