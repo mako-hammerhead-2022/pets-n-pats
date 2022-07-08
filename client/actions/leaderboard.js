@@ -1,14 +1,14 @@
 import * as api from '@/apiClient'
 
 export const leaderboard_requestData = 'leaderboard/requestData'
-export function requestTopTen() {
+export function requestSortedPets() {
   return {
     type: leaderboard_requestData,
   }
 }
 
 export const leaderboard_receiveData = 'leaderboard/receiveData'
-export function receiveTopTen(pets) {
+export function receiveSortedPets(pets) {
   return {
     type: leaderboard_receiveData,
     leaderboard: pets,
@@ -23,13 +23,13 @@ export function setLeaderboardError(errMessage) {
   }
 }
 
-export function fetchTopTen() {
+export function fetchSortedPets() {
   return (dispatch) => {
-    dispatch(requestTopTen())
+    dispatch(requestSortedPets())
     return api
-      .getTopTenPets()
+      .getAllPetsSortedByPoints()
       .then((pets) => {
-        dispatch(receiveTopTen(pets))
+        dispatch(receiveSortedPets(pets))
       })
       .catch((err) => {
         console.error(err)
