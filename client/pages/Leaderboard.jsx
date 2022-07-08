@@ -14,6 +14,7 @@ export default function Leaderboard() {
   return (
     <>
       <h3>Pet Points Leaderboard</h3>
+      <p className='instruction'>Hold Shift to Add Multiple Filters</p>
       <PointsTable />
     </>
   )

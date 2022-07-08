@@ -40,6 +40,7 @@ describe('<PointsTable />', () => {
     const rows = within(table).getAllByRole('row')
     expect(rows).toHaveLength(11)
   })
+
   it('button click changes page', () => {
     useSelector.mockReturnValue(petsWithScores)
     const { container } = render(<PointsTable />)

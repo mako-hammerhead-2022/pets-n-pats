@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTable, usePagination } from 'react-table'
+import { useTable, usePagination, useSortBy } from 'react-table'
 import { useSelector } from 'react-redux'
 
 import {
@@ -63,6 +63,7 @@ export default function PointsTable() {
       data,
       initialState: { pageIndex: 0 },
     },
+    useSortBy,
     usePagination
   )
 
@@ -74,8 +75,18 @@ export default function PointsTable() {
             {headerGroups.map((headerGroup, i) => (
               <Tr key={i} {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column, j) => (
-                  <Th key={`${j}-${i}`} {...column.getHeaderProps()}>
+                  <Th
+                    key={`${j}-${i}`}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                  >
                     {column.render('Header')}
+                    <span>
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? ' 🔽'
+                          : ' 🔼'
+                        : ''}
+                    </span>
                   </Th>
                 ))}
               </Tr>
