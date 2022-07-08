@@ -4,11 +4,8 @@ import '@testing-library/jest-dom'
 
 import Leaderboard from '../Leaderboard'
 
-import { petsWithScores } from '~/test/fake-data'
-
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fetchSortedPets } from '@/actions'
-import PointsTable from '@/components/PointsTable'
 
 jest.mock('react-redux')
 jest.mock('@/actions')
@@ -42,7 +39,8 @@ describe('<Leaderboard />', () => {
     render(<Leaderboard />)
     expect(fakeDispatch).toHaveBeenCalledWith(fakeFetchAction)
   })
-  // it('renders the child component with correct props', () => {
+  // test
+  // ('renders the child component with correct props', () => {
   //   const fakeDispatch = jest.fn()
   //   const fakeChild = jest.fn()
   //   useDispatch.mockReturnValue(fakeDispatch)
