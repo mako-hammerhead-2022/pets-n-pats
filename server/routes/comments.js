@@ -21,4 +21,17 @@ router.post('/', checkJwt, (req, res) => {
     })
 })
 
+router.get('/:petId', checkJwt, (req, res) => {
+  const userId = req.user?.sub
+  const petId = req.params.petId
+  db.getCommentsByPetId(userId, petId)
+    .then((response) => {
+      res.json(response)
+      return null
+    })
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
+})
+
 module.exports = router

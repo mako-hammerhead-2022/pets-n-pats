@@ -9,3 +9,10 @@ export function postComment(commentObj, token) {
     .send(commentObj)
     .then((res) => res.body)
 }
+
+export function getCommentsByPetId(petId, token) {
+  return request
+    .get(`${commentUrl}/${petId}`)
+    .set('authorization', `Bearer ${token}`)
+    .then((res) => res.body)
+}

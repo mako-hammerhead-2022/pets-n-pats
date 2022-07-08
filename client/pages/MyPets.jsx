@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchUserPets } from '@/actions'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -12,12 +12,24 @@ import {
   Heading,
   Text,
   Center,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalHeader,
+  ModalContent,
+  ModalCloseButton,
+  ModalBody,
+  Button,
+  Tooltip,
 } from '@chakra-ui/react'
 import PetForm from '@/components/PetForm'
+
+import { getCommentsByPetId } from '@/apiClient'
+import message from '../icons/message.png'
+
 function MyPets() {
   const dispatch = useDispatch()
   const { getAccessTokenSilently } = useAuth0()
-
   const pets = useSelector((state) => state.myPets.data)
 
   useEffect(() => {
@@ -46,11 +58,16 @@ function MyPets() {
 }
 
 function AnimalTile({ pet }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
-    <WrapItem w='200px' minH='300px' key={pet.id} bg='gray.100'>
-      <Box p={2} width='full'>
+    <WrapItem w='200px' minH='300px' key={pet.id} bg='#e8e1f4'>
+      <Box p={2} width='full' onClick={onOpen}>
         <AspectRatio maxW='200px' ratio={4 / 3} mb={2}>
           <Image
+            borderColor='#f6ee86'
+            borderStyle='solid'
+            borderWidth='4px'
             objectFit='cover'
             src={
               JSON.parse(pet.imageUrl)[
@@ -62,7 +79,7 @@ function AnimalTile({ pet }) {
         </AspectRatio>
         <Box textAlign='left'>
           <Heading as='h4' fontSize='md'>
-            {pet.name}
+            {pet.name} is a {pet.animal}
           </Heading>
           <Text as='p' fontSize='xs' mb={2}>
             {pet.bio}
@@ -72,8 +89,47 @@ function AnimalTile({ pet }) {
           </Heading>
           <Text as='p'>{pet.points}</Text>
         </Box>
+        <Box textAlign='right'>
+          <Tooltip hasArrow label='Click to view comments' shouldWrapChildren>
+            <Button bgColor='#e8e1f4' variant='link'>
+              <AnimalModal pet={pet} isOpen={isOpen} onClose={onClose} />
+              <Image boxSize='40px' src={message} />
+            </Button>
+          </Tooltip>
+        </Box>
       </Box>
     </WrapItem>
+  )
+}
+function AnimalModal({ pet, isOpen, onClose }) {
+  const { getAccessTokenSilently } = useAuth0()
+
+  const [comments, setComments] = useState(null)
+
+  async function getUserPetsComments() {
+    const token = await getAccessTokenSilently()
+    const commentsData = await getCommentsByPetId(pet.id, token)
+    setComments(commentsData)
+  }
+
+  useEffect(() => {
+    getUserPetsComments()
+  }, [])
+
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay
+        bg='none'
+        backdropFilter='auto'
+        backdropInvert='90%'
+        backdropBlur='10px'
+      />
+      <ModalContent bgColor='#e3f5fe'>
+        <ModalHeader>Read comments about {pet.name}</ModalHeader>
+        <ModalCloseButton bgColor='#fdc2a2' />
+        <ModalBody>{comments ? comments.content : 'No comment yet'}</ModalBody>
+      </ModalContent>
+    </Modal>
   )
 }
 
