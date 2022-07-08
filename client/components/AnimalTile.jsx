@@ -20,6 +20,7 @@ import AddCommentPopover from '@/components/AddCommentPopover'
 
 export default function AnimalTile({ animal }) {
   const images = JSON.parse(animal.imageUrl)
+  console.log(images)
 
   return (
     <Flex width='400px' direction='column' alignItems={'center'}>
@@ -34,7 +35,7 @@ export default function AnimalTile({ animal }) {
         {images?.map((imgURL, index) => {
           return (
             <Image
-              key={index}
+              key={`${animal.id}-${index}`}
               boxSize='400px'
               objectFit='cover'
               shadow='lg'

@@ -266,5 +266,13 @@ exports.seed = async (knex) => {
       imageUrl:
         '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/20151201_133014.jpg","https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/molly1.jpg"]',
     },
+    {
+      userId: 'auth0|62c51507db258278248c7a0c',
+      name: 'Jack',
+      bio: 'I am Louis’ parents’ cat. I live a lazy life. I normally am full of fur. This is a photo of me after shave. All I do is sleep (and eat occasionally). I love my life. Come pat me pawlease !!',
+      animal: 'cat',
+      imageUrl:
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/3D4315E3-FF63-4BD4-AB2E-49965BC8EC9C.jpg"]',
+    },
   ])
 }
