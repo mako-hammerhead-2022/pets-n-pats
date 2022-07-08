@@ -8,7 +8,6 @@ import {
   Box,
   Wrap,
   WrapItem,
-  Container,
   Heading,
   Text,
   Center,

@@ -134,7 +134,7 @@ exports.seed = async (knex) => {
       name: 'Hugo',
       bio: "I'm hungry but my bowl is only 80% full, time to YELL",
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/54DEEFAF-230F-4F18-B499-AC00966F533F.jpg","https://i.pinimg.com/736x/2b/c6/b2/2bc6b28dbe42f8be2783016f39b6dc3a.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIQokoGht-w_vuSUeH2ljopcSkf3zrXhHo4g&usqp=CAU"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/54DEEFAF-230F-4F18-B499-AC00966F533F.jpg"]',
       animal: 'cat',
       points: 130,
     },
@@ -143,7 +143,7 @@ exports.seed = async (knex) => {
       name: 'Scout',
       bio: 'I once met a dog from Peru, who\'d freely walk up to you: "That dinner was swell, But I had to expel, So I need to you to pick up my poo.',
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_4777.jpg","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F09%2F25%2Fblack-and-white-maine-coon-1049979626-2000.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZTNFk2mARkdOMqENWBrrqove5W2X-dBvpUw&usqp=CAU"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_4777.jpg"]',
       animal: 'cat',
       points: 125,
     },
@@ -152,7 +152,7 @@ exports.seed = async (knex) => {
       name: 'Brazen',
       bio: "Violets are blue, roses are red. It's 2am, you'll sleep when you're dead",
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_5928.jpg","https://www.purina.co.nz/sites/default/files/2020-11/7-Grey-Cat-BreedsHERO.jpg","https://www.purina.co.nz/sites/default/files/2020-12/Cat_645742370_Teaser.jpg"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_5928.jpg"]',
       animal: 'cat',
       points: 140,
     },
@@ -161,7 +161,7 @@ exports.seed = async (knex) => {
       name: 'Frankie',
       bio: "Roses are blue, violets are red. I'm a dog I can't see colours",
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_0057.jpg","https://www.desicomments.com/wp-content/uploads/Black-Kelpie-Dog-On-Grass-ADB65DB23DC0DC23.jpg","https://healthyhomemadedogtreats.com/wp-content/uploads/2020/09/Labrador-Kelpie.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCofO4DlKdAH8quRAruucKI987LxvwXjS7F9L8wPLr8iO3TDMURpfH8EcF5LYoSmoiLqQ&usqp=CAU"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_0057.jpg"]',
       animal: 'dog',
       points: 50,
     },
@@ -170,7 +170,7 @@ exports.seed = async (knex) => {
       name: 'Jubbers',
       bio: 'Jubbers loves towels,all towels belong to Jubbers.',
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/unknown4.png","https://www.thesprucepets.com/thmb/c2VQLm8dyYzXvibJ55OxwPGWf0A=/1080x1080/filters:no_upscale():max_bytes(150000):strip_icc()/35616731_1598735883572052_5494475739635908608_n-5b45332ec9e77c0037110989.jpg"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/unknown4.png"]',
       animal: 'dog',
       points: 190,
     },
@@ -179,7 +179,7 @@ exports.seed = async (knex) => {
       name: 'Eriks Cat',
       bio: 'Always sitting on the fence, never taking sides',
       imageUrl:
-        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_6362.JPG","https://i.pinimg.com/736x/fe/88/ef/fe88ef82fa95a09c0635ff5e366a4312--grey-and-white-white-cats.jpg","https://i.pinimg.com/originals/1f/98/bb/1f98bb3d8bd083252bc68a87235fc989.jpg"]',
+        '["https://pets-n-pats.s3.ap-southeast-2.amazonaws.com/pets/IMG_6362.JPG"]',
       animal: 'cat',
       points: 125,
     },
